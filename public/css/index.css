@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+
+body {
+  line-height: 1.8;
+  color: #898fa1;
+  font-size: 15px;
+  font-family: 'lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #11245a;
+}
+
+a {
+  font: 700;
+  transition: all 0.4s ease;
+}
+
+img {
+  width: 100%;
+}
+
+small {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo-text{
+    font: size 22px;
+    text-transform: uppercase;
+    color: green !important;
+    
+}
+.navbar .nav-link {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700; /*Added this myself*/
+}
+
+
+.navbar-nav .nav-link.active {
+  color: #e93b81;
+}
+
+#home{
+    background:linear-gradient(rgb(17,36,90,0.8), rgba(17, 36, 90, 0.107)), url(../images/sunset.jpeg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;/*vertical centering*/
+}
+
+#home h1{
+    font-weight: 700;
+}
+
+#home p {
+    max-width: 550px;
+    margin: 18px auto;  
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    margin: 20px;/*Mine*/
+}
+
+.btn-brand{
+    background-color: #E93B81;
+    color: #fff;
+}
+
+.btn-brand:hover {
+    background-color: #53102b;
+    color: #fff;
+}
+
+.section-intro{
+  text-align: center;
+}
+
+.section-intro .hline {
+    width: 70px;
+    height: 2px;
+    background-color:red;
+    margin: 16px auto 0 auto;
+    
+}

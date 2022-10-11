@@ -1,0 +1,110 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='Colorlib Templates')
+  meta(name='author' content='Colorlib')
+  meta(name='keywords' content='Colorlib Templates')
+  title Registration Form
+  link(href='vendor/mdi-font/css/material-design-iconic-font.min.css' rel='stylesheet' media='all')
+  link(href='vendor/font-awesome-4.7/css/font-awesome.min.css' rel='stylesheet' media='all')
+  link(href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i' rel='stylesheet')
+  link(href='vendor/select2/select2.min.css' rel='stylesheet' media='all')
+  link(href='vendor/datepicker/daterangepicker.css' rel='stylesheet' media='all')
+  link(href='css/foregistration.css' rel='stylesheet' media='all')
+.page-wrapper.bg-gra-02.p-t-130.p-b-100.font-poppins
+  .wrapper.wrapper--w680
+    .card.card-4
+      .card-body
+        h2.title  Farmer One Registration
+        form(action='/register' method='post')
+          .row.row-space
+            .col-2
+              .input-group
+                label.label Unique ID
+                input.input--style-4(type='text' name='uniqueid')
+            .col-2
+              .input-group
+                label.label NIN
+                input.input--style-4(type='text' name='nin')
+          .row.row-space
+            .col-2
+              .input-group
+                label.label Full Name
+                input.input--style-4(type='text' name='fullname')
+            .col-2
+              .input-group
+                label.label Date of Birth
+                .input-group-icon
+                  input.input--style-4.js-datepicker(type='date' name='dob')
+                  i.zmdi.zmdi-calendar-note.input-icon.js-btn-calendar
+          .row.row-space
+            .col-2
+              .input-group
+                label.label Date of Registration
+                .input-group-icon
+                  input.input--style-4.js-datepicker(type='date' name='doreg')
+                  i.zmdi.zmdi-calendar-note.input-icon.js-btn-calendar
+            .col-2
+              .input-group
+                label.label Gender
+                .p-t-10
+                  label.radio-container.m-r-45
+                    | Male
+                    input(type='radio' checked='checked' name='male')
+                    span.checkmark
+                  label.radio-container
+                    | Female
+                    input(type='radio' name='female')
+                    span.checkmark
+          .row.row-space
+            .col-2
+              .input-group
+                label.label Email
+                input.input--style-4(type='email' name='email')
+            .col-2
+              .input-group
+                label.label Phone Number
+                input.input--style-4(type='text' name='phone')
+          .row.row-space
+            .col-2
+              .input-group
+                label.label Resident Since
+                .input-group-icon
+                  input.input--style-4.js-datepicker(type='date' name='residentsince')
+                  i.zmdi.zmdi-calendar-note.input-icon.js-btn-calendar
+            .col-2
+              .input-group
+                label.label Directions to Residence
+                input.input--style-4(type='text' name='directions')
+          .row.row-space
+            .input-group
+              label.label Residence Type
+              .rs-select2.js-select-simple.select--no-search
+                select(name='residencetype')
+                  option(disabled='disabled' selected='selected') Choose Res. Type
+                  option Apartment
+                  option Bungalow
+                  option Semi-Detached
+                .select-dropdown
+            .input-group
+              label.label Ward
+              .rs-select2.js-select-simple.select--no-search
+                select(name='ward')
+                  option(disabled='disabled' selected='selected') Choose Ward
+                  option Ward A
+                  option Ward B
+                  option Ward C
+                  option Ward D
+                .select-dropdown
+            .input-group
+              label.label Activities
+              .rs-select2.js-select-simple.select--no-search
+                select(name='activitiest')
+                  option(disabled='disabled' selected='selected') Select Activity
+                  option Horticulture
+                  option Poultry
+                  option Dairy
+                .select-dropdown
+          .p-t-15
+            button.btn.btn--radius-2.btn--blue(type='submit') Submit
