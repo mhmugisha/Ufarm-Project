@@ -4,10 +4,10 @@ head
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='https://unicons.iconscout.com/release/v4.0.0/css/line.css')
-  link(rel='stylesheet' href='../css/foregistration.css')
-  title Farmer One Regisration
+  link(rel='stylesheet' href='../css/ufregistration.css')
+  title UF Regisration
 .container
-  header.heading Farmer One Registration
+  header.heading Urban Farmer Registration
   hr
   form(action='/register' method='post')
     .form.first
@@ -31,23 +31,23 @@ head
             label NIN
             input(type='text' name='nin' placeholder='Enter NIN' required='')
           .input-field
+            label Date of Birth
+            input(type='date' name='dob' placeholder='Date of birth' required='')
+          .input-field
             label Date of Registration
             input(type='date' name='doreg' placeholder='Date of registraion' required='')
           .input-field
-            label Date of Birth
-            input(type='date' name='dob' placeholder='Date of birth' required='')
+            label Phone Number
+            input(type='text' name='phone' placeholder='Phone number' required='')
+          .input-field
+            label Email
+            input(type='email' name='address' placeholder='email' required='')
           .input-field
             label Gender
             select(type='text' name='gender' required='')
               option(disabled='' selected='') Select gender
               option Male
               option Female
-          .input-field
-            label Home Address
-            input(type='text' name='address' placeholder='Home directions' required='')
-          .input-field
-            label Phone Number
-            input(type='text' name='phone' placeholder='Phone number' required='')
       .details.ID
         .fields
           .input-field
@@ -65,31 +65,5 @@ head
               option Masajja B
               option Masajja C
               option Masajja D
-          .input-field
-            label Residence Type
-            select(type='text' name='residencetype' required='')
-              option(disabled='' selected='') Residence type
-              option Permanent
-              option Temporary
-          .input-field
-            label Years at Residence
-            select(type='number' name='duration' required='')
-              option(disabled='' selected='') Years at residence
-              option 10
-              option 11
-              option 12
-              option 13
-              option 14
-              option 15
-              option 16
-              option 17
-              option 18
-              option 19
-          .input-field
-            label User Name
-            input(type='text' name='username' placeholder='Enter user name' required='')
-          .input-field
-            label.details Password
-            input#password(type='password' name='password' placeholder='Password' required='')
         .button
-          input#btnSubmit(type='submit' value='Register')
+          input#btnSubmit(type='submit' value='Register' onclick='validate()')

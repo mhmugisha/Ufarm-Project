@@ -1,0 +1,38 @@
+doctype html
+head
+  title AO Registration
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT' crossorigin='anonymous')
+  link(rel='stylesheet' href='../css/aoregistration.css')
+.container
+  .heading Agricultural Officer Registration
+  form(action='/register' method='post')
+    .card-details
+      .card-box
+        label Unique ID
+        input#uniqueid(type='text' placeholder='Unique ID' name='uniqueid' required='')
+      .card-box
+        label.details Full Name
+        input#fullname(type='text' name='fullname' placeholder='Full name' required='')
+      .card-box
+        label.details Email
+        input#email(type='email' name='email' placeholder='Email' required='')
+      .card-box
+        label.details Phone Number
+        input#phone(type='text' name='phone' placeholder='Phone number' required='')
+      .card-box
+        label.details Password
+        input#password(type='password' name='password' required='')
+      .card-box
+        label.details Confirm password
+        input#confirmpassword(type='password' name='confirmpassword' required='')
+    .circal-form
+      label.circal-title Gender
+      .category
+      input(type='radio' name='gender' required='')
+      | Male
+      input(type='radio' name='gender' required='')
+      | Female
+    .button
+      input#btnSubmit(type='submit' value='Register')
