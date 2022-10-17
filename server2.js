@@ -1,6 +1,3 @@
-
-//This is the server file we are going to use for our project
-
 //DEPENDENCIES    ---------------/
 const express = require("express"); //Always the first line of code
 const path = require('path');
@@ -17,6 +14,7 @@ const expressSession = require('express-session')({
 const Registration = require('./models/Reg') 
 //IMPORTING route files
 const registrationRoutes = require('./routes/registerRoutes')
+
 
 
 //INSNTANTIATIONS  --------------/
@@ -48,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(expressSession);
 
-//Passport configuration Middle ware
+//Passport configuration middleware
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(Registration.createStrategy());

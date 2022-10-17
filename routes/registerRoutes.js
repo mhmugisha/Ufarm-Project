@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 //IMPORTING Model
 const Registration = require('../models/Reg')
 
@@ -14,18 +15,23 @@ router.post('/login', async(req, res) => {
   console.log(req.body);
   try{
       const user = new Registration(req.body);
-      await Registration.register(user, req.body.password, (error)=>{
-          if(error){
-              throw error
-          }
-          res.redirect('/login')
-      })
+      let uniqueExist = await Registration.findOne({uniqueid:req.body.uniqueid})
+      if(uniqueExist){
+        return res.status(400).send('This no is already taken')
+      }else{
+        await Registration.register(user, req.body.password, (error)=>{
+            if(error){
+                throw error
+            }
+            res.redirect('/login')
+        })
+      }
+
   }catch(error){
       res.status(400).send('Sorry something went wrong');
       console.log(error)
   } 
 });
-
 
 
 //FARMER ONE ROUTES-------------------------------------------------/
@@ -37,12 +43,18 @@ router.post('/foregister', async(req, res) => {
     console.log(req.body);
     try{
         const user = new Registration(req.body);
-        await Registration.register(user, req.body.password, (error)=>{
-            if(error){
-                throw error
-            }
-            res.redirect('/register')
-        })
+        let uniqueExist = await Registration.findOne({uniqueid:req.body.uniqueid})
+        if(uniqueExist){
+          return res.status(400).send('This no is already taken')
+        }else{
+          await Registration.register(user, req.body.password, (error)=>{
+              if(error){
+                  throw error
+              }
+              res.redirect('/login')
+          })
+        }
+
     }catch(error){
         res.status(400).send('Sorry something went wrong');
         console.log(error)
@@ -90,6 +102,21 @@ router.post('/ufregister', async(req, res) => {
       console.log(error)
   } 
 });
+
+//Route to display routes
+router.get("/folist", async (req, res) => {
+    try {
+        let farmerOne = await Registration.find({ role: "Farmer One" });
+        res.render("folist", {farmerones:farmerOne});
+    } catch (error) {
+        res.status(400).send("Unable to find Farmer Ones in the Database");
+		console.log(error);
+    }
+	
+});
+
+
+
 
 //Very important. Last line in this folder
 module.exports = router;

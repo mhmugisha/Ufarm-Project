@@ -63,6 +63,10 @@ const registrationSchema = new mongoose.Schema({
     address:{
         type: String,
         trim: true
+    },
+    password:{
+        type: String,
+
     }
 
 })

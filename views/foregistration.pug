@@ -9,7 +9,7 @@ head
 .container
   header.heading Farmer One Registration
   hr
-  form(action='/register' method='post')
+  form(action='/foregister' method='post')
     .form.first
       .details.personal
         .fields
@@ -19,11 +19,8 @@ head
           .input-field
             label Role
             select(type='text' name='role' required='')
-              option(disabled='' selected='') Select role
-              option Agric. Officer
-              option Farmer One
-              option Urban Farmer
-              option Public User
+              option(value='') Select role
+              option(value='farmerOne') Farmer One
           .input-field
             label Full Name
             input(type='text' name='fullname' placeholder='Enter your name' required='')

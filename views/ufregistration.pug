@@ -9,7 +9,7 @@ head
 .container
   header.heading Urban Farmer Registration
   hr
-  form(action='/register' method='post')
+  form(action='/ufregister' method='post')
     .form.first
       .details.personal
         .fields
@@ -40,8 +40,8 @@ head
             label Phone Number
             input(type='text' name='phone' placeholder='Phone number' required='')
           .input-field
-            label Email
-            input(type='email' name='address' placeholder='email' required='')
+            label Password
+            input(type='password' name='password' placeholder='email' required='')
           .input-field
             label Gender
             select(type='text' name='gender' required='')
