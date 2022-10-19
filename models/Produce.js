@@ -1,41 +1,52 @@
 const { text } = require('express');
 const mongoose = require('mongoose');
 
+
 const produceSchema = new mongoose.Schema({
 
+    uniqueid:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Registration'
+    },
+
     product:{
-        type: text,
-        required: true,
+        type: String,
         trim: true
     },
     quantity: {
-        type: number,
-        required: true,
+        type: String,
         trim: true
     },
     unitprice:{
-        type: number,
-        required: true,
+        type: String,
         trim: true
     },
     totalamount:{
-        type: number,
-        required: true,
+        type: String,
         trim: true
     },
     modeofpay: {
         type: String,
-        required: true,
         trim: true
     },
     producttype:{
         type: String,
-        required: true,
         trim: true
     },
     deliverymode:{
         type: String,
-        required: true,
         trim: true
     },
+    ward:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Registration'
+    },
+    status:{
+        type:String,
+        default: 'Pending',
+        enum:['Pending', 'Approved']
+    }
 })
+
+
+module.exports = mongoose.model('Pdtupload', produceSchema);

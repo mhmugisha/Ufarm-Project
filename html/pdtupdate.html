@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="../public/css/productupdate.css">
+    <title>UFarm Product Update</title> 
+</head>
+<body>
+    <div class="container">
+        <header class="heading">Product Update</header>
+        <hr>
+        <form action="/user/register" method="post">
+            <div class="form first">
+                <div class="details personal">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Unique ID</label>
+                            <input type="text" name="uniqueid" placeholder="Unique ID" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Role</label>
+                            <select type="text" name="role" required>
+                                <option disabled selected>Select role</option>
+                                <option>Urban Farmer</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" name="fullname" placeholder="Name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Date of Registration</label>
+                            <input type="date" name="doreg" placeholder="Date of registraion" required>
+                        </div> 
+                        <div class="input-field">
+                            <label>Home Address</label>
+                            <input type="text" name="address" placeholder="Home directions" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Product</label>
+                            <input type="text" name="product" placeholder="Product" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="details ID">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Quantity</label>
+                            <input type="number" name="quantity" placeholder="Quantity" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Unit Price</label>
+                            <input type="number" name="unitprice" placeholder="Unit price" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Total Amount</label>
+                            <input type="number" name="totalamount" placeholder="Total amount" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Product Type</label>
+                            <select type="text" name="producttype" required>
+                                <option disabled selected>Product type</option>
+                                <option>Organic</option>
+                                <option>Non Organic</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Mode of Payment</label>
+                            <select type="text" name="modeofpay" required>
+                                <option disabled selected>Mode of payment</option>
+                                <option>Cash</option>
+                                <option>Mobile Money</option>  
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Mode of Delivery</label>
+                            <select type="text" name="deliverymode" required>
+                                <option disabled selected>Mode of delivery</option>
+                                <option>Pickup</option>
+                                <option>Home Delivery</option>   
+                            </select>
+                        </div>  
+                    </div>
+                        <div class="button">
+                            <input type="submit" id="btnSubmit" value="Register"/>
+                        </div>
+                </div> 
+            </div>   
+        </form>
+    </div>
+</body>
+</html>

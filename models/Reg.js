@@ -37,7 +37,6 @@ const registrationSchema = new mongoose.Schema({
     },
     role:{
         type: String,
-        required: true,
         trim: true
     },
     nin:{
@@ -66,7 +65,6 @@ const registrationSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-
     }
 
 })
@@ -75,3 +73,5 @@ registrationSchema.plugin(passportLocalMongoose,{
     usernameField: 'uniqueid'
 });
 module.exports = mongoose.model('Registration', registrationSchema);
+
+

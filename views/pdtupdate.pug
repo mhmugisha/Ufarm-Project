@@ -1,0 +1,66 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='https://unicons.iconscout.com/release/v4.0.0/css/line.css')
+  link(rel='stylesheet' href='../public/css/productupdate.css')
+  title UFarm Product Update
+.container
+  header.heading Product Update
+  hr
+  form(action='/pdtupdate' method='post' enctype='multipart/form-data')
+    .form.first
+      .details.personal
+        .fields
+          .input-field
+            label Unique ID
+            input(type='text' name='uniqueid' placeholder='Unique ID' required='')
+          .input-field
+            label Role
+            select(type='text' name='role' required='')
+              option(disabled='' selected='') Select role
+              option Urban Farmer
+          .input-field
+            label Full Name
+            input(type='text' name='fullname' placeholder='Name' required='')
+          .input-field
+            label Date of Registration
+            input(type='date' name='doreg' placeholder='Date of registraion' required='')
+          .input-field
+            label Home Address
+            input(type='text' name='address' placeholder='Home directions' required='')
+          .input-field
+            label Product
+            input(type='text' name='product' placeholder='Product' required='')
+      .details.ID
+        .fields
+          .input-field
+            label Quantity
+            input(type='number' name='quantity' placeholder='Quantity' required='')
+          .input-field
+            label Unit Price
+            input(type='number' name='unitprice' placeholder='Unit price' required='')
+          .input-field
+            label Total Amount
+            input(type='number' name='totalamount' placeholder='Total amount' required='')
+          .input-field
+            label Product Type
+            select(type='text' name='producttype' required='')
+              option(disabled='' selected='') Product type
+              option Organic
+              option Non Organic
+          .input-field
+            label Mode of Payment
+            select(type='text' name='modeofpay' required='')
+              option(disabled='' selected='') Mode of payment
+              option Cash
+              option Mobile Money
+          .input-field
+            label Mode of Delivery
+            select(type='text' name='deliverymode' required='')
+              option(disabled='' selected='') Mode of delivery
+              option Pickup
+              option Home Delivery
+        .button
+          input#btnSubmit(type='submit' value='Register')

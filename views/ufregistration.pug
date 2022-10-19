@@ -20,10 +20,7 @@ head
             label Role
             select(type='text' name='role' required='')
               option(disabled='' selected='') Select role
-              option Agric. Officer
-              option Farmer One
-              option Urban Farmer
-              option Public User
+              option(value='urbanFarmer') Urban Farmer
           .input-field
             label Full Name
             input(type='text' name='fullname' placeholder='Enter your name' required='')
@@ -41,7 +38,7 @@ head
             input(type='text' name='phone' placeholder='Phone number' required='')
           .input-field
             label Password
-            input(type='password' name='password' placeholder='email' required='')
+            input(type='password' name='password' placeholder='Password' required='')
           .input-field
             label Gender
             select(type='text' name='gender' required='')
