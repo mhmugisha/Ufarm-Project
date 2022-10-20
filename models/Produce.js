@@ -8,7 +8,18 @@ const produceSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref: 'Registration'
     },
-
+    suppliername:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Registration'
+    },
+    doreg:{
+        type: String,
+        trim: true
+    },
+    address:{
+        type: String,
+        trim: true
+    },
     product:{
         type: String,
         trim: true
@@ -25,14 +36,14 @@ const produceSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    modeofpay: {
-        type: String,
-        trim: true
-    },
     producttype:{
         type: String,
         trim: true
     },
+    modeofpay: {
+        type: String,
+        trim: true
+    },  
     deliverymode:{
         type: String,
         trim: true
@@ -40,6 +51,9 @@ const produceSchema = new mongoose.Schema({
     ward:{
         type:mongoose.Schema.Types.ObjectId,
         ref: 'Registration'
+    },
+    uploadimage:{
+        type: String,
     },
     status:{
         type:String,

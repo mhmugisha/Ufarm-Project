@@ -10,12 +10,14 @@ router.get('/login', (req, res) => {
 
 //Log in route
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
-    console.log(req.body);
-    res.redirect('/ufregister');
+    req.session.user = req.user
+    console.log(req.user);
+    res.redirect('/addproduce');
+    // res.send('Successfully logged in')
 });
 
 //Log out route
-router.post('/login', (req,res)=>{
+router.post('/logout', (req,res)=>{
 if(req.session){
     req.session.destroy(function(err){
         if(err){

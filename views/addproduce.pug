@@ -4,26 +4,25 @@ head
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='https://unicons.iconscout.com/release/v4.0.0/css/line.css')
-  link(rel='stylesheet' href='../public/css/productupdate.css')
-  title UFarm Product Update
+  link(rel='stylesheet' href='css/pdtupdate.css')
+  title UFarm Product Add
 .container
   header.heading Product Update
   hr
-  form(action='/pdtupdate' method='post' enctype='multipart/form-data')
+  form(action='/addproduce' method='post' enctype='multipart/form-data')
     .form.first
       .details.personal
         .fields
           .input-field
             label Unique ID
-            input(type='text' name='uniqueid' placeholder='Unique ID' required='')
+            select(type='text' name='uniqueid')
+              if currentUser
+                option(value=currentUser._id) #{currentUser.uniqueid}
           .input-field
-            label Role
-            select(type='text' name='role' required='')
-              option(disabled='' selected='') Select role
-              option Urban Farmer
-          .input-field
-            label Full Name
-            input(type='text' name='fullname' placeholder='Name' required='')
+            label Supplier Name
+            select(type='text' name='suppliername' required='')
+              if currentUser
+                option(value=currentUser._id) #{currentUser.fullname}
           .input-field
             label Date of Registration
             input(type='date' name='doreg' placeholder='Date of registraion' required='')
@@ -47,20 +46,29 @@ head
           .input-field
             label Product Type
             select(type='text' name='producttype' required='')
-              option(disabled='' selected='') Product type
-              option Organic
-              option Non Organic
+              option(value='') Product type
+              option(value='organic') Organic
+              option(value='nonorganic') Non Organic
           .input-field
             label Mode of Payment
             select(type='text' name='modeofpay' required='')
-              option(disabled='' selected='') Mode of payment
-              option Cash
-              option Mobile Money
+              option(value='') Mode of payment
+              option(value='cash') Cash
+              option(value='mobilemoney') Mobile Money
           .input-field
             label Mode of Delivery
-            select(type='text' name='deliverymode' required='')
-              option(disabled='' selected='') Mode of delivery
-              option Pickup
-              option Home Delivery
+            select(type='text' name='deliverymode')
+              option(value='') Mode of delivery
+              option(value='pickup') Pickup
+              option(value='delivery') Home Delivery
+          .input-field
+            label Ward 
+            select(type='text' name='ward')
+              if currentUser
+                option(value=currentUser._id) #{currentUser.ward}  
+          .input-field 
+            label Produce Image:
+            input#image(type='file' name='uploadimage' autocomplete='off')        
         .button
-          input#btnSubmit(type='submit' value='Register')
+          input#btnSubmit(type='submit' value='Add Produce')
+
