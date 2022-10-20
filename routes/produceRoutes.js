@@ -45,10 +45,11 @@ router.post("/addproduce", upload.single("uploadimage"), async (req, res) => {
 	}
 });
 
+/*Displays produce list */
 router.get("/producelist", async (req, res) => {
 	try {
-		let products = await Pdtupload.find();
-		res.render("producelist", { products: products });
+		let product = await Pdtupload.find();
+		res.render("producelist", { products: product });
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}

@@ -32,6 +32,16 @@ router.post('/foregister', async(req, res) => {
   } 
 });
 
+//Route to display Farmerone list
+router.get("/folist", async (req, res) => {
+  try {
+      let farmerOne = await Registration.find({ role: "Farmer One" });
+      res.render("folist", {farmerones:farmerOne});
+  } catch (error) {
+      res.status(400).send("Unable to find Farmer Ones in the Database");
+  console.log(error);
+  }
+});
 
 
 

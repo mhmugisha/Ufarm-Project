@@ -20,7 +20,7 @@ const produceSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    product:{
+    productname:{
         type: String,
         trim: true
     },
@@ -59,7 +59,12 @@ const produceSchema = new mongoose.Schema({
         type:String,
         default: 'Pending',
         enum:['Pending', 'Approved']
-    }
+    },
+    availability: {
+        type: String, 
+          default: "available",
+          enum: ["available", "booked", "N/A"] 
+      }
 })
 
 

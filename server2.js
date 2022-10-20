@@ -16,19 +16,15 @@ const expressSession = require('express-session')({
 const Registration = require('./models/Reg')
 
 //IMPORTING route files
-const registrationRoutes = require('./routes/registerRoutes')
-const agricOffRoutes = require('./routes/aoroutes');
-const farmerOneRoutes = require('./routes/foroutes');
-const urbanFarmerRoutes = require('./routes/ufroutes');
+const aoRoutes = require('./routes/aoRoutes');
+const foRoutes = require('./routes/foRoutes');
+const ufRoutes = require('./routes/ufRoutes');
 const authRoutes = require('./routes/authRoutes');
 const produceRoutes = require('./routes/produceRoutes');
-const aodashboardRoutes = require('./routes/aodashboardroutes');
-
-
 
 
 //INSNTANTIATIONS  --------------
-const port = process.env.port || 3000;
+const port = process.env.port || 4000;
 const app = express();
 
 //Setting up database connections
@@ -66,14 +62,13 @@ passport.serializeUser(Registration.serializeUser());
 passport.deserializeUser(Registration.deserializeUser)
 
 
-//ROUTES for using import--------------------------------------------------/
-app.use('/', registrationRoutes);
-app.use('/', agricOffRoutes);
-app.use('/', farmerOneRoutes);
-app.use('/', urbanFarmerRoutes);
+//ROUTES for using import-------------------------------------------/
+//app.use('/', registrationRoutes);
+app.use('/', aoRoutes);
+app.use('/', foRoutes);
+app.use('/', ufRoutes);
 app.use('/', authRoutes);
 app.use('/', produceRoutes);
-app.use('/', aodashboardRoutes);
 
 
 

@@ -7,7 +7,7 @@ head
   link(rel='stylesheet' href='css/pdtupdate.css')
   title UFarm Product Add
 .container
-  header.heading Product Update
+  header.heading Product Add
   hr
   form(action='/addproduce' method='post' enctype='multipart/form-data')
     .form.first
@@ -20,38 +20,42 @@ head
                 option(value=currentUser._id) #{currentUser.uniqueid}
           .input-field
             label Supplier Name
-            select(type='text' name='suppliername' required='')
+            select(type='text' name='suppliername')
               if currentUser
                 option(value=currentUser._id) #{currentUser.fullname}
           .input-field
             label Date of Registration
-            input(type='date' name='doreg' placeholder='Date of registraion' required='')
+            input(type='date' name='doreg' placeholder='Date of registraion')
           .input-field
             label Home Address
-            input(type='text' name='address' placeholder='Home directions' required='')
+            input(type='text' name='address' placeholder='Home directions')
           .input-field
-            label Product
-            input(type='text' name='product' placeholder='Product' required='')
+            label(for='productname') Product:
+                    select(name='productname')
+                        option(value="Beans") Beans 
+                        option(value="Maize") Maize 
+                        option(value="Tomatoes") Tomatoes
+                        option(value="Cabbage") Cabbage
       .details.ID
         .fields
           .input-field
             label Quantity
-            input(type='number' name='quantity' placeholder='Quantity' required='')
+            input(type='number' name='quantity' placeholder='Quantity')
           .input-field
             label Unit Price
-            input(type='number' name='unitprice' placeholder='Unit price' required='')
+            input(type='number' name='unitprice' placeholder='Unit price')
           .input-field
             label Total Amount
-            input(type='number' name='totalamount' placeholder='Total amount' required='')
+            input(type='number' name='totalamount' placeholder='Total amount')
           .input-field
             label Product Type
-            select(type='text' name='producttype' required='')
+            select(type='text' name='producttype')
               option(value='') Product type
               option(value='organic') Organic
               option(value='nonorganic') Non Organic
           .input-field
             label Mode of Payment
-            select(type='text' name='modeofpay' required='')
+            select(type='text' name='modeofpay')
               option(value='') Mode of payment
               option(value='cash') Cash
               option(value='mobilemoney') Mobile Money
@@ -60,7 +64,7 @@ head
             select(type='text' name='deliverymode')
               option(value='') Mode of delivery
               option(value='pickup') Pickup
-              option(value='delivery') Home Delivery
+              option(value='homedelivery') Home Delivery
           .input-field
             label Ward 
             select(type='text' name='ward')
