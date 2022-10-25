@@ -2,10 +2,10 @@
   "name": "massaja",
   "version": "1.0.0",
   "description": "Masajja Project",
-  "main": "server2.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server2.js"
+    "start": "nodemon server.js"
   },
   "author": "Mark",
   "license": "ISC",

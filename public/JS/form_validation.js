@@ -1,16 +1,44 @@
 
 const Validate = () =>{
+    var uniqueid = document.getElementById('uniqueid');
     var role = document.getElementById('role');
-    var uniqueid = document.getElementById('uniqieid');
+    var fullName = document.getElementById('fullname');
+    var nin = document.getElementById('nin');
+    var homeAddress = document.getElementById('address');
+    var phoneNumber = document.getElementById('phone');
+    var userName = document.getElementById('username');
     var password = document.getElementById('password');
-    var confirmPassword = document.getElementById('confirmPassword')
+    var confirmPassword = document.getElementById('confirmpassword')
+   
+    var uniqueidError = document.getElementById('uniqueiderror');
+    var roleError = document.getElementById('roleerror');
+    var fullNameError = document.getElementById('fullnameerror');
+    var ninError = document.getElementById('ninerror');
+    var homeAddressError = document.getElementById('homeaddresserror');
+    var phoneNumberError = document.getElementById('phonenumbererror');
+    var userNameError = document.getElementById('usernameerror');
+    var passwordError = document.getElementById('passwordrrror');
+    var confirmPasswordError = document.getElementById('confirmpassworderror')
     
-    var roleError = document.getElementById('roleError');
-    var uniqieidError = document.getElementById('uniqiueid');
-    var passwordError = document.getElementById('passwordError');
-    var confirmPasswordError = document.getElementById('confirmPasswordError')
-    
-    
+
+    //Unique ID
+    const uniqueNoRegex = /^[0-9a-zA-Z]+$/; //Means that every Urban Farmer unique id starts with UF-number
+    if(uniqueid.value==''){
+        uniqueid.style.border = '1px solid red';
+        uniqueidError.textContent='Please enter unique ID';
+        uniqueidError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else if(!(uniqueid.value.match(uniqueNoRegex))){
+        uniqueid.style.border = '1px solid red';
+        uniqueidError.textContent='Unique no format UF-00';
+        uniqueidError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else{
+        uniqueid.style.border='1px solid green';
+        uniqueidError.textContent = '';
+    }
+
+    //Role
     if(role.value==''){
         role.style.border = '1px solid red';
         roleError.textContent='Please specify role';
@@ -25,22 +53,90 @@ const Validate = () =>{
         role.style.border='1px solid green';
         roleError.textContent = '';
     }
-    
-    //validating unique
-    const unregex = /^UF-([0-9]{3})+$/; //Means that every Urban Farmer unique id starts with UF-number
-    if(uniqueid.value==''){
-        uniqueid.style.border = '1px solid red';
-        uniqieidError.textContent='Please Enter unique no';
-        uniqieidError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+
+
+    //Full Name - Need Regex for for two names with one space btn. 
+    const fullNameRegex = /^UF-([0-9]{3})+$/; //Means that every Urban Farmer unique id starts with UF-number
+    if(fullName.value==''){
+        fullName.style.border = '1px solid red';
+        fullNameError.textContent='Enter two names with one space between';
+        fullNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         return false;
-    }else if(!(uniqueid.value.match(unregex))){
-        uniqueid.style.border = '1px solid red';
-        uniqieidError.textContent='Unique no format UF-000';
-        uniqieidError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+    }else if(!(fullName.value.match(fullNameRegex))){
+        fullName.style.border = '1px solid red';
+        fullNameError.textContent='Enter two names with one space between';
+        fullNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         return false;
     }else{
-        uniqueid.style.border='1px solid green';
-        uniqieidError.textContent = '';
+        fullName.style.border='1px solid green';
+        fullNameError.textContent = '';
+    }
+
+    //NIN 
+    const ninRegex = /^[0-9a-zA-Z]+$/; //Means that every Urban Farmer unique id starts with UF-number
+    if(nin.value==''){
+        nin.style.border = '1px solid red';
+        ninError.textContent='Please Enter NIN';
+        ninError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else if(!(nin.value.match(ninRegex))){
+        nin.style.border = '1px solid red';
+        ninError.textContent='Please enter valid NIN';
+        ninError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else{
+        nin.style.border='1px solid green';
+        ninError.textContent = '';
+    }
+
+    //Home address
+    if(homeAddress.value==''){
+        homeAddress.style.border = '1px solid red';
+        homeAddressError.textContent='Please specify home address';
+        homeAddressError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else if(homeAddress.value=='notspecified'){
+        homeAddress.style.border = '1px solid red';
+        homeAddressError.textContent='Please specify homeAddress';
+        homeAddressError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else{
+        homeAddress.style.border='1px solid green';
+        homeAddressError.textContent = '';
+    }
+
+    //Phone Number
+    const phoneNoRegex = /^\(?([0-9]{4})\)?[-.]?([0-9]{6})$/; 
+    if(phoneNumber.value==''){
+        phoneNumber.style.border = '1px solid red';
+        phoneNumberError.textContent='Please enter phone number';
+        phoneNumberError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else if(!(phoneNumber.value.match(phoneNoRegex))){
+        phoneNumber.style.border = '1px solid red';
+        phoneNumberError.textContent='Enter phone number without country code.';
+        phoneNumberError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else{
+        phoneNumber.style.border='1px solid green';
+        phoneNumberError.textContent = '';
+    }
+
+    //User Name
+    const userNameRegex = /^[0-9a-zA-Z]+$/; //Means that every Urban Farmer unique id starts with UF-number
+    if(userName.value==''){
+        userName.style.border = '1px solid red';
+        userNameError.textContent='Please enter user name.';
+        userNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else if(!(userName.value.match(userNameRegex))){
+        userName.style.border = '1px solid red';
+        userNameError.textContent='Please enter a name without special characters.';
+        userNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else{
+        userName.style.border='1px solid green';
+        userNameError.textContent = '';
     }
     
     //password

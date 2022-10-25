@@ -1,0 +1,212 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
+  link(rel='stylesheet' href='css/fodashboard.css')
+  title Farmer One Dashboard
+#wrapper.d-flex
+  // Sidebar
+  #sidebar-wrapper
+    .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
+    .list-group.list-group-flush.my-3
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Urban Farmers
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Reports
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Stock
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Products
+  #page-content-wrapper
+    nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
+      .d-flex.align-items-center
+        i#menu-toggle.fas.fa-align-left.primary-text.fs-4.me-3
+        h2.fs-2.m-0.text-white Dashboard
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              i.fas.fa-user.me-2.text-white-50
+              span.text-white Farmer One
+            ul.dropdown-menu(aria-labelledby='navbarDropdown')
+              li
+                a.dropdown-item(href='#') Profile
+              li
+                a.dropdown-item(href='#') Settings
+              li
+                a.dropdown-item(href='#') Logout
+    .container-fluid.px-4
+      .row.g-3.my-2
+        .col-md-3
+          .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
+            div
+              h3.fs-2 1,000
+              p.fs-5 Farmers in Ward
+        .col-md-3
+          .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
+            div
+              h3.fs-2 600,000
+              p.fs-5 Ward Sales
+        .col-md-3
+          .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
+            div
+              h3.fs-2 12
+              p.fs-5 Registrations
+        .col-md-3
+          .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
+            div
+              h3.fs-2 10
+              p.fs-5 Uploads
+      .row.my-5
+        .col
+          h3.fs-4.mb-3.text-white Recent Uploads
+          table.table.bg-white.rounded.shadow-sm.table-hover
+            thead
+              tr
+                th(scope='col' width='50') #
+                th(scope='col') Farmer
+                th(scope='col') Product
+                th(scope='col') Price
+            tbody
+              tr
+                th(scope='row') 1
+                td Mark
+                td Milk
+                td 12,000
+              tr
+                th(scope='row') 2
+                td Musisi
+                td Cabbage
+                td 100,000
+              tr
+                th(scope='row') 3
+                td Divine
+                td Eggs
+                td 20,000
+              tr
+                th(scope='row') 4
+                td Dimanche
+                td Chicken
+                td 50,000
+              tr
+                th(scope='row') 5
+                td Kamuhanda
+                td Lettuce
+                td 10,000
+        .col
+          h3.fs-4.mb-3.text-white Pending uploads
+          table.table.bg-white.rounded.shadow-sm.table-hover
+            thead
+              tr
+                th(scope='col' width='50') #
+                th(scope='col') Farmer
+                th(scope='col') Product
+                th(scope='col') Price
+            tbody
+              tr
+                th(scope='row') 1
+                td Mark
+                td Milk
+                td 12,000
+              tr
+                th(scope='row') 2
+                td Musisi
+                td Cabbage
+                td 100,000
+              tr
+                th(scope='row') 3
+                td Divine
+                td Eggs
+                td 20,000
+              tr
+                th(scope='row') 4
+                td Dimanche
+                td Chicken
+                td 50,000
+              tr
+                th(scope='row') 5
+                td Kamuhanda
+                td Lettuce
+                td 10,000
+      // Farmer Table
+      .row.my-5
+        .col
+          h3.fs-4.mb-3.text-white Recent Farmers
+          table.table.bg-white.rounded.shadow-sm.table-hover
+            thead
+              tr
+                th(scope='col' width='50') #
+                th(scope='col') Name
+                th(scope='col') Activity
+                th(scope='col') Ward
+            tbody
+              tr
+                th(scope='row') 1
+                td Mark
+                td Horticulture
+                td Ward A
+              tr
+                th(scope='row') 2
+                td Musisi
+                td Dairy
+                td Ward B
+              tr
+                th(scope='row') 3
+                td Divine
+                td Poultry
+                td Ward C
+              tr
+                th(scope='row') 4
+                td Dimanche
+                td Dairy
+                td Ward D
+              tr
+                th(scope='row') 5
+                td Kamuhanda
+                td Horticulture
+                td Ward A
+        .col
+          h3.fs-4.mb-3.text-white Pending Orders
+          table.table.bg-white.rounded.shadow-sm.table-hover
+            thead
+              tr
+                th(scope='col' width='50') #
+                th(scope='col') Farmer
+                th(scope='col') Product
+                th(scope='col') Price
+            tbody
+              tr
+                th(scope='row') 1
+                td Mark
+                td Milk
+                td 12,000
+              tr
+                th(scope='row') 2
+                td Musisi
+                td Cabbage
+                td 100,000
+              tr
+                th(scope='row') 3
+                td Divine
+                td Eggs
+                td 20,000
+              tr
+                th(scope='row') 4
+                td Dimanche
+                td Chicken
+                td 50,000
+              tr
+                th(scope='row') 5
+                td Kamuhanda
+                td Lettuce
+                td 10,000
+// page-content-wrapper end
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js')
+script.
+  var el = document.getElementById("wrapper");
+  var toggleButton = document.getElementById("menu-toggle");
+  toggleButton.onclick = function () {
+  el.classList.toggle("toggled");
+  };

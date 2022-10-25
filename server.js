@@ -1,38 +1,38 @@
+
 //DEPENDENCIES    ---------------/
 const express = require("express"); //Always the first line of code
 const path = require('path');
 const mongoose = require('mongoose');
 const config = require('./config/db');
 const passport = require('passport');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 
-//Defining Express Session
+//Defining Express session------------/
 const expressSession = require('express-session')({
     secret: 'secret',
     resave: false,
     saveUninitialized: false,  
 });
-//Import the user model
+
+//Import the user model--------------/
 const Registration = require('./models/Reg');
 
-//IMPORTING route files
+
+//Importing route files----------------/
 const aoRoutes = require('./routes/aoRoutes');
-const foRoutes = require('./routes/foRoutes');
 const ufRoutes = require('./routes/ufRoutes');
+const foRoutes = require('./routes/foRoutes');
 const authRoutes = require('./routes/authRoutes');
-const produceRoutes = require('./routes/produceRoutes');
+const produceRoutes = require('./routes/produceRoutes'); 
 
 
-//INSNTANTIATIONS  --------------
-const port = process.env.port || 3000;
+//INSNTANTIATIONS---------------------/
 const app = express();
 
 //Setting up database connections
 mongoose.connect(config.database,{ useNewUrlParser: true });
 const db = mongoose.connection;
 
-// Check connection------------/
+// Check connection-------------------/
 db.once('open', function(){
   console.log('Connected to MongoDB');
 });
@@ -42,17 +42,15 @@ db.on('error', function(err){
   console.error(err);
 });
 
-//CONFIGURATIONS --------------------/
+//CONFIGURATIONS ------------------------/
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 //app.set('views', './views'); 
 
-
-//MIDDLEWARE  ------------------------/
+//MIDDLEWARE  --------------------------/
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
-app.use(cors);
 app.use(expressSession);
 
 /*....Passport configuration middleware...*/
@@ -63,20 +61,18 @@ passport.serializeUser(Registration.serializeUser());
 passport.deserializeUser(Registration.deserializeUser)
 
 
-//ROUTES for using import-------------------------------------------/
+//ROUTES---------------------------------/
+app.use('/', ufRoutes);
 app.use('/', aoRoutes);
 app.use('/', foRoutes);
-app.use('/', ufRoutes);
 app.use('/', authRoutes);
 app.use('/', produceRoutes);
 
 
-
-// For invalid routes. always the last route in the server file(index.js).
+// For invalid routes. always the last route in the server file(index.js)
 app.get("*", (req, res) => {
 	res.send("404! This is an invalid URL.");
 });
 
 // Bootstrapping Server always the last line of code in the server file(index.js).
-app.listen(port, ()=> console.log(`Listening on Port ${port}`));
-
+app.listen(4000, () => console.log("We are listening on port 4000"));

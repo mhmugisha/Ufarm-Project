@@ -3,8 +3,8 @@ head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    //- link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
-    //- link(rel='stylesheet' href='css/style.css')
+    link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+    link(rel='stylesheet' href='css/style.css')
     title Produce Update
 nav.navbar.navbar-expand-lg.bg-light.pb-4
     .container-fluid
@@ -31,21 +31,22 @@ nav.navbar.navbar-expand-lg.bg-light.pb-4
                             a.dropdown-item(href='#') Something else here
                 li.nav-item
                     a.nav-link.disabled Disabled
-            form.d-flex.mt-2(role='')
-                a.btn.btn-style(href='#') Back
+            form.d-flex.mt-2(role='search')
+                a.btn.btn-style(href='home-page.html') Back
 .container-fluid.form-style
-    form#signup.form(action='/produce/update?id='+product._id name='pdtupdate' method='POST')
+    form#signup.form(action='/produce/update?id='+item._id name='registration' method='POST')
         h3 Update Produce 
         hr
         .row
             .col
                 .form-field
-                    label(for='productname') Produce Name:
-                    select(name='productname')
-                        option(value="Beans" selected = product.productname === 'Beans') Beans
-                        option(value="Maize" selected = product.productname === 'Maize') Maize
-                        option(value="Tomatoes" selected = product.productname === 'Tomatoes') Tomatoes
-                        option(value="Cabbage" selected = product.productname === 'Cabbage') Cabbage
+                    label(for='availability') Produce Name:
+                    select(name='')
+                        option(value="available" selected = item.availability === 'Beans') Available
+                        option(value="booked" selected = item.availability === 'Maize') Booked
+                        option(value="booked" selected = item.availability === 'Tomatoes') Booked
+                        option(value="N/A" selected = item.availability === 'Cabbage') N
+                        A 
         .row
             .col
                 .form-field
@@ -68,21 +69,10 @@ nav.navbar.navbar-expand-lg.bg-light.pb-4
             .col
                 .form-field
                     label Product Type:
-                    select(name='producttype')
-                        option(value="organic" selected = product.productname === 'organic') Organic
-                        option(value="nonorganic" selected = product.productname === 'nonorganic') Non Organic
-            .col
-                .form-field
-                    label Mode of Payment:
-                    select(name='modeofpay')
-                        option(value="cash" selected = product.modeofpay === 'cash') Cash
-                        option(value="mobilemoney" selected = product.modeofpay === 'mobilemoney') Mobile Money
-            .col
-                .form-field
-                    label(for='') Mode of Delivery:
-                    select(name='deliverymode')
-                        option(value="pickup") Pick Up
-                        option(value="homedelivery") Home Delivery
-            .form-field
+                    select(name='status')
+                        option(value="Pending" selected = product.status === 'Pending') Pending
+                        option(value="Approved" selected = product.status === 'Approved') Approved
+            
+                        .form-field
                 input.btn.register-btn(type='submit' value='Update')
 script(src='bootstrap-js/js/bootstrap.bundle.js')

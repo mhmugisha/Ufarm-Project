@@ -1,15 +1,54 @@
 const express = require("express");
 const router = express.Router();
 const multer = require('multer');
+const connectEnsureLogin = require('connect-ensure-login')
 
-//IMPORTING Model
-const Registration = require('../models/Reg')
+
+//Agric Officer Dashboard route
+// router.get("/aodashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+// 	req.session.user=req.user;
+//     if(req.user.role=='agricofficer'){
+//         res.render('aodashboard')
+//     }else{
+//         res.send('only for ao')
+//     }
+// });
+
+//AO Dashboard route-----------
+router.get('/aodashboardroute', (req,res) =>{
+    res.render('aodashboard');
+    })
+    router.post('/aodashboardroute',async(req,res) =>{
+        console.log(req.body);
+       
+    });
+
+//Farmer One Dashboar route-----------
+    router.get('/fodashboardroute', (req,res) =>{
+        res.render('fodashboard');
+        })
+        router.post('/fodashboardroute',async(req,res) =>{
+            console.log(req.body);
+
+//Urban Farmer dashboard route----------           
+        });
+    router.get('/ufdashboardroute', (req,res) =>{
+        res.render('ufdashboard');
+        })
+        router.post('/ufdashboardroute',async(req,res) =>{
+            console.log(req.body);   
+        });
+
+
 
 
 //AGRICULTURAL OFFICER Registration routes---------------------/
 router.get('/aoregister', (req, res) => {
     res.render('aoregistration')
-})
+});
+
+//IMPORTING Model - should be last section in this file.
+const Registration = require('../models/Reg')
 
 router.post('/aoregister', async(req, res) => {
   console.log(req.body);
@@ -26,12 +65,6 @@ router.post('/aoregister', async(req, res) => {
       console.log(error)
   } 
 });
-
-//Agric Officer Dashboard route
-router.get("/aodashboard", (req, res) => {
-	res.render("aodashboard"); //u will need an aodashboard pug file to render.
-});
-
 // // Farmer One list
 // router.get("/folist", (req, res) => {
 // 	res.render("AO/AO-fo-accounts");

@@ -1,0 +1,23 @@
+extends layout
+block content
+    header.card-header
+        //- script(src="js/validations.js")
+        h4.card-title Login
+    //- form(id="regForm" name="register" method="POST" action='/register' onsubmit="return Validate();"  enctype="multipart/form-data")
+    form(action='/login2' id="loginForm" name="login2" method="POST")
+        div.form-row
+            div.col.form-group
+                label Unique Number
+                input.form-control(name="uniqueid" id="uniqueid")
+        div.form-row
+            div.col.form-group
+                label Password
+                input.form-control(type="password" name="password" id="password")
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block( id="submit") Login
+        div.form-row
+            div.col.form-group
+                a(class='button', href='/register') Register
+block footer
+    div.col-md-12 © 2022 Refactory Cohort 12.

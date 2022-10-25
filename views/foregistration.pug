@@ -15,63 +15,63 @@ head
         .fields
           .input-field
             label Unique ID.
-            input(type='text' name='uniqueid' placeholder='Unique ID' required='')
+            input(type='text' name='uniqueid' placeholder='Unique ID')
           .input-field
             label Role
-            select(type='text' name='role' required='')
-              option(disabled='' selected='') Select role
-              option(value='farmerOne') Farmer One
+            select(type='text' name='role')
+              option(value='') Select role
+              option(value='farmerone') Farmer One
           .input-field
-            label Full Name
-            input(type='text' name='fullname' placeholder='Enter your name' required='')
+            label First and Last Name
+            input(type='text' name='fullname' placeholder='Enter full name')
           .input-field
             label NIN
-            input(type='text' name='nin' placeholder='Enter NIN' required='')
+            input(type='text' name='nin' placeholder='Enter NIN')
           .input-field
             label Date of Registration
-            input(type='date' name='doreg' placeholder='Date of registraion' required='')
+            input(type='date' name='doreg' placeholder='Date of registraion')
           .input-field
             label Date of Birth
-            input(type='date' name='dob' placeholder='Date of birth' required='')
+            input(type='date' name='dob' placeholder='Date of birth')
           .input-field
             label Gender
-            select(type='text' name='gender' required='')
-              option(disabled='' selected='') Select gender
+            select(type='text' name='gender')
+              option(value='') Select gender
               option Male
               option Female
           .input-field
             label Home Address
-            input(type='text' name='address' placeholder='Home directions' required='')
+            input(type='text' name='address' placeholder='Home directions')
           .input-field
             label Phone Number
-            input(type='text' name='phone' placeholder='Phone number' required='')
+            input(type='text' name='phone' placeholder='Phone number')
       .details.ID
         .fields
           .input-field
             label Activity
-            select(type='text' name='activity' required='')
-              option(disabled='' selected='') Farming activity
+            select(type='text' name='activity')
+              option(value='') Farming activity
               option Horticulture
               option Poultry
               option Dairy
           .input-field
             label Ward
-            select(type='text' name='ward' required='')
-              option(disabled='' selected='') Select ward
+            select(type='text' name='ward')
+              option(value='') Select ward
               option Masajja A
               option Masajja B
               option Masajja C
               option Masajja D
           .input-field
             label Residence Type
-            select(type='text' name='residencetype' required='')
-              option(disabled='' selected='') Residence type
+            select(type='text' name='residencetype')
+              option(value='') Residence type
               option Permanent
               option Temporary
           .input-field
             label Years at Residence
-            select(type='number' name='duration' required='')
-              option(disabled='' selected='') Years at residence
+            select(type='number' name='duration')
+              option(value='') Years at residence
               option 10
               option 11
               option 12
@@ -84,9 +84,9 @@ head
               option 19
           .input-field
             label User Name
-            input(type='text' name='username' placeholder='Enter user name' required='')
+            input(type='text' name='username' placeholder='Enter user name')
           .input-field
             label.details Password
-            input#password(type='password' name='password' placeholder='Password' required='')
+            input#password(type='password' name='password' placeholder='Password')
         .button
           input#btnSubmit(type='submit' value='Register')

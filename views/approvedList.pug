@@ -5,7 +5,7 @@ block content
     br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
-        //- a#nav-profile-tab.nav-item.nav-link(href='/producelist') A
+        a#nav-profile-tab.nav-item.nav-link(href='/producelist') A
     #nav-tabContent.tab-content
     br
     table.table.table-bordered 
@@ -20,30 +20,27 @@ block content
                 th Mode of Delivery
                 th Image 
                 th Update
-                th Change Status
+                th Availability 
                 th Delete
         tbody
-            if products.length
-                each product in products
-                    if product.status=='Pending'
+            if farmproducts.length
+                each item in farmproducts
+                    if item.status=='Approved'
                         tr
-                            td #{product.productname}
-                            td #{product.quantity}
-                            td #{product.unitprice}
-                            td #{product.totalamount}
-                            td #{product.producttype}
-                            td #{product.modeofpayment}
-                            td #{product.modeofdelivery}
+                            td #{item.productname}
+                            td #{item.quantity}
+                            td #{item.unitprice}
+                            td #{item.totalamount}
+                            td #{item.producttype}
+                            td #{item.modeofpayment}
+                            td #{item.modeofdelivery}
                             td 
                                 img(src="/"+product.uploadimage, alt="Image" width='150px' height="150px")
                             td
-                                a.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update
-                            td
-                                a.btn.btn-secondary.btn-block(href='/produce/update/'+product._id) Approve
+                                a.btn.btn-secondary.btn-block(href='/produce/update/'+item._id) Availability
                             td
                                 form(method="post" action='/farmerOne/delete')
                                     input(type="hidden" placeholder="" name="id", value=product._id)
-                                    button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row
         div.col.form-group
             a(class='button' href='/agricOfficerDash') Back
