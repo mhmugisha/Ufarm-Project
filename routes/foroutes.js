@@ -15,11 +15,6 @@ router.get("/folist", async (req, res) => {
   }
 });
 
-
-
-//Farmerone dashboard route
-
-
 // Approving produce routes
 router.get('/produce/approve/:id', async (req, res) =>{
 	try {

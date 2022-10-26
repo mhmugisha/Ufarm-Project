@@ -25,15 +25,15 @@ const produceSchema = new mongoose.Schema({
         trim: true
     },
     quantity: {
-        type: String,
+        type: Number,
         trim: true
     },
     unitprice:{
-        type: String,
+        type: Number,
         trim: true
     },
     totalamount:{
-        type: String,
+        type: Number,
         trim: true
     },
     producttype:{

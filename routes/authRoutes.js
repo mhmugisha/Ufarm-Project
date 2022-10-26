@@ -3,28 +3,26 @@ const router = express.Router();
 const passport = require('passport');
 
 
+
 //LOG IN ROUTES--------------------------------------------------/
-router.get('/login2', (req, res) => {
-    res.render('login2')
+router.get('/login', (req, res) => {
+    res.render('login')
 })
 
-//Log in route
-
-//confirm the roles in db and the routes
-router.post('/login2', passport.authenticate('local', {failureRedirect: '/login2'}), (req,res)=>{
+router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
     req.session.user = req.user
-    console.log("This is the user",   req.session.user);
-    if(req.user.role == 'agricofficer'){
-        res.redirect('/aodashboard')
-    }else if(req.user.role == 'farmerone'){
-        res.redirect('/fodashboard') 
-    }else if(req.user.role == 'urbanfarmer'){
-        res.redirect('/ufdashboard')
-    } else{
-        res.send('You are not a registered user')
-    }
+    const user = req.session.user
+    console.log("This is the user", user);
+        if(user.role == 'agricofficer'){
+            res.redirect('/aodashboardroute')
+        }else if(user.role == 'farmerone'){
+            res.redirect('/fodashboardroute') 
+        }else if(user.role == 'urbanfarmer'){
+            res.redirect('/ufdashboardroute')
+        } else{
+            res.send('You are not a registered user')
+        }   
 });
-
 
 //Log out route
 router.post('/logout', (req,res)=>{

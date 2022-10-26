@@ -13,14 +13,14 @@ head
     .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Product Upload
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Inventory
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/addproduceroute') Product Upload
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='//produce/update/') Product Update
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Produce List
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Reports
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
-        i#menu-toggle.fas.fa-align-left.primary-text.fs-4.me-3
-        h2.fs-2.m-0.text-white Dashboard
+        h2.fs-2.m-0.text-white Urban Farmer Dashboard
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
@@ -30,10 +30,6 @@ head
               i.fas.fa-user.me-2.text-white-50
               span.text-white Urban Farmer
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
-              li
-                a.dropdown-item(href='#') Profile
-              li
-                a.dropdown-item(href='#') Settings
               li
                 a.dropdown-item(href='#') Logout
     .container-fluid.px-4

@@ -18,6 +18,7 @@ block content
                 th Product Type
                 th Mode of Payment
                 th Mode of Delivery
+                th Status
                 th Image 
                 th Update
                 th Change Status
@@ -25,28 +26,30 @@ block content
         tbody
             if products.length
                 each product in products
-                    if product.status=='Pending'
+                    if product.status == 'Pending'
                         tr
                             td #{product.productname}
                             td #{product.quantity}
                             td #{product.unitprice}
                             td #{product.totalamount}
                             td #{product.producttype}
-                            td #{product.modeofpayment}
-                            td #{product.modeofdelivery}
+                            td #{product.modeofpay}
+                            td #{product.deliverymode}
+                            td #{product.status}
                             td 
                                 img(src="/"+product.uploadimage, alt="Image" width='150px' height="150px")
+                            //- td #{moment(us)}
                             td
                                 a.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update
                             td
-                                a.btn.btn-secondary.btn-block(href='/produce/update/'+product._id) Approve
+                                a.btn.btn-secondary.btn-block(href='/produce/approve/'+product._id) Approve
                             td
-                                form(method="post" action='/farmerOne/delete')
+                                form(method="post" action='/farmerone/delete')
                                     input(type="hidden" placeholder="" name="id", value=product._id)
                                     button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row
         div.col.form-group
-            a(class='button' href='/agricOfficerDash') Back
+            a(class='button' href='/addproduceroute') Back
 
 block footer
     div.col-md-12 

@@ -6,33 +6,7 @@ head
     //- link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
     //- link(rel='stylesheet' href='css/style.css')
     title Produce Update
-nav.navbar.navbar-expand-lg.bg-light.pb-4
-    .container-fluid
-        a.navbar-brand(href='#' style='font-weight: bolder; font-size: 25px;') Ufarm
-        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-        #navbarSupportedContent.collapse.navbar-collapse
-            ul.navbar-nav.me-auto.mb-2.mb-lg-0
-                li.nav-item
-                    a.nav-link.active(aria-current='page' href='#') Home
-                li.nav-item
-                    a.nav-link(href='#') Link
-                li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-                        | Dropdown
-                    ul.dropdown-menu
-                        li
-                            a.dropdown-item(href='#') Action
-                        li
-                            a.dropdown-item(href='#') Another action
-                        li
-                            hr.dropdown-divider
-                        li
-                            a.dropdown-item(href='#') Something else here
-                li.nav-item
-                    a.nav-link.disabled Disabled
-            form.d-flex.mt-2(role='')
-                a.btn.btn-style(href='#') Back
+
 .container-fluid.form-style
     form#signup.form(action='/produce/update?id='+product._id name='pdtupdate' method='POST')
         h3 Update Produce 
@@ -69,8 +43,8 @@ nav.navbar.navbar-expand-lg.bg-light.pb-4
                 .form-field
                     label Product Type:
                     select(name='producttype')
-                        option(value="organic" selected = product.productname === 'organic') Organic
-                        option(value="nonorganic" selected = product.productname === 'nonorganic') Non Organic
+                        option(value="organic" selected = product.producttype === 'organic') Organic
+                        option(value="nonorganic" selected = product.producttype === 'nonorganic') Non Organic
             .col
                 .form-field
                     label Mode of Payment:

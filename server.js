@@ -45,7 +45,6 @@ db.on('error', function(err){
 //CONFIGURATIONS ------------------------/
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
-//app.set('views', './views'); 
 
 //MIDDLEWARE  --------------------------/
 app.use(express.urlencoded({ extended: false }));
@@ -58,7 +57,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(Registration.createStrategy());
 passport.serializeUser(Registration.serializeUser());
-passport.deserializeUser(Registration.deserializeUser)
+passport.deserializeUser(Registration.deserializeUser())
 
 
 //ROUTES---------------------------------/

@@ -14,30 +14,21 @@ const connectEnsureLogin = require('connect-ensure-login')
 //     }
 // });
 
-//AO Dashboard route-----------
+//AO Dashboard route------------------
 router.get('/aodashboardroute', (req,res) =>{
     res.render('aodashboard');
-    })
-    router.post('/aodashboardroute',async(req,res) =>{
-        console.log(req.body);
-       
-    });
+})
 
-//Farmer One Dashboar route-----------
-    router.get('/fodashboardroute', (req,res) =>{
+//Farmer One Dashboard route-----------
+router.get('/fodashboardroute', (req,res) =>{
         res.render('fodashboard');
-        })
-        router.post('/fodashboardroute',async(req,res) =>{
-            console.log(req.body);
+})
 
-//Urban Farmer dashboard route----------           
-        });
-    router.get('/ufdashboardroute', (req,res) =>{
-        res.render('ufdashboard');
-        })
-        router.post('/ufdashboardroute',async(req,res) =>{
-            console.log(req.body);   
-        });
+//Urban Farmer dashboard route----------
+router.get('/ufdashboardroute', (req,res) =>{
+    res.render('ufdashboard');
+})
+
 
 
 
