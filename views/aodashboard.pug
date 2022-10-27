@@ -13,7 +13,7 @@ head
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister') FO Registration
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/fodashboardroute') FO Dashboard
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/fosdashboard') FO Dashboard
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufdashboardroute') UF Dashboard
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Reports
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Stock
@@ -29,14 +29,10 @@ head
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
               i.fas.fa-user.me-2.text-white-50
-              span.text-white AO
+              span.text-white AO-Destiny
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
               li
-                a.dropdown-item(href='#') Profile
-              li
-                a.dropdown-item(href='#') Settings
-              li
-                a.dropdown-item(href='#') Logout
+                a.dropdown-item(href='/login') Logout
     .container-fluid.px-4
       .row.g-3.my-2
         .col-md-3

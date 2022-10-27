@@ -13,16 +13,78 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
     req.session.user = req.user
     const user = req.session.user
     console.log("This is the user", user);
-        if(user.role == 'agricofficer'){
-            res.redirect('/aodashboardroute')
-        }else if(user.role == 'farmerone'){
-            res.redirect('/fodashboardroute') 
+        if(user.role ==''){
+            res.send('Enter log in details!')
+        }else if(user.role == 'agricofficer'){
+            res.render('aodashboard')
+        }else if(user.role == 'farmerone'&& user.uniqueid=='FO1A'){
+            res.redirect('/masajjaAfodashboard')
+        }else if(user.role == 'farmerone'&& user.uniqueid=='FO2B'){
+            res.redirect('/masajjaBfodashboard')    
+        }else if(user.role ==  'farmerone' && user.uniqueid=='FO3C'){
+            res.redirect('/masajjaCfodashboard')    
+        }else if(user.role == 'farmerone' && user.uniqueid =='FO4D'){
+            res.redirect('/masajjaDfodashboard')    
         }else if(user.role == 'urbanfarmer'){
             res.redirect('/ufdashboardroute')
         } else{
             res.send('You are not a registered user')
         }   
 });
+
+//AO Dashboard route------------------
+router.get('/aodashboardroute', (req,res) =>{
+    res.render('aodashboard');
+})
+
+//Farmer One Dashboard route-----------
+router.get('/fodashboardroute', (req,res) =>{
+        res.render('fodashboard');
+})
+
+//Urban Farmer dashboard route----------
+router.get('/ufdashboardroute', (req,res) =>{
+    res.render('ufdashboard');
+})
+
+//Masajja A FO dashboard route----------
+router.get('/masajjaAfodashboard', (req,res) =>{
+    res.render('masajjaAfodashboard');
+})
+
+//Masajja B FO dashboard route----------
+router.get('/masajjaBfodashboard', (req,res) =>{
+    res.render('masajjaBfodashboard');
+})
+//Masajja C FO dashboard route----------
+router.get('/masajjaCfodashboard', (req,res) =>{
+    res.render('masajjaCfodashboard');
+})
+
+//Masajja D FO dashboard route----------
+router.get('/masajjaDfodashboard', (req,res) =>{
+    res.render('masajjaDfodashboard');
+})
+
+//--------
+// router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
+//     req.session.user = req.user
+//     const user = req.session.user
+//     console.log("This is the user", user);
+//         if(user.role == 'agricofficer'){
+//             res.redirect('/aodashboardroute')
+//         }else if(user.role == 'farmerone'){
+//             res.redirect('/fodashboardroute') 
+//         }else if(user.role == 'urbanfarmer'){
+//             res.redirect('/ufdashboardroute')
+//         } else{
+//             res.send('You are not a registered user')
+//         }   
+// });
+
+
+//-----
+
 
 //Log out route
 router.post('/logout', (req,res)=>{

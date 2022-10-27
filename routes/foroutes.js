@@ -40,6 +40,10 @@ router.get('/foregister', (req, res) => {
   res.render('foregistration')
 })
 
+router.get('/fosdashboard', (req, res) => {
+  res.render('fosdashboard')
+})
+
 //IMPORTING Model
 const Registration = require('../models/Reg')
 

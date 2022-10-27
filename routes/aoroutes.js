@@ -14,28 +14,11 @@ const connectEnsureLogin = require('connect-ensure-login')
 //     }
 // });
 
-//AO Dashboard route------------------
-router.get('/aodashboardroute', (req,res) =>{
-    res.render('aodashboard');
-})
-
-//Farmer One Dashboard route-----------
-router.get('/fodashboardroute', (req,res) =>{
-        res.render('fodashboard');
-})
-
-//Urban Farmer dashboard route----------
-router.get('/ufdashboardroute', (req,res) =>{
-    res.render('ufdashboard');
-})
-
-
-
 
 
 //AGRICULTURAL OFFICER Registration routes---------------------/
 router.get('/aoregister', (req, res) => {
-    res.render('aoregistration')
+    res.render('aoregistration2')
 });
 
 //IMPORTING Model - should be last section in this file.
@@ -49,7 +32,7 @@ router.post('/aoregister', async(req, res) => {
           if(error){
               throw error
           }
-          res.redirect('/aoregister')
+          res.redirect('/aoregister2')
       })
   }catch(error){
       res.status(400).send('Sorry something went wrong');
