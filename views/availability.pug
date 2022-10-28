@@ -6,73 +6,20 @@ head
     link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
     link(rel='stylesheet' href='css/style.css')
     title Produce Update
-nav.navbar.navbar-expand-lg.bg-light.pb-4
-    .container-fluid
-        a.navbar-brand(href='#' style='font-weight: bolder; font-size: 25px;') Ufarm
-        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-        #navbarSupportedContent.collapse.navbar-collapse
-            ul.navbar-nav.me-auto.mb-2.mb-lg-0
-                li.nav-item
-                    a.nav-link.active(aria-current='page' href='#') Home
-                li.nav-item
-                    a.nav-link(href='#') Link
-                li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-                        | Dropdown
-                    ul.dropdown-menu
-                        li
-                            a.dropdown-item(href='#') Action
-                        li
-                            a.dropdown-item(href='#') Another action
-                        li
-                            hr.dropdown-divider
-                        li
-                            a.dropdown-item(href='#') Something else here
-                li.nav-item
-                    a.nav-link.disabled Disabled
-            form.d-flex.mt-2(role='search')
-                a.btn.btn-style(href='home-page.html') Back
 .container-fluid.form-style
-    form#signup.form(action='/produce/update?id='+item._id name='registration' method='POST')
+    form#signup.form(action='/produce/available/?id='+item._id name='registration' method='POST')
         h3 Update Produce 
         hr
         .row
             .col
                 .form-field
-                    label(for='availability') Produce Name:
-                    select(name='')
-                        option(value="available" selected = item.availability === 'Beans') Available
-                        option(value="booked" selected = item.availability === 'Maize') Booked
-                        option(value="booked" selected = item.availability === 'Tomatoes') Booked
-                        option(value="N/A" selected = item.availability === 'Cabbage') N
-                        A 
-        .row
-            .col
+                    label(for='availability') Product Availability: 
+                    select(name='availability')
+                        option(value="available" selected = item.availability === 'available') Available 
+                        option(value="booked" selected = item.availability === 'booked') Booked
+                        option(value="N/A" selected = item.availability === 'N/A') N/A 
+                        //- option(value="Pending" ) Pending
+                        //- option(value="Approved") Approved 
                 .form-field
-                    label(for='')
-                        | Quantity:
-                        small  *
-                    input#quantity(type='number' name='quantity' autocomplete='off' value=product.quantity)
-            .col
-                .form-field
-                    label(for='')
-                        | Unit Price:
-                        small  *
-                    input#unitprice(type='number' name='unitprice' autocomplete='off' value=product.unitprice)
-            .col
-                .form-field
-                    label(for='')
-                        | Total Amount:
-                        small  *
-                    input#totalamount(type='number' name='totalamount' autocomplete='off' value=product.totalamount)
-            .col
-                .form-field
-                    label Product Type:
-                    select(name='status')
-                        option(value="Pending" selected = product.status === 'Pending') Pending
-                        option(value="Approved" selected = product.status === 'Approved') Approved
-            
-                        .form-field
-                input.btn.register-btn(type='submit' value='Update')
+                    input.btn.register-btn(type='submit' value='Update')
 script(src='bootstrap-js/js/bootstrap.bundle.js')

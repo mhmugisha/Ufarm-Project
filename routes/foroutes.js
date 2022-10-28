@@ -15,25 +15,6 @@ router.get("/folist", async (req, res) => {
   }
 });
 
-// Approving produce routes
-router.get('/produce/approve/:id', async (req, res) =>{
-	try {
-		const updateProduct = await Pdtupload.findOne({_id:req.params.id});
-		res.render('approve',{product:updateProduct});
-		console.log('Product approved', updateProduct);
-	} catch (error) {
-		res.status(400).send('Unable to update produce');
-	}
-});
-
-router.post("/produce/approve", async (req, res) => {
-	try {
-		await Pdtupload.findOneAndUpdate({_id:req.query.id},req.body);
-		res.redirect("/producelist");
-	} catch (error) {
-		res.status(400).send("Unable to update produce");
-	}
-});
 
 //FARMER ONE Registration---------------------/
 router.get('/foregister', (req, res) => {

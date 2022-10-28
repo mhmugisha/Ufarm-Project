@@ -44,7 +44,7 @@ block content
                             td
                                 a.btn.btn-secondary.btn-block(href='/produce/approve/'+product._id) Approve
                             td
-                                form(method="post" action='/farmerone/delete')
+                                form(method="post" action='/produce/delete')
                                     input(type="hidden" placeholder="" name="id", value=product._id)
                                     button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row

@@ -14,26 +14,6 @@ router.get("/ufdashboard", (req, res) => {
 	res.render("ufdashboard");
 });
 
-// Changing availability route
-router.get('/produce/available/:id', async (req, res) =>{
-	try {
-		const sellProduct = await Pdtupload.findOne({_id:req.params.id});
-		res.render('availability',{item:updateProduct});
-		console.log('Product approved', sellProduct);
-	} catch (error) {
-		res.status(400).send('Unable to update produce');
-	}
-});
-
-router.post("/produce/approve", async (req, res) => {
-	try {
-		await Pdtupload.findOneAndUpdate({_id:req.query.id},req.body);
-		res.redirect("/producelist");
-	} catch (error) {
-		res.status(400).send("Unable to update produce");
-	}
-});
-
 //---------------------------------------------------
 //Register/get route for Masajja A Urban Farmer
 router.get('/ufregisterA', (req, res) => {

@@ -70,16 +70,14 @@ router.get("/producelist", async (req, res) => {
 	}
 });
 
-
-
-// Updating Produce Routes-------------------------------
+// Updating Produce Routes-------------------------------------
 router.get('/produce/update/:id', async (req, res) =>{
 	try {
 		const updateProduct = await Pdtupload.findOne({_id:req.params.id});
 		res.render('updateProduce',{product:updateProduct});
 		console.log('Product updated', updateProduct)
 	} catch (error) {
-		res.status(400).send('Unable to update produce');
+		res.status(400).send('Unable to update produce!');
 	}
 });
 
@@ -88,22 +86,44 @@ router.post("/produce/update", async (req, res) => {
 		await Pdtupload.findOneAndUpdate({_id:req.query.id},req.body);
 		res.redirect("/producelist");
 	} catch (error) {
-		res.status(400).send("Unable to update produce");
+		res.status(400).send("Unable to update produce!!");
 	}
 });
 
 // Approving Produce Routes---------------------------
+
 router.get('/produce/approve/:id', async (req, res) =>{
 	try {
 		const updateProduct = await Pdtupload.findOne({_id:req.params.id});
 		res.render('approve',{product:updateProduct});
 		console.log('Product updated', updateProduct)
 	} catch (error) {
-		res.status(400).send('Unable to update produce.');
+		res.status(400).send('Unable to approve produce!!!.');
 	}
 });
 
-router.post('/produce/approve/:id', async (req,res) => {
+router.post('/produce/approve', async (req,res) => {
+	try {
+	  await Pdtupload.findOneAndUpdate({_id:req.query.id}, req.body);
+	  res.redirect('/producelist');
+	} catch (error) {
+	  res.status(400).send('Sorry product not approved.');
+	}
+  });
+//---------------------------------------------------------------
+
+//Available Products get and post routes
+router.get('/produce/available/:id', async (req, res) =>{
+	try {
+		const saleProduct = await Pdtupload.findOne({_id:req.params.id});
+		res.render('approvedList',{item:saleProduct});
+		console.log('Product approved', saleProduct)
+	} catch (error) {
+		res.status(400).send('Unable to approve produce.');
+	}
+});
+
+router.post('/produce/available', async (req,res) => {
 	try {
 	  await Pdtupload.findOneAndUpdate({_id:req.query.id}, req.body);
 	  res.redirect('/producelist');
@@ -112,7 +132,20 @@ router.post('/produce/approve/:id', async (req,res) => {
 	}
   });
 
-//------------------------
+  //--------------------------------------------------------------
+  // Returning approved product list
+  router.get("/seeapprovedlist", async (req, res) => {
+	try {
+		//const sort ={_id:-1}
+		let products = await Pdtupload.find().sort({$natural:-1});
+		res.render("availabilitylist", { products: products });
+	} catch (error) {
+		res.status(400).send("Unable to get Produce list");
+	}
+});
+//---------------------------------------------------------------
+
+
 
 //Delete product
 router.post('/produce/delete', async (req,res)=>{

@@ -1,0 +1,79 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Farmer One Dashboard
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-profile-tab.nav-item.nav-link(href='/registerUrbanFarmer') Register Urban Farmer
+        a#nav-profile-tab.nav-item.nav-link(href='/urbanFarmerslist') List of Urban Farmers
+        a#nav-contact-tab.nav-item.nav-link(href='/#')  View Bookings/Orders
+        form(method="post" action='/logout') 
+            button.btn.btn-primary.btn-block(type="submit") Log out
+    #nav-tabContent.tab-content
+    h1 List of Products
+    .container
+        .row
+            .col-md-3.mx-4
+                h4.mb-5 Poultry Report
+                    .card.card-custom.mx-2.mb-3(style='width: 18rem;')
+                        .card-body
+                            h6 Products Quantity: #{totalP.totalQuantity}
+                            h6 Revenue Projection: #{new Intl.NumberFormat().format(totalP.totalCost)} UGX
+                            p.card-text            
+            .col-md-3.mx-4
+                h4.mb-5 Dairy Report
+                    .card.card-custom.mx-2.mb-3(style='width: 18rem;')
+                        .card-body
+                            h6 Products Quantity: #{totalD.totalQuantity}
+                            h6 Revenue Projection: #{new Intl.NumberFormat().format(totalD.totalCost)} UGX
+                            p.card-text
+            
+            .col-md-3.mx-4
+                h4.mb-5 Horticulture Report
+                    .card.card-custom.mx-2.mb-3(style='width: 18rem;')
+                        .card-body
+                            h6 Products Quantity: #{totalH.totalQuantity}
+                            h6 Revenue Projection: #{new Intl.NumberFormat().format(totalH.totalCost)} UGX
+                            p.card-text
+
+        div.form-row
+            div.col.form-group.col-md-12
+                br
+                form.search(action='/reports')
+                    div.form-row
+                        div.col-md-8
+                            select.form-control(type="text" name='searchProduce')
+                                option(value="") (Select produce)
+                                option(value="Eggs") Eggs
+                                option(value="Heifer") Heifer
+                                option(value="Bull") Bull
+                                option(value="Flowers") Flowers
+                                option(value="Hens") Hens
+                                option(value="Cocks") Cocks
+                                option(value="Pepper") Pepper
+                        div.col-md-4
+                            input.btn.btn-primary.btn-block(type="submit")
+                br
+                table.table.table-bordered 
+                    thead
+                        tr
+                            th Produce Name
+                            th Quantity (Kgs)
+                            th Unit Price (UGX)
+                    tbody
+                    if products.length
+                        each product in products
+                            tr
+                                td #{product.prodname}
+                                td #{new Intl.NumberFormat().format(product.quantity)}
+                                td #{new Intl.NumberFormat().format(product.unitprice)}
+                        tr
+                            th Totals
+                            td #{new Intl.NumberFormat().format(totalC.totalQuantity)}
+                            td #{new Intl.NumberFormat().format(totalC.totalCost)} Total cost
+                            //- td #{new Intl.NumberFormat().format(total.totalCollection)}
+                    else
+                        p That produce has no revenue captured :( 
+block footer
+    div.col-md-12 © 2022 Refactory Cohort 12, NodeJS by Irene.

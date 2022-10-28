@@ -14,8 +14,6 @@ const connectEnsureLogin = require('connect-ensure-login')
 //     }
 // });
 
-
-
 //AGRICULTURAL OFFICER Registration routes---------------------/
 router.get('/aoregister', (req, res) => {
     res.render('aoregistration2')
@@ -39,23 +37,5 @@ router.post('/aoregister', async(req, res) => {
       console.log(error)
   } 
 });
-// // Farmer One list
-// router.get("/folist", (req, res) => {
-// 	res.render("AO/AO-fo-accounts");
-// });
-// // Farmer One Activities
-// router.get("/FOactivities", (req, res) => {
-// 	res.render("AO/AO-fo-activities");
-// });
-// // Ward Routes
-// router.get("/addward", (req, res) => {
-// 	res.render("AO/ward");
-// });
-// // Testing layout Page
-// router.get("/layout", (req, res) => {
-// 	res.render("AO/layout");
-// });
-
-
 
 module.exports = router;
