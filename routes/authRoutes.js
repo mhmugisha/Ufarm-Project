@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 
 
-
 //LOG IN ROUTES--------------------------------------------------/
 router.get('/login', (req, res) => {
     res.render('login')
@@ -66,7 +65,7 @@ router.get('/masajjaDfodashboard', (req,res) =>{
     res.render('masajjaDfodashboard');
 })
 
-//--------
+//This is Irene's code after we introduced user with Albert--------
 // router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
 //     req.session.user = req.user
 //     const user = req.session.user

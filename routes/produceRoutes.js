@@ -90,8 +90,7 @@ router.post("/produce/update", async (req, res) => {
 	}
 });
 
-// Approving Produce Routes---------------------------
-
+// Approving Produce Routes---------------------------------------
 router.get('/produce/approve/:id', async (req, res) =>{
 	try {
 		const updateProduct = await Pdtupload.findOne({_id:req.params.id});
@@ -112,11 +111,11 @@ router.post('/produce/approve', async (req,res) => {
   });
 //---------------------------------------------------------------
 
-//Available Products get and post routes
+//Changing availability status - available, booked, N/A.
 router.get('/produce/available/:id', async (req, res) =>{
 	try {
 		const saleProduct = await Pdtupload.findOne({_id:req.params.id});
-		res.render('approvedList',{item:saleProduct});
+		res.render('availability',{item:saleProduct});
 		console.log('Product approved', saleProduct)
 	} catch (error) {
 		res.status(400).send('Unable to approve produce.');

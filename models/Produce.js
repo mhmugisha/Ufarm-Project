@@ -20,6 +20,10 @@ const produceSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    productcategory:{
+        type: String,
+        trim: true
+    },
     productname:{
         type: String,
         trim: true
