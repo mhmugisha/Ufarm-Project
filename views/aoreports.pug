@@ -15,7 +15,7 @@ head
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister') FO Registration
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/fosdashboard') FO Dashboard
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufdashboardroute') UF Dashboard
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/aoreports') Reports
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/reports') Reports
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Stock
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Products
   #page-content-wrapper
@@ -38,23 +38,27 @@ head
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 Total Hort: 
-              p.fs-5 Total revenue: 
+              h3.fs-3 Horticulture Sales:
+              h3.fs-2 #{new Intl.NumberFormat().format(totalH.totalCost)} UGX
+              p.fs-5 Total Products: #{new Intl.NumberFormat().format(totalH.totalQuantity)}.
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 2,050,000
-              p.fs-5 Sales this month
+              h3.fs-3 Dairy Sales:
+              h3.fs-2 #{new Intl.NumberFormat().format(totalD.totalCost)} UGX
+              p.fs-5 Total Products: #{new Intl.NumberFormat().format(totalD.totalQuantity)}.
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 36
-              p.fs-5 Registrations
+              h3.fs-3 Poultry Sales:
+              h3.fs-2 #{new Intl.NumberFormat().format(totalP.totalCost)} UGX
+              p.fs-5 Total Products: #{new Intl.NumberFormat().format(totalP.totalQuantity)}.
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 10%
-              p.fs-5 Increase
+              h3.fs-3 Gross Projected Sales:
+              h3.fs-2 #{new Intl.NumberFormat().format(totalP.totalCost + totalD.totalCost + totalH.totalCost)} UGX
+              p.fs-5 Total Items: #{new Intl.NumberFormat().format(totalH.totalQuantity + totalD.totalQuantity + totalP.totalQuantity)}.
       .row.my-5
         .col
           h3.fs-4.mb-3.text-white Recent Uploads

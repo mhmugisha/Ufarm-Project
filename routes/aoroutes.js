@@ -18,7 +18,7 @@ const connectEnsureLogin = require('connect-ensure-login')
 const Pdtupload = require('../models/Produce')
 
 //AO Aggregating routes--------------------------------
-router.get("/reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
+router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
     req.session.user = req.user;
     if(req.user.role == 'agricofficer'){
         try {
@@ -30,7 +30,6 @@ router.get("/reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
             // totalCost: { $sum: "totalamount" },
             }}
             ])
-
             let totalHort = await Pdtupload.aggregate([
                 { $match: { productcategory: "horticulture" } },
                 { $group: { _id: "$all", 
@@ -52,7 +51,7 @@ router.get("/reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
             console.log("Hort collections", totalHort)
             console.log("Dairy collections", totalDairy)
 
-            res.render("reports", { 
+            res.render("aoreports", { 
             title: 'Reports', 
             totalP:totalPoultry[0],
             totalH:totalHort[0],

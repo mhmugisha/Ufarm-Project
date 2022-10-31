@@ -161,7 +161,6 @@ form .button input{
     border-radius: 5px;
     letter-spacing: 1px;
     background: #0d5032;
-
 }
 
 form .button input:hover {
@@ -197,3 +196,4 @@ form .buttons button , .backBtn{
         width: 100%;
     }
 }
+
