@@ -3,12 +3,12 @@ const router = express.Router();
 const multer = require('multer');
 const connectEnsureLogin = require('connect-ensure-login');
 
-// Importing Model
+// Importing Model--------------------------------------------
 const Pdtupload = require("../models/Produce");
 const Registration = require('../models/Reg');
 
 
-// image upload
+// Image upload-------------------------------------------------
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, "public/uploads");
@@ -18,32 +18,19 @@ var storage = multer.diskStorage({
 	},
 });
 
-// instantiate variable upload to store multer functionality to upload image
+// Variable to store multer functionality to upload image-----------
 var upload = multer({ storage: storage });
 
-//Add Produce route
-// router.get("/addproduce", async (req, res) => {
-// 	const urbanFarmerList = await Registration.find({ role: "urbanfarmer" });
-// 	console.log(urbanFarmerList);
-// 	res.render("addproduce", { urbanfarmers: urbanFarmerList });
-// });
 
-//Add Produce route shared by Irene in classroom.
-router.get('/addproduceroute', async (req, res) => {
-	let userList = await Registration.find({role:'urbanfarmer'});
-	res.render('addproduce', { users: userList })
+//Add Produce route shared by Irene in classroom-----------------------
+router.get('/addproduceroute', connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	try {
+		res.render('addproduce', { currentUser:req.session.user })	
+	} catch (error) {
+		res.status(400).send('Unable to upload produce')
+	}
   })
-
-
-// router.get("/addproduceroute", (req, res) => {
-// 	console.log("This is the Current User ", req.session.user);
-// 	res.render("addproduce", { currentUser: req.session.user });
-// 	});
-// //	
-// router.get("/addproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-// 	console.log("This is the Current User ", req.session.user);
-// 	res.render("produce", { currentUser: req.session });
-// });
 
 router.post("/addproduceroute", upload.single("uploadimage"), async (req, res) => {
 	console.log(req.body);
@@ -59,12 +46,12 @@ router.post("/addproduceroute", upload.single("uploadimage"), async (req, res) =
 	}
 });
 
-//Getting/Displaying produce list-------
-router.get("/producelist", async (req, res) => {
+//Getting/Displaying produce list----------------------------
+router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
 	try {
-		//const sort ={_id:-1}
 		let products = await Pdtupload.find().sort({$natural:-1});
-		res.render("producelist", { products: products });
+		res.render("producelist", { products: products, currentUser:req.session.user });
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}
@@ -104,14 +91,13 @@ router.get('/produce/approve/:id', async (req, res) =>{
 router.post('/produce/approve', async (req,res) => {
 	try {
 	  await Pdtupload.findOneAndUpdate({_id:req.query.id}, req.body);
-	  res.redirect('/producelist');
+	  res.redirect('/seeapprovedlist');
 	} catch (error) {
 	  res.status(400).send('Sorry product not approved.');
 	}
   });
-//---------------------------------------------------------------
 
-//Changing availability status - available, booked, N/A.
+//Changing availability status - available, booked, N/A.-----------
 router.get('/produce/available/:id', async (req, res) =>{
 	try {
 		const saleProduct = await Pdtupload.findOne({_id:req.params.id});
@@ -133,20 +119,29 @@ router.post('/produce/available', async (req,res) => {
 
   //--------------------------------------------------------------
   // Returning approved product list
-  router.get("/seeapprovedlist", async (req, res) => {
+  router.get("/seeapprovedlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user
 	try {
-		//const sort ={_id:-1}
 		let products = await Pdtupload.find().sort({$natural:-1});
-		res.render("availabilitylist", { products: products });
+		res.render("availabilitylist", { products: products, currentUser:req.session.user});
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}
 });
-//---------------------------------------------------------------
+
+// Returning pending product list---------------------------------
+router.get("/pendinglist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	try {
+		let products = await Pdtupload.find().sort({$natural:-1});
+		res.render("pendinglist", { products: products, currentUser:req.session.user });
+	} catch (error) {
+		res.status(400).send("Unable to get Produce list");
+	}
+});
 
 
-
-//Delete product
+//Delete product--------------------------------------------------
 router.post('/produce/delete', async (req,res)=>{
 	try{
 		await Pdtupload.deleteOne({_id:req.body.id});
@@ -156,10 +151,9 @@ router.post('/produce/delete', async (req,res)=>{
 	}
 })
 
-//Returns approved list
+//Returns approved list--------------------------------------------
 router.get("/approvedList", async (req, res) => {
 	try {
-		//const sort ={_id:-1}
 		let product = await Pdtupload.find().sort({$natural:-1});
 		res.render("approvedList", { farmproducts: product });
 	} catch (error) {

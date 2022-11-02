@@ -20,26 +20,25 @@ block content
                 th Mode of Delivery
                 th Image 
                 th Change Availability 
-                th Delete
         tbody
             if products.length
-                each item in products
-                    if item.status=='Approved'
+                each product in products
+                    if product.status=='Approved' && product.ward === currentUser.ward
                         tr
-                            td #{item.productname}
-                            td #{item.quantity}
-                            td #{item.unitprice}
-                            td #{item.totalamount}
-                            td #{item.producttype}
-                            td #{item.modeofpay}
-                            td #{item.modeofdelivery}
+                            td #{product.productname}
+                            td #{product.quantity}
+                            td #{product.unitprice}
+                            td #{product.totalamount}
+                            td #{product.producttype}
+                            td #{product.modeofpay}
+                            td #{product.modeofdelivery}
                             td 
-                                img(src="/"+item.uploadimage, alt="Image" width='150px' height="150px")
+                                img(src="/"+product.uploadimage, alt="Image" width='150px' height="150px")
                             td
-                                a.btn.btn-secondary.btn-block(href='/produce/available/'+item._id) Available
-                            td
-                                form(method="post" action='/produce/delete')
-                                    input(type="hidden" placeholder="" name="id", value=item._id)
+                                a.btn.btn-secondary.btn-block(href='/produce/available/'+product._id) Available
+                            //- td
+                            //-     form(method="post" action='/produce/delete')
+                            //-         input(type="hidden" placeholder="" name="id", value=item._id)
     div.form-row
         div.col.form-group
             a(class='button' href='/agricOfficerDash') Back

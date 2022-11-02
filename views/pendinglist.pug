@@ -18,15 +18,12 @@ block content
                 th Product Type
                 th Mode of Payment
                 th Mode of Delivery
-                th Status
                 th Image 
-                th Update
-                th Change Status
-                th Delete
+                th Approve 
         tbody
             if products.length
                 each product in products
-                    if product.status == 'Pending'
+                    if product.status = 'Pending' && product.ward === currentUser.ward
                         tr
                             td #{product.productname}
                             td #{product.quantity}
@@ -35,18 +32,18 @@ block content
                             td #{product.producttype}
                             td #{product.modeofpay}
                             td #{product.deliverymode}
-                            td #{product.status}
+                            //- td #{product.status}
                             td 
                                 img(src="/"+product.uploadimage, alt="Image" width='150px' height="150px")
                             //- td #{moment(us)}
                             td
-                                a.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update
-                            td
-                                a.btn.btn-secondary.btn-block(href='/produce/approve/'+product._id) Approve
-                            td
-                                form(method="post" action='/produce/delete')
-                                    input(type="hidden" placeholder="" name="id", value=product._id)
-                                    button.btn.btn-danger.btn-block(type="submit") Delete
+                                a.btn.btn-primary.btn-block(href='/produce/approve/'+product._id) Approve
+                            //- td
+                            //-     a.btn.btn-secondary.btn-block(href='/produce/approve/'+product._id) Approve
+                            //- td
+                            //-     form(method="post" action='/produce/delete')
+                            //-         input(type="hidden" placeholder="" name="id", value=product._id)
+                            //-         button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row
         div.col.form-group
             a(class='button' href='/addproduceroute') Back

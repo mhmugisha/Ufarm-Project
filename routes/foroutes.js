@@ -1,10 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-//FARMER ONE REGISTRATION ROUTES-------------------------------------------------/
-
-
-//Route to display Farmerone list
+//Route to display Farmerone list------------------
 router.get("/folist", async (req, res) => {
   try {
       let farmerOnes = await Registration.find({ role: "Farmer One" });
@@ -15,8 +12,7 @@ router.get("/folist", async (req, res) => {
   }
 });
 
-
-//FARMER ONE Registration---------------------/
+//FARMER ONE Registration-------------------------
 router.get('/foregister', (req, res) => {
   res.render('foregistration')
 })

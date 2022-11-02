@@ -16,26 +16,24 @@ head
           .input-field
             label Unique ID
             select(type='text' name='uniqueid')
-              each user in users 
-                option(value=user._id) #{user.uniqueid}
-              //- if currentUser
-              //-   option(value=currentUser._id) #{currentUser.uniqueid}
+              if currentUser
+                option(value=currentUser.uniqueid) #{currentUser.uniqueid}
           .input-field
             label Supplier Name
-            select(type='text' name='suppliername')
-              each user in users 
-                option(value=user._id) #{user.fullname}
-              //- if currentUser
-                option(value=currentUser._id) #{currentUser.fullname}
+            select(type='text' name='fullname')
+              if currentUser
+                option(value=currentUser.fullname) #{currentUser.fullname}
           .input-field
             label Date of Upload
             input(type='date' name='doreg' placeholder='Date of registraion')
           .input-field
             label Home Address
-            input(type='text' name='address' placeholder='Home directions')
+            select(type='text' name='address')
+              if currentUser
+                option(value=currentUser.address) #{currentUser.address}
           .input-field
             label(for='productcategory') Product Category :
-                    select(name='productcategory')
+                    select(name='productcategory' placeholder="Product Category")
                         option(value="poultry") Poultry  
                         option(value="horticulture") Horticulture  
                         option(value="dairy") Dairy  
@@ -82,10 +80,8 @@ head
           .input-field
             label Ward 
             select(type='text' name='ward')
-              each user in users
-                option(value=user._id) #{user.ward}  
-              //- if currentUser
-                option(value=currentUser._id) #{currentUser.ward}  
+              if currentUser
+                option(value=currentUser.ward) #{currentUser.ward}  
           .input-field 
             label Produce Image:
             input#image(type='file' name='uploadimage' autocomplete='off')        

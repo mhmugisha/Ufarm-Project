@@ -4,17 +4,12 @@ const multer = require('multer');
 const connectEnsureLogin = require('connect-ensure-login');
 
 
-//URBAN FARMER ROUTES routes--------------/
-
-
-
-
-//Dashboard route
+//Dashboard route-------------------------------------
 router.get("/ufdashboard", (req, res) => {
 	res.render("ufdashboard");
 });
 
-//---------------------------------------------------
+//-----------------------------------------------------
 //Register/get route for Masajja A Urban Farmer
 router.get('/ufregisterA', (req, res) => {
     res.render('ufregistrationA')

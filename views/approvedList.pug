@@ -19,13 +19,12 @@ block content
                 th Mode of Payment
                 th Mode of Delivery
                 th Image 
-                th Update
+                th Approve
                 th Change Availability 
-                th Delete
         tbody
             if products.length
                 each item in products 
-                    if item.status=='Approved'
+                    if item.status=='Approved' && product.ward === currentUser.Ward
                         tr
                             td #{item.productname}
                             td #{item.quantity}
@@ -37,7 +36,7 @@ block content
                             td 
                                 img(src="/" +item.uploadimage, alt="Image" width='150px' height="150px")
                             td
-                                a.btn.btn-secondary.btn-block(href='/produce/update/'+item._id) Update
+                                a.btn.btn-secondary.btn-block(href='/produce/update/'+item._id) Approve
                             td
                                 a.btn.btn-secondary.btn-block(href='/produce/available/'+item._id) Availability
                             td

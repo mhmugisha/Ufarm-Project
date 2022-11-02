@@ -5,12 +5,10 @@ const mongoose = require('mongoose');
 const produceSchema = new mongoose.Schema({
 
     uniqueid:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'Registration'
+       type: String
     },
-    suppliername:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'Registration'
+    fullname:{
+        type: String
     },
     doreg:{
         type: String,
@@ -53,8 +51,7 @@ const produceSchema = new mongoose.Schema({
         trim: true
     },
     ward:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'Registration'
+        type: String,
     },
     uploadimage:{
         type: String,
