@@ -9,68 +9,80 @@ head
 .container
   header.heading Farmer One Registration
   hr
-  form(action='/foregister' method='post')
+  form(action='/foregister' method='post' onsubmit="return formValidatefo(event);")
     .form.first
       .details.personal
         .fields
           .input-field
             label Unique ID.
-            input(type='text' name='uniqueid' placeholder='Unique ID')
+            input#uniqueid(type='text' name='uniqueid' placeholder='Unique ID')
+            small#uniqueidError
           .input-field
             label Role
-            select(type='text' name='role')
+            select#role(type='text' name='role')
               option(value='') Select role
               option(value='farmerone') Farmer One
+            small#roleError
           .input-field
             label First and Last Name
-            input(type='text' name='fullname' placeholder='Enter full name')
+            input#fullname(type='text' name='fullname' placeholder='Enter full name')
+            small#fullNameError
           .input-field
             label NIN
-            input(type='text' name='nin' placeholder='Enter NIN')
-          .input-field
-            label Date of Registration
-            input(type='date' name='doreg' placeholder='Date of registraion')
+            input#nin(type='text' name='nin' placeholder='Enter NIN')
+            small#ninError  
           .input-field
             label Date of Birth
-            input(type='date' name='dob' placeholder='Date of birth')
+            input#dob(type='date' name='dob' placeholder='Date of birth')
+            small#dobError
           .input-field
-            label Gender
-            select(type='text' name='gender')
-              option(value='') Select gender
-              option Male
-              option Female
-          .input-field
-            label Home Address
-            input(type='text' name='address' placeholder='Home directions')
+            label Date of Registration
+            input#doreg(type='date' name='doreg' placeholder='Date of registration')
+            small#doregError
           .input-field
             label Phone Number
-            input(type='text' name='phone' placeholder='Phone number')
+            input#phone(type='text' name='phone' placeholder='Phone number')
+            small#phoneNumberError
+          .input-field
+            label.details Password
+            input#password(type='password' name='password' placeholder='Password')
+            small#passwordError
+          .input-field
+            label Gender
+            select#gender(type='text' name='gender')
+              option(value='') Select gender
+              option(value="Male") Male
+              option(value="Female") Female
+            small#genderError         
       .details.ID
         .fields
           .input-field
             label Activity
-            select(type='text' name='activity')
+            select#activity(type='text' name='activity')
               option(value='') Farming activity
-              option Horticulture
-              option Poultry
-              option Dairy
+              option(value="Horticulture") Horticulture
+              option(value="Poultry") Poultry
+              option(value="Dairy") Dairy
+            small#activityError
           .input-field
             label Ward
-            select(type='text' name='ward')
+            select#ward(type='text' name='ward')
               option(value='') Select ward
-              option Masajja A
-              option Masajja B
-              option Masajja C
-              option Masajja D
+              option(value="Masajja A") Masajja A
+              option(value="Masajja B") Masajja B
+              option(value="Masajja C") Masajja C
+              option(value="Masajja D") Masajja D
+            small#wardError  
           .input-field
             label Residence Type
-            select(type='text' name='residencetype')
+            select#residencetype(type='text' name='residencetype')
               option(value='') Residence type
-              option Permanent
-              option Temporary
+              option(value="Permanent") Permanent
+              option(value="Temporary") Temporary
+            small#residencetypeError
           .input-field
             label Years at Residence
-            select(type='number' name='duration')
+            select#duration(type='number' name='duration')
               option(value='') Years at residence
               option 10
               option 11
@@ -82,11 +94,13 @@ head
               option 17
               option 18
               option 19
+            small#durationError
           .input-field
-            label User Name
-            input(type='text' name='username' placeholder='Enter user name')
-          .input-field
-            label.details Password
-            input#password(type='password' name='password' placeholder='Password')
+            label Home Address
+            input#address(type='text' name='address' placeholder='Home directions')
+            small#addressError   
         .button
           input#btnSubmit(type='submit' value='Register')
+  script(src="/JS/form_validationfo.js") 
+
+  

@@ -28,17 +28,15 @@ head
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              i.fas.fa-user.me-2.text-white-50
-              span.text-white AO-Destiny
-            ul.dropdown-menu(aria-labelledby='navbarDropdown')
-              li
-                a.dropdown-item(href='/login') Logout
+              span.text-white #{currentUser.fullname}
+        form(method="post" action='/logout') 
+          button.btn.btn-success.btn-block(type="submit") Log out
     .container-fluid.px-4
       .row.g-3.my-2
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 Total Hort: 
+              h3.fs-2 4,000,500: 
               p.fs-5 Total revenue: 
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded

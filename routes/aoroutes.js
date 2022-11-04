@@ -68,9 +68,6 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
 //------------------------------------            
 
 
-
-
-
 //AGRICULTURAL OFFICER Registration routes---------------------/
 router.get('/aoregister', (req, res) => {
     res.render('aoregistration2')

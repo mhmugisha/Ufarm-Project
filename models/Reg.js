@@ -7,39 +7,35 @@ const registrationSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    role:{
+        type: String,
+        trim: true
+    },
     fullname:{
         type: String,
         trim: true
     },
-    username:{
+    nin:{
         type: String,
-        trim: true
-    },
-    email:{
-        type: String,
-        trim: true
-    },
-    dob:{
-        type: Date,
         trim: true
     },
     doreg:{
         type: Date,
         trim: true
-    },
-    phone:{
-        type: String,
+    },  
+    dob:{
+        type: Date,
         trim: true
     },
     gender:{
         type: String,
         trim: true
     },
-    role:{
+    address:{
         type: String,
         trim: true
     },
-    nin:{
+    phone:{
         type: String,
         trim: true
     },
@@ -59,14 +55,11 @@ const registrationSchema = new mongoose.Schema({
         type: Number,
         trim: true
     },
-    address:{
+       email:{
         type: String,
         trim: true
     },
-    password:{
-        type: String,
-    }
-
+    
 })
 
 registrationSchema.plugin(passportLocalMongoose,{

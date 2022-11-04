@@ -4,7 +4,7 @@ const router = express.Router();
 //Route to display Farmerone list------------------
 router.get("/folist", async (req, res) => {
   try {
-      let farmerOnes = await Registration.find({ role: "Farmer One" });
+      let farmerOnes = await Registration.find({ role: "farmerone" });
       res.render("folist", {farmerone:farmerOnes});
   } catch (error) {
       res.status(400).send("Unable to find Farmer Ones in the Database");
@@ -36,7 +36,7 @@ try{
           if(error){
               throw error
           }
-          res.redirect('/foregister')
+          res.redirect('/aodashboardroute')
       })
     }
 }catch(error){

@@ -15,16 +15,18 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
         if(user.role ==''){
             res.send('Enter log in details!')
         }else if(user.role == 'agricofficer'){
-            res.render('aodashboard')
-        }else if(user.role == 'farmerone'&& user.uniqueid=='FO1A'){
+            res.redirect('/aodashboardroute')
+        }else if(user.role == 'farmerone'){
             res.redirect('/masajjaAfodashboard')
-        }else if(user.role == 'farmerone'&& user.uniqueid=='FO2B'){
-            res.redirect('/masajjaBfodashboard')    
-        }else if(user.role ==  'farmerone' && user.uniqueid=='FO3C'){
-            res.redirect('/masajjaCfodashboard')    
-        }else if(user.role == 'farmerone' && user.uniqueid =='FO4D'){
-            res.redirect('/masajjaDfodashboard')    
-        }else if(user.role == 'urbanfarmer'){
+        // }else if(user.role == 'farmerone'){
+        //     res.redirect('/masajjaAfodashboard')    
+        // }else if(user.role ==  'farmerone'){
+        //     res.redirect('/masajjaAfodashboard')    
+        // }else if(user.role == 'farmerone'){
+        //     res.redirect('/masajjaAfodashboard')    
+        // 
+    }
+        else if(user.role == 'urbanfarmer'){
             res.redirect('/ufdashboardroute')
         } else{
             res.send('You are not a registered user')
@@ -33,7 +35,7 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
 
 //AO Dashboard route------------------
 router.get('/aodashboardroute', (req,res) =>{
-    res.render('aodashboard');
+    res.render('aodashboard', {currentUser:req.session.user});
 })
 
 //Farmer One Dashboard route-----------
@@ -65,6 +67,11 @@ router.get('/masajjaDfodashboard', (req,res) =>{
     res.render('masajjaDfodashboard');
 })
 
+//Dashboard layout route----------
+router.get('/dashboardlayout', (req,res) =>{
+    res.render('layout2');
+})
+
 //This is Irene's code after we introduced user with Albert--------
 // router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
 //     req.session.user = req.user
@@ -83,6 +90,9 @@ router.get('/masajjaDfodashboard', (req,res) =>{
 
 
 //-----
+
+
+
 
 
 //Log out route

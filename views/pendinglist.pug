@@ -11,13 +11,13 @@ block content
     table.table.table-bordered 
         thead
             tr
+                th Ward
+                th Supplier Name
                 th Produce Name
                 th Quantity
                 th Unit Price
                 th Total Amount
                 th Product Type
-                th Mode of Payment
-                th Mode of Delivery
                 th Image 
                 th Approve 
         tbody
@@ -25,13 +25,13 @@ block content
                 each product in products
                     if product.status = 'Pending' && product.ward === currentUser.ward
                         tr
+                            td #{product.ward}
+                            td #{product.fullname}
                             td #{product.productname}
                             td #{product.quantity}
                             td #{product.unitprice}
                             td #{product.totalamount}
                             td #{product.producttype}
-                            td #{product.modeofpay}
-                            td #{product.deliverymode}
                             //- td #{product.status}
                             td 
                                 img(src="/"+product.uploadimage, alt="Image" width='150px' height="150px")
