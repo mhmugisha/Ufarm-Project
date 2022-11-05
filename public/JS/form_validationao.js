@@ -1,5 +1,5 @@
 
-const formValidate = (event) =>{
+const formValidateao = (event) =>{
     let val = 0;
 
     var uniqueid = document.getElementById('uniqueid');
@@ -10,9 +10,10 @@ const formValidate = (event) =>{
     var doreg = document.getElementById('doreg');
     var phoneNumber = document.getElementById('phone');
     var password = document.getElementById('password');
+    var confirmPassword = document.getElementById('confirmPassword')
     var gender = document.getElementById('gender')
-    var activity = document.getElementById('activity')
-    var ward = document.getElementById('ward')
+    var address = document.getElementById('address')
+
 
     var uniqueidError = document.getElementById('uniqueidError');
     var roleError = document.getElementById('roleError');
@@ -22,9 +23,10 @@ const formValidate = (event) =>{
     var doregError = document.getElementById('doregError');    
     var phoneNumberError = document.getElementById('phoneNumberError');
     var passwordError = document.getElementById('passwordError');
+    var confirmPasswordError = document.getElementById('confirmPasswordError')
     var genderError = document.getElementById('genderError')
-    var activityError = document.getElementById('activityError')
-    var wardError = document.getElementById('wardError')
+    var addressError = document.getElementById('addressError') 
+
 
     //Unique ID
     const uniqueNoRegex = /^[0-9a-zA-Z]+$/; 
@@ -77,7 +79,7 @@ const formValidate = (event) =>{
     const ninRegex = /^[0-9a-zA-Z]+$/; 
     if(nin.value==''){
         nin.style.border = '1px solid red';
-        ninError.textContent='Please enter NIN';
+        ninError.textContent='Please enter National ID Number';
         ninError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else if(!(nin.value.match(ninRegex))){
@@ -130,61 +132,72 @@ const formValidate = (event) =>{
     }
     
     //password
-    if(password.value ==''){
+    if(password.value == ''){
         password.style.border = '1px solid red';
-        passwordError.textContent='Please enter password';
-        passwordError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        passwordError.textContent = 'Please enter password';
+        passwordError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else if(password.value.length < 5){
         password.style.border = '1px solid red';
-        passwordError.textContent='Pasword should be greater than 5 characters';
-        passwordError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        passwordError.textContent = 'Pasword should be greater than 5 characters';
+        passwordError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else if(password.value.length > 16){
         password.style.border = '1px solid red';
-        passwordError.textContent='Should be less than 17 characters';
-        passwordError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        passwordError.textContent ='Should be less than 17 characters';
+        passwordError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }
     else{
-        password.style.border='1px solid green';
+        password.style.border = '1px solid green';
         passwordError.textContent = '';
     }
 
+    //confrim password
+    if(confirmPassword.value == ''){
+        confirmPassword.style.border = '1px solid red';
+        confirmPasswordError.textContent = 'Please confrim password';
+        confirmPasswordError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }else if(!(confirmPassword.value === password.value)){
+        confirmPassword.style.border = '1px solid red';
+        confirmPasswordError.textContent ='Passwords do not match';
+        confirmPasswordError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        return false;
+    }
+    else{
+        confirmPassword.style.border='1px solid green';
+        confirmPasswordError.textContent = '';
+    }
+
     //Gender
-    if(gender.value==''){
+    if(gender.value == ''){
         gender.style.border = '1px solid red';
-        genderError.textContent='Please specify gender';
-        genderError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        genderError.textContent = 'Please specify gender';
+        genderError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else{
         gender.style.border='1px solid green';
         genderError.textContent = '';
     }
 
-    //Activity
-    if(activity.value==''){
-        activity.style.border = '1px solid red';
-        activityError.textContent='Please specify your activity';
-        activityError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+    //Address - Directions to home
+    if(address.value == ''){
+        address.style.border = '1px solid red';
+        addressError.textContent = 'Please home address';
+        addressError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else{
-        activity.style.border='1px solid green';
-        activityError.textContent = '';
+        address.style.border='1px solid green';
+        addressError.textContent = '';
     }
 
-    //Ward
-    if(ward.value==''){
-        ward.style.border = '1px solid red';
-        wardError.textContent='Please specify your ward';
-        wardError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
-    }else{
-        ward.style.border='1px solid green';
-        wardError.textContent = '';
-    }
+        if(val > 0){
+            event.preventDefault()
+        }
 
-    if(val > 0){
-        event.preventDefault()
-    }  
 }
+
+
+
+

@@ -53,19 +53,19 @@ router.get('/masajjaAfodashboard', (req,res) =>{
     res.render('masajjaAfodashboard');
 })
 
-//Masajja B FO dashboard route----------
-router.get('/masajjaBfodashboard', (req,res) =>{
-    res.render('masajjaBfodashboard');
-})
-//Masajja C FO dashboard route----------
-router.get('/masajjaCfodashboard', (req,res) =>{
-    res.render('masajjaCfodashboard');
-})
+// //Masajja B FO dashboard route----------
+// router.get('/masajjaBfodashboard', (req,res) =>{
+//     res.render('masajjaBfodashboard');
+// })
+// //Masajja C FO dashboard route----------
+// router.get('/masajjaCfodashboard', (req,res) =>{
+//     res.render('masajjaCfodashboard');
+// })
 
-//Masajja D FO dashboard route----------
-router.get('/masajjaDfodashboard', (req,res) =>{
-    res.render('masajjaDfodashboard');
-})
+// //Masajja D FO dashboard route----------
+// router.get('/masajjaDfodashboard', (req,res) =>{
+//     res.render('masajjaDfodashboard');
+// })
 
 //Dashboard layout route----------
 router.get('/dashboardlayout', (req,res) =>{

@@ -68,9 +68,9 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
 //------------------------------------            
 
 
-//AGRICULTURAL OFFICER Registration routes---------------------/
+//AGRICULTURAL OFFICER Registration route---------------------/
 router.get('/aoregister', (req, res) => {
-    res.render('aoregistration2')
+    res.render('aoregistration')
 });
 
 //IMPORTING Model - should be last section in this file.
@@ -84,7 +84,7 @@ router.post('/aoregister', async(req, res) => {
           if(error){
               throw error
           }
-          res.redirect('/aoregister2')
+          res.redirect('/aoregistration')
       })
   }catch(error){
       res.status(400).send('Sorry something went wrong');

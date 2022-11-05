@@ -15,9 +15,9 @@ body{
     
 }
 .container{
-    position: relative;
-    max-width: 900px;
-    width: 100%;
+    /* position: relative; */
+    /* max-width: 1000px; */
+    width: 900px;
     border-radius: 6px;
     padding: 30px;
     margin: 0 15px;
@@ -59,6 +59,7 @@ body{
     position: absolute;
     background-color: #fff;
     transition: 0.3s ease;
+    margin-bottom: 0;
 }
 .container form .form.second{
     opacity: 0;
@@ -150,9 +151,13 @@ form .backBtn i{
     margin: 0 6px;
 } */
 
+.button{
+    margin-bottom: 0;
+}
+
 form .button{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 form .button input{

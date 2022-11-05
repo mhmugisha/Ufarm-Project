@@ -15,27 +15,27 @@ router.get('/ufregister', (req, res) => {
     res.render('ufregistration')
 })
 
-//Register/get route for Masajja B Urban Farmer
-router.get('/ufregisterB', (req, res) => {
-    res.render('ufregistrationB')
-})
+// //Register/get route for Masajja B Urban Farmer
+// router.get('/ufregisterB', (req, res) => {
+//     res.render('ufregistrationB')
+// })
 
-//Register/get route for Masajja C Urban Farmer
-router.get('/ufregisterC', (req, res) => {
-    res.render('ufregistrationC')
-})
+// //Register/get route for Masajja C Urban Farmer
+// router.get('/ufregisterC', (req, res) => {
+//     res.render('ufregistrationC')
+// })
 
-//Register/get route for Masajja D Urban Farmer
-router.get('/ufregisterD', (req, res) => {
-    res.render('ufregistrationD')
-})
+// //Register/get route for Masajja D Urban Farmer
+// router.get('/ufregisterD', (req, res) => {
+//     res.render('ufregistrationD')
+// })
 //---------------------------------------------------
 
 //Import the user model--------------/
 const Registration = require('../models/Reg');
 
 //--------------------------------------------------
-//Post route for Masajja A Urban Farmer
+// Urban Farmer registration post route
 router.post('/ufregister', async(req, res) => {
   console.log(req.body);
   try{
