@@ -53,47 +53,10 @@ router.get('/masajjaAfodashboard', (req,res) =>{
     res.render('masajjaAfodashboard');
 })
 
-// //Masajja B FO dashboard route----------
-// router.get('/masajjaBfodashboard', (req,res) =>{
-//     res.render('masajjaBfodashboard');
-// })
-// //Masajja C FO dashboard route----------
-// router.get('/masajjaCfodashboard', (req,res) =>{
-//     res.render('masajjaCfodashboard');
-// })
-
-// //Masajja D FO dashboard route----------
-// router.get('/masajjaDfodashboard', (req,res) =>{
-//     res.render('masajjaDfodashboard');
-// })
-
 //Dashboard layout route----------
 router.get('/dashboardlayout', (req,res) =>{
     res.render('layout2');
 })
-
-//This is Irene's code after we introduced user with Albert--------
-// router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
-//     req.session.user = req.user
-//     const user = req.session.user
-//     console.log("This is the user", user);
-//         if(user.role == 'agricofficer'){
-//             res.redirect('/aodashboardroute')
-//         }else if(user.role == 'farmerone'){
-//             res.redirect('/fodashboardroute') 
-//         }else if(user.role == 'urbanfarmer'){
-//             res.redirect('/ufdashboardroute')
-//         } else{
-//             res.send('You are not a registered user')
-//         }   
-// });
-
-
-//-----
-
-
-
-
 
 //Log out route
 router.post('/logout', (req,res)=>{

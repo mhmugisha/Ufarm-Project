@@ -17,10 +17,9 @@ block content
                 th Phone number
                 th Ward
                 th Update
-                th Delete
         tbody
-            if farmerone.length
-                each farmerones in farmerone
+            if farmerones.length
+                each farmerone in farmerones
                     tr
                         td #{farmerone.uniqueid}
                         td #{farmerone.fullname}
@@ -30,13 +29,13 @@ block content
                         td
                             a
                                 button.btn.btn-primary.btn-block(href='/farmerOne/update/'+farmerone._id) Update
-                        td
-                            form(method="post" action='/farmerOne/delete')
-                                input(type="hidden", placeholder="", name="id", value=farmerone._id)
-                                button.btn.btn-danger.btn-block(type="submit") Delete
+                        //- td
+                        //-     form(method="post" action='/farmerOne/delete')
+                        //-         input(type="hidden", placeholder="", name="id", value=farmerone._id)
+                        //-         button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row
         div.col.form-group
-            a(class='button', href='/agricOfficerDash') Back
+            a.btn-info(class='button' href='/aodashboardroute') Back
     
 block footer
-    div.col-md-12 © 2022 Refactory Cohort 12, NodeJS by Mark Mugisha.
+    div.col-md-12 © UFARM Project 2022 - Mark Mugisha.

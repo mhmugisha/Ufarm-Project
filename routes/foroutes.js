@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/folist", async (req, res) => {
   try {
       let farmerOnes = await Registration.find({ role: "farmerone" });
-      res.render("folist", {farmerone:farmerOnes});
+      res.render("folist", {farmerones:farmerOnes});
   } catch (error) {
       res.status(400).send("Unable to find Farmer Ones in the Database");
   console.log(error);
@@ -16,6 +16,11 @@ router.get("/folist", async (req, res) => {
 router.get('/foregister', (req, res) => {
   res.render('foregistration')
 })
+
+router.get('/foregister2', (req, res) => {
+  res.render('foregistration2')
+})
+
 
 router.get('/fosdashboard', (req, res) => {
   res.render('fosdashboard')
@@ -43,6 +48,16 @@ try{
     res.status(400).send('Sorry something went wrong');
     console.log(error)
 } 
+});
+
+// Farmer One Update Route
+router.get("/farmerone/update/:id", async (req, res) => {
+	try {
+		const farmerOneUpdate = await Registration.findOne({ _id: req.params.id });
+		res.render("farmerOneUpdate", {farmerones: farmerOneUpdate });
+	} catch (error) {
+		res.status(400).send("Unable to update farmerone");
+	}
 });
 
 module.exports = router;

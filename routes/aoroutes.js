@@ -4,16 +4,6 @@ const multer = require('multer');
 const connectEnsureLogin = require('connect-ensure-login')
 
 
-//Agric Officer Dashboard route
-// router.get("/aodashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-// 	req.session.user=req.user;
-//     if(req.user.role=='agricofficer'){
-//         res.render('aodashboard')
-//     }else{
-//         res.send('only for ao')
-//     }
-// });
-
 //Importing model
 const Pdtupload = require('../models/Produce')
 

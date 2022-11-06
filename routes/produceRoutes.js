@@ -39,7 +39,7 @@ router.post("/addproduceroute", upload.single("uploadimage"), async (req, res) =
 		produce.uploadimage = req.file.path;
 		console.log("This is my produce", produce);
 		await produce.save();
-		res.redirect("/producelist");
+		res.redirect("/ufdashboard");
 	} catch (error) {
 		res.status(400).send("Not able to add produce to the database");
 		console.log(error);
@@ -50,8 +50,9 @@ router.post("/addproduceroute", upload.single("uploadimage"), async (req, res) =
 router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user
 	try {
-		let products = await Pdtupload.find().sort({$natural:-1});
-		res.render("producelist", { products: products, currentUser:req.session.user });
+		const produceOrderedList = {_id:-1}
+		let products = await Pdtupload.find().sort(produceOrderedList);
+		res.render("producelist", {products: products, currentUser:req.session.user});
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}

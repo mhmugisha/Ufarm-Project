@@ -1,0 +1,38 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title List of Urban Farmers 
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='#')
+        a#nav-profile-tab.nav-item.nav-link(href='/ufregister') Update Urban Farmer
+    #nav-tabContent.tab-content
+    br
+    table.table.table-bordered 
+        thead
+            tr
+                th Unique ID  
+                th Full Name 
+                th NIN
+                th Phone number
+                th Ward
+                th Update
+        tbody
+            if urbanFarmers.length
+                each urbanFarmer in urbanFarmers
+                    if urbanFarmer.ward == currentUser.ward
+                        tr
+                            td #{urbanFarmer.uniqueid}
+                            td #{urbanFarmer.fullname}
+                            td #{urbanFarmer.nin}
+                            td #{urbanFarmer.phone}
+                            td #{urbanFarmer.ward}
+                            td
+                                a.btn.btn-primary.btn-block(href='/urbanFarmer/update/'+urbanFarmers._id) Update
+                            
+    div.form-row
+        div.col.form-group
+            a.btn-info(class='button' href='/masajjaAfodashboard') Back
+    
+block footer
+    div.col-md-12 
