@@ -183,7 +183,7 @@ const formValidate = (event) =>{
         ward.style.border='1px solid green';
         wardError.textContent = '';
     }
-
+    
     if(val > 0){
         event.preventDefault()
     }  

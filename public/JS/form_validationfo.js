@@ -216,15 +216,16 @@ const formValidatefo = (event) =>{
     //Address - Directions to home
     if(address.value==''){
         address.style.border = '1px solid red';
-        addressError.textContent='Please home address';
+        addressError.textContent='Please enter home address';
         addressError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else{
         address.style.border='1px solid green';
         addressError.textContent = '';
     }
-        if(val > 0){
-            event.preventDefault()
-        }
+    
+    if(val > 0){
+        event.preventDefault()
+    }
     
 }

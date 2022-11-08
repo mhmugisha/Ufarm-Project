@@ -74,7 +74,7 @@ router.post('/aoregister', async(req, res) => {
           if(error){
               throw error
           }
-          res.redirect('/aoregistration')
+          res.redirect('/aodashboardroute')
       })
   }catch(error){
       res.status(400).send('Sorry something went wrong');

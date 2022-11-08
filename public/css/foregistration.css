@@ -75,6 +75,7 @@ form.secActive .form.first{
     opacity: 0;
     pointer-events: none;
     transform: translateX(-100%);
+    margin-top: 0px;
 }
 .container form .title{
     display: block;

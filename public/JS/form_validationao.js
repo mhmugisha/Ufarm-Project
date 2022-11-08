@@ -10,9 +10,9 @@ const formValidateao = (event) =>{
     var doreg = document.getElementById('doreg');
     var phoneNumber = document.getElementById('phone');
     var password = document.getElementById('password');
-    var confirmPassword = document.getElementById('confirmPassword')
-    var gender = document.getElementById('gender')
-    var address = document.getElementById('address')
+    var confirmPassword = document.getElementById('confirmPassword');
+    var gender = document.getElementById('gender');
+    var address = document.getElementById('address');
 
 
     var uniqueidError = document.getElementById('uniqueidError');
@@ -23,9 +23,9 @@ const formValidateao = (event) =>{
     var doregError = document.getElementById('doregError');    
     var phoneNumberError = document.getElementById('phoneNumberError');
     var passwordError = document.getElementById('passwordError');
-    var confirmPasswordError = document.getElementById('confirmPasswordError')
-    var genderError = document.getElementById('genderError')
-    var addressError = document.getElementById('addressError') 
+    var confirmPasswordError = document.getElementById('confirmPasswordError');
+    var genderError = document.getElementById('genderError');
+    var addressError = document.getElementById('addressError'); 
 
 
     //Unique ID
@@ -34,12 +34,12 @@ const formValidateao = (event) =>{
         uniqueid.style.border = '1px solid red';
         uniqueidError.textContent='Please enter unique ID';
         uniqueidError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else if(!(uniqueid.value.match(uniqueNoRegex))){
         uniqueid.style.border = '1px solid red';
         uniqueidError.textContent='Please enter valid unique ID';
         uniqueidError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else{
         uniqueid.style.border='1px solid green';
         uniqueidError.textContent = '';
@@ -50,7 +50,7 @@ const formValidateao = (event) =>{
         role.style.border = '1px solid red';
         roleError.textContent='Please specify role';
         roleError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else{
         role.style.border='1px solid green';
         roleError.textContent = '';
@@ -62,13 +62,13 @@ const formValidateao = (event) =>{
         fullName.style.border = '1px solid red';
         fullNameError.textContent='Enter two names with one space in between';
         fullNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }
     else if(!(fullName.value.match(fullNameRegex))){
         fullName.style.border = '1px solid red';
         fullNameError.textContent='Enter two names with one space in between';
         fullNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }
     else{
         fullName.style.border='1px solid green';
@@ -81,12 +81,12 @@ const formValidateao = (event) =>{
         nin.style.border = '1px solid red';
         ninError.textContent='Please enter National ID Number';
         ninError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else if(!(nin.value.match(ninRegex))){
         nin.style.border = '1px solid red';
         ninError.textContent='Please enter valid NIN';
         ninError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else{
         nin.style.border='1px solid green';
         ninError.textContent = '';
@@ -97,7 +97,7 @@ const formValidateao = (event) =>{
         dob.style.border = '1px solid red';
         dobError.textContent='Please enter date of birth';
         dobError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else{
         dob.style.border='1px solid green';
         dobError.textContent = '';
@@ -108,7 +108,7 @@ const formValidateao = (event) =>{
         doreg.style.border = '1px solid red';
         doregError.textContent='Please enter date of registration';
         doregError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else{
         doreg.style.border='1px solid green';
         doregError.textContent = '';
@@ -120,12 +120,12 @@ const formValidateao = (event) =>{
         phoneNumber.style.border = '1px solid red';
         phoneNumberError.textContent='Please enter phone number';
         phoneNumberError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else if(!(phoneNumber.value.match(phoneNoRegex))){
         phoneNumber.style.border = '1px solid red';
         phoneNumberError.textContent='Enter phone number without country code.';
         phoneNumberError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else{
         phoneNumber.style.border='1px solid green';
         phoneNumberError.textContent = '';
@@ -136,17 +136,17 @@ const formValidateao = (event) =>{
         password.style.border = '1px solid red';
         passwordError.textContent = 'Please enter password';
         passwordError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else if(password.value.length < 5){
         password.style.border = '1px solid red';
         passwordError.textContent = 'Pasword should be greater than 5 characters';
         passwordError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else if(password.value.length > 16){
         password.style.border = '1px solid red';
         passwordError.textContent ='Should be less than 17 characters';
         passwordError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }
     else{
         password.style.border = '1px solid green';
@@ -169,13 +169,13 @@ const formValidateao = (event) =>{
         confirmPassword.style.border='1px solid green';
         confirmPasswordError.textContent = '';
     }
-
+    
     //Gender
-    if(gender.value == ''){
+    if(gender.value==''){
         gender.style.border = '1px solid red';
-        genderError.textContent = 'Please specify gender';
-        genderError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        genderError.textContent='Please specify gender';
+        genderError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        val++;
     }else{
         gender.style.border='1px solid green';
         genderError.textContent = '';
@@ -186,15 +186,15 @@ const formValidateao = (event) =>{
         address.style.border = '1px solid red';
         addressError.textContent = 'Please home address';
         addressError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++
+        val++;
     }else{
         address.style.border='1px solid green';
         addressError.textContent = '';
     }
 
-        if(val > 0){
-            event.preventDefault()
-        }
+    if(val > 0){
+        event.preventDefault()
+    }
 
 }
 

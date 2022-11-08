@@ -14,26 +14,19 @@ head
     .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister2') FO Registration
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/fosdashboard') FO Dashboard
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufdashboardroute') UF Dashboard
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/aoreports') Reports
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Stock
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Products
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufregister') Register Urban Farmer
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/uflist') Urban Farmer List
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/pendinglist') Approve Produce
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/seeapprovedlist') Approved Produce 
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Produce List
+        div.form-row
+          div.col.form-group
+            a.btn.btn-success.text-white(class='button' href='/masajjaAfodashboard') Back
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
-        h2.fs-2.m-0.text-white Agricultural Officer 
+        h2.fs-2.m-0.text-white Farmer One Dashboard
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.ms-auto.mb-2.mb-lg-0
-          li.nav-item.dropdown
-            a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              i.fas.fa-user.me-2.text-white-50
-              span.text-white AO-Destiny
-            ul.dropdown-menu(aria-labelledby='navbarDropdown')
-              li
-                a.dropdown-item(href='/login') Logout
     body 
         block content

@@ -39,11 +39,28 @@ body{
 }
 
 .btn{
-    margin-top: 50px;
+    margin-top: 80px;
     background-color: #fff;
     margin-left: 150px;
+    width: 150px;
 }
 
+#password{
+    margin-top: 20px;
+    border-radius: 6px;
+    height: 45px;
+    width: 250px;
+    margin-left: 18px;
+    margin-bottom: 3px;
 
+
+}
+
+#uniqueid{
+    border-radius: 6px;
+    height: 45px;
+    width: 250px;
+    margin-left: 18px;
+}
 
 

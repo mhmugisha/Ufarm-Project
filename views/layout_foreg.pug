@@ -14,19 +14,20 @@ head
     .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister') FO Registration
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/fosdashboard') FO Dashboard
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufdashboardroute') UF Dashboard
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/aoreports') Reports
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Stock
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Products
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Products
+        div.form-row
+          div.col.form-group
+            a.btn.btn-success.text-white(class='button' href='/aodashboardroute') Back
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
-        h2.fs-2.m-0.text-white Farmer One Dashboard
+        h2.fs-2.m-0.text-white Agricultural Officer: Farmer One Registration.
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
+      //- #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')

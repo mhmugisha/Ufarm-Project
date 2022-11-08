@@ -18,13 +18,15 @@ head
                 h6.h5.mb-0 Welcome back!
                 p.text-muted.mt-2.mb-5
                   | Please enter your details to log in.
-                form(action='/login' method='post')
+                form(action='/login' method='post' onsubmit="return formValidatelogin(event);")
                   .form-group
-                    label(for='#') Unique ID
-                    input#unique.form-control(type='text' name='uniqueid')
+                    label Unique ID
+                    input#uniqueid(type='text' name='uniqueid')
+                    small#uniqueidError
                   .form-group.mb-5
-                    label(for='#') Password
-                    input#password.form-control(type='password' name='password')
+                    label Password
+                    input#password(type='password' name='password')
+                    small#passwordError
                     button.btn.btn-theme.btn-secondary(class="text-success" type='submit') Login
             .col-lg-6.d-none.d-lg-inline-block
               .account-block.rounded-right
@@ -34,4 +36,5 @@ head
                     | &quot;Forget about all the reasons why something may not
                     | work. You only need to find one good reason why it
                     | will.&quot;
+  script(src="/JS/form_validationlogin.js") 
       

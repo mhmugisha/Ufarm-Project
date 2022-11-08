@@ -80,6 +80,10 @@
   font-weight: bold;
   border: none;
 }
+.btn{
+  margin-left: 28px;
+  width: 100px;
+}
 
 @media (min-width: 768px) {
   #sidebar-wrapper {

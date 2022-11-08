@@ -12,12 +12,13 @@ head
     .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister') FO Registration
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister2') FO Registration
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/fosdashboard') FO Dashboard
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufdashboardroute') UF Dashboard
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/aoreports') Reports
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Stock
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Products
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Products
+        div.form-row
+          div.col.form-group
+            a.btn.btn-success.text-white(class='button' href='/aodashboardroute') Back
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
@@ -26,13 +27,12 @@ head
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
-          li.nav-item.dropdown
-            a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              i.fas.fa-user.me-2.text-white-50
-              span.text-white AO-Destiny
-            ul.dropdown-menu(aria-labelledby='navbarDropdown')
-              li
-                a.dropdown-item(href='/login') Logout
+      //-     li.nav-item.dropdown
+      //-       a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+      //-         i.fas.fa-user.me-2.text-white-50
+      //-         span.text-white AO-Destiny
+      form(method="post" action='/logout') 
+        button.btn.btn-success.btn-block(type="submit") Log out
     .container-fluid.px-4
       .row.g-3.my-2
         .col-md-3

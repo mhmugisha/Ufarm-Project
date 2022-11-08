@@ -1,9 +1,9 @@
-extends layout3
+extends layout_foreg
 block content
   .container
     header.heading Farmer One Registration.
     hr
-    form(action='/ufregister' method='post' onsubmit="return formValidate(event);")
+    form(action='/foregister2' method='post' onsubmit="return formValidatefo(event);")
       .form.first
         .details.personal
           .fields
@@ -15,7 +15,7 @@ block content
               label Role
               select#role(type='text' name='role')
                 option(value='') Select role
-                option(value='urbanfarmer') Urban Farmer
+                option(value='farmerone') Farmer One
               small#roleError   
             .input-field
               label First and Last Name
@@ -67,7 +67,34 @@ block content
                 option(value="Masajja C") Masajja C
                 option(value="Masajja D") Masajja D
               small#wardError
-          .button
-            input#btnSubmit(type='submit' value='Register')
-  script(src="/JS/form_validation.js") 
+            .input-field
+              label Residence Type
+              select#residencetype(type='text' name='residencetype')
+                option(value='') Residence type
+                option(value="Permanent") Permanent
+                option(value="Temporary") Temporary
+              small#residencetypeError
+            .input-field
+              label Years at Residence
+              select#duration(type='number' name='duration')
+                option(value='') Years at residence
+                option 10
+                option 11
+                option 12
+                option 13
+                option 14
+                option 15
+                option 16
+                option 17
+                option 18
+                option 19
+              small#durationError
+            .input-field
+              label Home Address
+              input#address(type='text' name='address' placeholder='Home directions')
+              small#addressError 
+            button.btn.btn-success.btn-block(type="submit") Register 
+          //- .button
+          //-   input#btnSubmit(type='submit' value='Register')
+  script(src="/JS/form_validationfo.js") 
 

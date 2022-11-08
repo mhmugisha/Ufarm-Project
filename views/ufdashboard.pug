@@ -15,7 +15,6 @@ head
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/addproduceroute') Product Upload
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Product Update
-      //- a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Produce List
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/seeapprovedlist') Approved List
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
@@ -28,10 +27,9 @@ head
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
               i.fas.fa-user.me-2.text-white-50
-              span.text-white Urban Farmer
-            ul.dropdown-menu(aria-labelledby='navbarDropdown')
-              li
-                a.dropdown-item(href='/login') Logout
+              //- span.text-white Urban Farmer
+        form(method="post" action="/logout")
+            button.btn.btn-success.btn-block(type="submit") Log out
     .container-fluid.px-4
       .row.g-3.my-2
         .col-md-3
