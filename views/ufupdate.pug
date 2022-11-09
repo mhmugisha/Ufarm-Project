@@ -1,6 +1,6 @@
 doctype html
 head
-    title Ufarm team dashboards
+    title Urban Farmer Update
     // Required meta tags
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
@@ -10,85 +10,57 @@ head
     link(rel='icon' href='Img/favicon.png')
 body
     style.
-
         body{
-          background-color: rgb(12, 85, 12,0.76);  
+          background: #0d5032;  
         }
+        
         .form-style{
         position:absolute;
-        top:15%;  
+        top:5%;  
         text-align:center;
         color:rgba(240, 220, 253);
         }
-        .form-field{
-            display:flex;
-            justify-content:space-around;
-        }
-        form-zones{
-        padding: 12px;
-        transform: translateX(-6px);
+       
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        font-weight:500; 
+      }
+        .form-field input, select{
+            text-align:left;
+            background: #fff;
+            font-weight: 400;
+            margin:20px;
+            width: 300px;
+            height: 60px;
+            border-radius: 10px;
         }
 
-        .form-field input, select{
-            text-align:center;
-            background:rgba(200, 198, 253);
-            
-            font-weight: 800;
-            margin:2px 12px;
-            width: 100%;
-            height: 8vh;
-            border: 2px solid rgb(17, 17, 40);
-            border-radius: 5px;
-            padding: 0;
-        }
-         select:hover{
-            box-shadow:0 0 6px 5px rgb(0,0,0,0.87);
-            transform: scale(1.6);
-            z-index: 9;
-            transition: ease-in-out 0.6s
-        }
-        input:hover{
-            box-shadow:0 0 6px 5px rgb(0,0,0,0.87);
-            transform: scale(1.5);
-            z-index: 9;
-            transition: ease-in-out 0.6s 
-        }
         .form-btn{
-            transform:translateY(55px);
+            margin-top:40px;
             margin-left:12px;
             padding:25px;
         }
-        .btnz{
-            background: linear-gradient(to bottom,rgba(80, 18, 123, 0.87),rgba(197, 108, 253),rgba(106, 40, 118, 0.86));
+
+        .btn{
+            width:300px;
+            background: grey;
             padding-top:18px;
             padding-bottom:18px;
             font-size:18px;
-            font-weight:900;
-            color: rgb(11, 11, 11,0.87);
+            font-weight:500;
+            margin-left:120px;
+            border-radius: 20px;
+            font:#fff; 
         }
-        .btnz:hover{
-            transform: scale(1.4);
-            z-index: 9;
-            transition: ease-in-out 0.8s
-        }
-        .btnz:hover{
+     
+        .btn:hover{
            box-shadow:0 0 6px 5px rgb(0,0,0,0.87); 
-        }
-        h3{
-            font-size:54px;
-            font-weight:900;
-        }
-        label{
-          font-weight:900;  
-        } 
-        hr{
-            margin-bottom:45px;
-            padding:12px;
-             background: linear-gradient(to bottom,rgba(80, 18, 123, 0.87),rgba(197, 108, 253),rgba(106, 40, 118, 0.86));
         }
     .container-fluid.form-style
         form.form(action='/urbanFarmer/update?id='+urbanFarmers._id name='registration' method='POST')
-            h3 Update Urban Farmers 
+            h3 URBAN FARMER UPDATE
             hr
             .row
                 .col-lg-4
@@ -97,14 +69,44 @@ body
                         input(type='text' name='uniqueid' autocomplete='off' value=urbanFarmers.uniqueid)
                 .col-lg-4
                     .form-field
+                        label Role
+                        input(type='text' name='role' autocomplete='off' value=urbanFarmers.role)
+                .col-lg-4
+                    .form-field
+                        label First and Last Name
+                        input(type='text' name='fullname' autocomplete='off' value=urbanFarmers.fullname)
+                .col-lg-4
+                    .form-field
+                        label NIN
+                        input(type='text' name='nin' autocomplete='off' value=urbanFarmers.nin)
+                .col-lg-4
+                    .form-field
+                        label Date of Birth
+                        input(type='date' name='dob' autocomplete='off' value=urbanFarmers.dob)
+                .col-lg-4
+                    .form-field
+                        label Date of Registration
+                        input(type='date' name='doreg' autocomplete='off' value=urbanFarmers.doreg)
+                .col-lg-4
+                    .form-field
                         label Phone number
                         input(type='text' name='phone' autocomplete='off' value=urbanFarmers.phone)
+                .col-lg-4
+                    .form-field
+                        label Password
+                        input(type='password' name='password' autocomplete='off' value=urbanFarmers.password)
+                .col-lg-4
+                    .form-field
+                        label Gender
+                        select(name='gender')
+                            option(value='Male' selected = urbanFarmers.gender === 'Male') Male
+                            option(value= 'Female' selected = urbanFarmers.gender === 'Female') Female 
                 .col-lg-4
                     .form-field
                         label Activity
                         select(name='activity')
                             option(value="Horticulture" selected = urbanFarmers.activity === 'Horticulture') Horticulture
                             option(value="Poultry" selected = urbanFarmers.activity === 'Poultry') Poultry 
-                             option(value="Diary" selected = urbanFarmers.activity === 'Diary') Diary   
+                            option(value="Diary" selected = urbanFarmers.activity === 'Diary') Diary   
                 .form-btn
-                    button.btn.btnz(class='button' type='submit') Update 
+                    button.btn(class='button' type='submit') Update 

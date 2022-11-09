@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/folist", async (req, res) => {
   try {
       let farmerOnes = await Registration.find({ role: "farmerone" });
-      res.render("folist", {farmerones:farmerOnes});
+      res.render("folist", {farmerones:farmerOnes, currentUser:req.session.user});
   } catch (error) {
       res.status(400).send("Unable to find Farmer Ones in the Database");
   console.log(error);
@@ -78,11 +78,21 @@ router.post('/foregister2', async(req, res) => {
 // Farmer One Update Route
 router.get("/farmerone/update/:id", async (req, res) => {
 	try {
-		const farmerOneUpdate = await Registration.findOne({ _id: req.params.id });
-		res.render("farmerOneUpdate", {farmerones: farmerOneUpdate });
+		const farmerone = await Registration.findOne({ _id: req.params.id });
+		res.render("foupdate", {farmerones: farmerone });
 	} catch (error) {
-		res.status(400).send("Unable to update farmerone");
+		res.status(400).send("Unable to update farmerone!");
 	}
 });
+
+router.post("/farmerone/update", async (req, res) => {
+	try {
+		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/folist");
+	} catch (error) {
+		res.status(400).send("Unable to update farmer one!");
+	}
+});
+
 
 module.exports = router;

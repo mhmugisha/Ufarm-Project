@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 
 
-//LOG IN ROUTES--------------------------------------------------/
+//LOG IN ROUTES--------------------------------------/
 router.get('/login', (req, res) => {
     res.render('login')
 })
@@ -17,14 +17,7 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
         }else if(user.role == 'agricofficer'){
             res.redirect('/aodashboardroute')
         }else if(user.role == 'farmerone'){
-            res.redirect('/masajjaAfodashboard')
-        // }else if(user.role == 'farmerone'){
-        //     res.redirect('/masajjaAfodashboard')    
-        // }else if(user.role ==  'farmerone'){
-        //     res.redirect('/masajjaAfodashboard')    
-        // }else if(user.role == 'farmerone'){
-        //     res.redirect('/masajjaAfodashboard')    
-        // 
+            res.redirect('/masajjaAfodashboard')    
     }
         else if(user.role == 'urbanfarmer'){
             res.redirect('/ufdashboardroute')
@@ -33,24 +26,24 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
         }   
 });
 
-//AO Dashboard route------------------
+//AO Dashboard route---------------------------------/
 router.get('/aodashboardroute', (req,res) =>{
     res.render('aodashboard', {currentUser:req.session.user});
 })
 
-//Farmer One Dashboard route-----------
+//Farmer One Dashboard route-------------------------/
 router.get('/fodashboardroute', (req,res) =>{
         res.render('fodashboard');
 })
 
 //Urban Farmer dashboard route----------
 router.get('/ufdashboardroute', (req,res) =>{
-    res.render('ufdashboard');
+    res.render('ufdashboard', {currentUser:req.session.user});
 })
 
 //Masajja A FO dashboard route----------
 router.get('/masajjaAfodashboard', (req,res) =>{
-    res.render('masajjaAfodashboard');
+    res.render('masajjaAfodashboard', {currentUser:req.session.user});
 })
 
 //Dashboard layout route----------

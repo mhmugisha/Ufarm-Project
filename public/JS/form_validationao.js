@@ -130,6 +130,27 @@ const formValidateao = (event) =>{
         phoneNumber.style.border='1px solid green';
         phoneNumberError.textContent = '';
     }
+      //Gender
+      if(gender.value==''){
+        gender.style.border = '1px solid red';
+        genderError.textContent='Please specify gender';
+        genderError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        val++;
+    }else{
+        gender.style.border='1px solid green';
+        genderError.textContent = '';
+    }
+
+    //Address - Directions to home
+    if(address.value == ''){
+        address.style.border = '1px solid red';
+        addressError.textContent = 'Please home address';
+        addressError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        val++;
+    }else{
+        address.style.border='1px solid green';
+        addressError.textContent = '';
+    }
     
     //password
     if(password.value == ''){
@@ -153,7 +174,7 @@ const formValidateao = (event) =>{
         passwordError.textContent = '';
     }
 
-    //confrim password
+    //confirm password
     if(confirmPassword.value == ''){
         confirmPassword.style.border = '1px solid red';
         confirmPasswordError.textContent = 'Please confrim password';
@@ -170,27 +191,7 @@ const formValidateao = (event) =>{
         confirmPasswordError.textContent = '';
     }
     
-    //Gender
-    if(gender.value==''){
-        gender.style.border = '1px solid red';
-        genderError.textContent='Please specify gender';
-        genderError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++;
-    }else{
-        gender.style.border='1px solid green';
-        genderError.textContent = '';
-    }
-
-    //Address - Directions to home
-    if(address.value == ''){
-        address.style.border = '1px solid red';
-        addressError.textContent = 'Please home address';
-        addressError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
-        val++;
-    }else{
-        address.style.border='1px solid green';
-        addressError.textContent = '';
-    }
+  
 
     if(val > 0){
         event.preventDefault()

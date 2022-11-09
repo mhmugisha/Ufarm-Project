@@ -15,6 +15,7 @@ block content
         tbody
             if farmerones.length
                 each farmerone in farmerones
+                    if farmerone.uniqueid == currentUser.uniqueid
                     tr
                         td #{farmerone.uniqueid}
                         td #{farmerone.fullname}
@@ -22,9 +23,8 @@ block content
                         td #{farmerone.phone}
                         td #{farmerone.ward}
                         td
-                            a
-                                button.btn.btn-success.btn-block(href='/farmerOne/update/'+farmerone._id) Update
-                            div.form-row
+                            a.button.btn.btn-success.btn-block(href='/farmerone/update/'+farmerone._id) Update
+                            //- div.form-row
         div.col.form-group
             a.btn.btn-success.text-white(class='button' href='/aodashboardroute') Back
     

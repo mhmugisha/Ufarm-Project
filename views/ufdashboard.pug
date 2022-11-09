@@ -13,21 +13,20 @@ head
     .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/addproduceroute') Product Upload
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Product Update
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/addproduceroute') Produce Upload
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Produce Update
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/seeapprovedlist') Approved List
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
-        h2.fs-2.m-0.text-white Urban Farmer Dashboard
+            h2.text-white Urban Farmer Dashboard
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              i.fas.fa-user.me-2.text-white-50
-              //- span.text-white Urban Farmer
+              //- span.text-white #{currentUser.fullname}
         form(method="post" action="/logout")
             button.btn.btn-success.btn-block(type="submit") Log out
     .container-fluid.px-4

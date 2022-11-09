@@ -1,15 +1,15 @@
-extends layout
+extends layoutlists
 block content
     header.card-header
         h4.card-title List of Uploaded Produce 
     br
     nav
-    //- #nav-tab.nav.nav-tabs(role='tablist')
     #nav-tabContent.tab-content
     br
     table.table.table-bordered 
         thead
             tr
+                th Supplier Name
                 th Produce Name
                 th Quantity
                 th Unit Price
@@ -23,8 +23,9 @@ block content
         tbody
             if products.length
                 each product in products
-                    if product.ward === currentUser.ward
+                    if product.ward === currentUser.ward && product.uniqueid === currentUser.uniqueid
                         tr
+                            td #{product.fullname}
                             td #{product.productname}
                             td #{product.quantity}
                             td #{product.unitprice}

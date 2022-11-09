@@ -4,6 +4,7 @@ const multer = require('multer');
 const connectEnsureLogin = require('connect-ensure-login');
 
 
+
 //Dashboard route-------------------------------------
 router.get("/ufdashboard", (req, res) => {
 	res.render("ufdashboard");
@@ -12,7 +13,7 @@ router.get("/ufdashboard", (req, res) => {
 //-----------------------------------------------------
 //Register/get route for Masajja A Urban Farmer
 router.get('/ufregister', (req, res) => {
-    res.render('ufregistration')
+    res.render('ufregistration', {currentUser:req.session.user})
 })
 
 //Import the user model--------------/
@@ -52,8 +53,8 @@ router.get("/uflist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 // Updating urban farmers
 router.get("/urbanFarmer/update/:id", async (req, res) => {
 	try {
-		const urbanFarmerUpdate = await Registration.findOne({ _id: req.params.id });
-		res.render("ufupdate", {urbanFarmers: urbanFarmerUpdate });
+		const urbanFarmer = await Registration.findOne({ _id: req.params.id });
+		res.render("ufupdate", {urbanFarmers: urbanFarmer });
 	} catch (error) {
 		res.status(400).send("Unable to update urban farmer");
 	}

@@ -121,7 +121,7 @@ const formValidate = (event) =>{
         val++
     }else if(!(phoneNumber.value.match(phoneNoRegex))){
         phoneNumber.style.border = '1px solid red';
-        phoneNumberError.textContent='Enter phone number without country code.';
+        phoneNumberError.textContent='Enter 10 digit phone number.';
         phoneNumberError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else{

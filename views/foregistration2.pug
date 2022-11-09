@@ -76,18 +76,7 @@ block content
               small#residencetypeError
             .input-field
               label Years at Residence
-              select#duration(type='number' name='duration')
-                option(value='') Years at residence
-                option 10
-                option 11
-                option 12
-                option 13
-                option 14
-                option 15
-                option 16
-                option 17
-                option 18
-                option 19
+              input#duration(type='number' name='duration' min='10')
               small#durationError
             .input-field
               label Home Address

@@ -21,16 +21,17 @@ head
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
-        h2.fs-2.m-0.text-white Farmer One Dashboard
+        h2.text-white Farmer One Dashboard-
+        h2.text-white #{currentUser.ward}
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              //- span.text-white #{currentUser.fullname}
+              span.text-white #{currentUser.fullname}
         form(method="post" action="/logout")
-            button.btn.btn-success.btn-block(type="submit") Log out
+            button.btn.btn-success(type="submit") Log out
     .container-fluid.px-4
       .row.g-3.my-2
         .col-md-3

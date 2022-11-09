@@ -25,18 +25,17 @@ head
                 option(value=currentUser.fullname) #{currentUser.fullname}
           .input-field
             label Date of Upload
-            input(type='date' name='doreg' placeholder='Date of registraion')
+            input(type='date' name='doreg' placeholder='Date of upload')
           .input-field
             label Home Address
             select(type='text' name='address')
               if currentUser
-                option(value=currentUser.address) #{currentUser.address}
+                option(value=currentUser.ward) #{currentUser.ward}
           .input-field
             label(for='productcategory') Product Category :
                     select(name='productcategory' placeholder="Product Category")
-                        option(value="poultry") Poultry  
-                        option(value="horticulture") Horticulture  
-                        option(value="dairy") Dairy  
+                        if currentUser
+                          option(value=currentUser.activity) #{currentUser.activity}
           .input-field
             label(for='productname') Product:
                     select(name='productname')
@@ -47,7 +46,10 @@ head
                         option(value="Chicken") Chicken 
                         option(value="Eggs") Eggs 
                         option(value="Milk") Milk
-                        option(value="Calves") Calves 
+                        option(value="Sweetpepper") Sweetpepper 
+                        option(value="Okra") Okra
+                        option(value="Calves") Calves
+
       .details.ID
         .fields
           .input-field
@@ -63,20 +65,20 @@ head
             label Product Type
             select(type='text' name='producttype')
               option(value='') Product type
-              option(value='organic') Organic
-              option(value='nonorganic') Non Organic
+              option(value='Organic') Organic
+              option(value='Non-organic') Non Organic
           .input-field
             label Mode of Payment
             select(type='text' name='modeofpay')
               option(value='') Mode of payment
-              option(value='cash') Cash
-              option(value='mobilemoney') Mobile Money
+              option(value='Cash') Cash
+              option(value='Mobile money') Mobile Money
           .input-field
             label Mode of Delivery
             select(type='text' name='deliverymode')
               option(value='') Mode of delivery
-              option(value='pickup') Pickup
-              option(value='homedelivery') Home Delivery
+              option(value='Pickup') Pickup
+              option(value='Home delivery') Home Delivery
           .input-field
             label Ward 
             select(type='text' name='ward')

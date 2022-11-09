@@ -17,7 +17,6 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
             { $group: { _id: "$all", 
             totalQuantity: { $sum: "$quantity" },
             totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },
-            // totalCost: { $sum: "totalamount" },
             }}
             ])
             let totalHort = await Pdtupload.aggregate([
@@ -25,7 +24,6 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
                 totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },
-                // totalCost: { $sum: "totalamount" },
             }}
             ])
             let totalDairy = await Pdtupload.aggregate([
@@ -33,7 +31,6 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
                 totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },
-                // totalCost: { $sum: "totalamount" },
             }}
             ])
             
@@ -59,14 +56,14 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
 
 
 //AGRICULTURAL OFFICER Registration route---------------------/
-router.get('/aoregister', (req, res) => {
+router.get('/aoregister', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render('aoregistration')
 });
 
 //IMPORTING Model - should be last section in this file.
 const Registration = require('../models/Reg')
 
-router.post('/aoregister', async(req, res) => {
+router.post('/aoregister', connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
   console.log(req.body);
   try{
       const user = new Registration(req.body);

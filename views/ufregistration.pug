@@ -61,11 +61,8 @@ block content
             .input-field
               label Ward
               select#ward(type='text' name='ward')
-                option(value='') Select ward
-                option(value="Masajja A") Masajja A
-                option(value="Masajja B") Masajja B
-                option(value="Masajja C") Masajja C
-                option(value="Masajja D") Masajja D
+                if currentUser
+                option(value=currentUser.ward) #{currentUser.ward} 
               small#wardError
           .button
             input#btnSubmit(type='submit' value='Register')
