@@ -18,8 +18,7 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
             res.redirect('/aodashboardroute')
         }else if(user.role == 'farmerone'){
             res.redirect('/masajjaAfodashboard')    
-    }
-        else if(user.role == 'urbanfarmer'){
+       }else if(user.role == 'urbanfarmer'){
             res.redirect('/ufdashboardroute')
         } else{
             res.send('You are not a registered user')
@@ -31,27 +30,18 @@ router.get('/aodashboardroute', (req,res) =>{
     res.render('aodashboard', {currentUser:req.session.user});
 })
 
-//Farmer One Dashboard route-------------------------/
-router.get('/fodashboardroute', (req,res) =>{
-        res.render('fodashboard');
-})
-
-//Urban Farmer dashboard route----------
+//Urban Farmer dashboard route-----------------------/
 router.get('/ufdashboardroute', (req,res) =>{
     res.render('ufdashboard', {currentUser:req.session.user});
 })
 
-//Masajja A FO dashboard route----------
+//Farmer One dashboard route-------------------------/
 router.get('/masajjaAfodashboard', (req,res) =>{
     res.render('masajjaAfodashboard', {currentUser:req.session.user});
 })
 
-//Dashboard layout route----------
-router.get('/dashboardlayout', (req,res) =>{
-    res.render('layout2');
-})
 
-//Log out route
+//Log out route-------------------------------------/
 router.post('/logout', (req,res)=>{
 if(req.session){
     req.session.destroy(function(err){
@@ -63,7 +53,5 @@ if(req.session){
     })
 }
   });
-
-
 
 module.exports = router;

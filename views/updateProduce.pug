@@ -6,57 +6,117 @@ head
     //- link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
     //- link(rel='stylesheet' href='css/style.css')
     title Produce Update
+body
+    style.
+        body{
+          background: #0d5032;  
+        }
+        
+        .form-style{
+        position:absolute;
+        top:5%;  
+        text-align:center;
+        color:rgba(240, 220, 253);
+        }
+       
+        .form-field{
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            font-weight:500; 
+        }
+        .form-field input, select{
+            text-align:left;
+            background: #fff;
+            font-weight: 400;
+            margin:20px;
+            width: 300px;
+            height: 60px;
+            border-radius: 10px;
+        }
 
-.container-fluid.form-style
-    form#signup.form(action='/produce/update?id='+product._id name='pdtupdate' method='POST')
-        h3 Update Produce 
-        hr
-        .row
-            .col
+        .form-btn{
+            margin-top:40px;
+            margin-left:12px;
+            padding:25px;
+        }
+
+        .btn{
+            width:300px;
+            background: grey;
+            padding-top:18px;
+            padding-bottom:18px;
+            font-size:18px;
+            font-weight:500;
+            margin-left:120px;
+            border-radius: 20px;
+            font:#fff; 
+        }
+     
+        .btn:hover{
+           box-shadow:0 0 6px 5px rgb(0,0,0,0.87); 
+        }
+        
+
+    .container-fluid.form-style
+        form#signup.form(action='/produce/update?id='+product._id name='pdtupdate' method='POST')
+            h3 Update Produce 
+            hr
+            .row
+                .col
+                    .form-field
+                        label(for='productname') Produce Name:
+                        select(name='productname')
+                            option(value="Beans" selected = product.productname === 'Beans') Beans
+                            option(value="Maize" selected = product.productname === 'Maize') Maize
+                            option(value="Tomatoes" selected = product.productname === 'Tomatoes') Tomatoes
+                            option(value="Cabbage" selected = product.productname === 'Cabbage') Cabbage
+                            option(value="Chicken" selected = product.productname === 'Chicken') Chicken 
+                            option(value="Eggs" selected = product.productname === 'Eggs') Eggs 
+                            option(value="Milk" selected = product.productname === 'Milk') Milk
+                            option(value="Sweetpepper" selected = product.productname === 'Sweetpepper') Sweetpepper 
+                            option(value="Okra" selected = product.productname === 'Okra') Okra
+                            option(value="Calves" selected = product.productname === 'Calves') Calves
+                            option(value="Ghee" selected = product.productname === 'Ghee') Ghee
+                            option(value="Chicks" selected = product.productname === 'Chicks') Chicks
+                            option(value="Cheese" selected = product.productname === 'Cheese') Cheese
+            .row
+                .col
+                    .form-field
+                        label(for='')
+                            | Quantity:
+                            small  *
+                        input#quantity(type='number' name='quantity' autocomplete='off' value=product.quantity)
+                .col
+                    .form-field
+                        label(for='')
+                            | Unit Price:
+                            small  *
+                        input#unitprice(type='number' name='unitprice' autocomplete='off' value=product.unitprice)
+                .col
+                    .form-field
+                        label(for='')
+                            | Total Amount:
+                            small  *
+                        input#totalamount(type='number' name='totalamount' autocomplete='off' value=product.totalamount)
+                .col
+                    .form-field
+                        label Product Type:
+                        select(name='producttype')
+                            option(value="organic" selected = product.producttype === 'organic') Organic
+                            option(value="nonorganic" selected = product.producttype === 'nonorganic') Non Organic
+                .col
+                    .form-field
+                        label Mode of Payment:
+                        select(name='modeofpay')
+                            option(value="cash" selected = product.modeofpay === 'cash') Cash
+                            option(value="mobilemoney" selected = product.modeofpay === 'mobilemoney') Mobile Money
+                .col
+                    .form-field
+                        label(for='') Mode of Delivery:
+                        select(name='deliverymode')
+                            option(value="pickup") Pick Up
+                            option(value="homedelivery") Home Delivery
                 .form-field
-                    label(for='productname') Produce Name:
-                    select(name='productname')
-                        option(value="Beans" selected = product.productname === 'Beans') Beans
-                        option(value="Maize" selected = product.productname === 'Maize') Maize
-                        option(value="Tomatoes" selected = product.productname === 'Tomatoes') Tomatoes
-                        option(value="Cabbage" selected = product.productname === 'Cabbage') Cabbage
-        .row
-            .col
-                .form-field
-                    label(for='')
-                        | Quantity:
-                        small  *
-                    input#quantity(type='number' name='quantity' autocomplete='off' value=product.quantity)
-            .col
-                .form-field
-                    label(for='')
-                        | Unit Price:
-                        small  *
-                    input#unitprice(type='number' name='unitprice' autocomplete='off' value=product.unitprice)
-            .col
-                .form-field
-                    label(for='')
-                        | Total Amount:
-                        small  *
-                    input#totalamount(type='number' name='totalamount' autocomplete='off' value=product.totalamount)
-            .col
-                .form-field
-                    label Product Type:
-                    select(name='producttype')
-                        option(value="organic" selected = product.producttype === 'organic') Organic
-                        option(value="nonorganic" selected = product.producttype === 'nonorganic') Non Organic
-            .col
-                .form-field
-                    label Mode of Payment:
-                    select(name='modeofpay')
-                        option(value="cash" selected = product.modeofpay === 'cash') Cash
-                        option(value="mobilemoney" selected = product.modeofpay === 'mobilemoney') Mobile Money
-            .col
-                .form-field
-                    label(for='') Mode of Delivery:
-                    select(name='deliverymode')
-                        option(value="pickup") Pick Up
-                        option(value="homedelivery") Home Delivery
-            .form-field
-                input.btn.register-btn(type='submit' value='Update')
+                    input.btn.register-btn(type='submit' value='Update')
 script(src='bootstrap-js/js/bootstrap.bundle.js')

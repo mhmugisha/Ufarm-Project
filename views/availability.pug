@@ -17,9 +17,7 @@ head
                     select(name='availability')
                         option(value="available" selected = item.availability === 'available') Available 
                         option(value="booked" selected = item.availability === 'booked') Booked
-                        option(value="N/A" selected = item.availability === 'N/A') N/A 
-                        //- option(value="Pending" ) Pending
-                        //- option(value="Approved") Approved 
+                        option(value="N/A" selected = item.availability === 'N/A') N/A                   
                 .form-field
                     input.btn.register-btn(type='submit' value='Update')
 script(src='bootstrap-js/js/bootstrap.bundle.js')

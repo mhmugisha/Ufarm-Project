@@ -3,12 +3,12 @@ const router = express.Router();
 const multer = require('multer');
 const connectEnsureLogin = require('connect-ensure-login');
 
-// Importing Model--------------------------------------------
+// Importing Model---------------------------------------------/
 const Pdtupload = require("../models/Produce");
 const Registration = require('../models/Reg');
 
 
-// Image upload-------------------------------------------------
+// Image upload-------------------------------------------------/
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		cb(null, "public/uploads");
@@ -18,11 +18,11 @@ var storage = multer.diskStorage({
 	},
 });
 
-// Variable to store multer functionality to upload image-----------
+// Multer functionality to upload image-----------------------------/
 var upload = multer({ storage: storage });
 
 
-//Add Produce route shared by Irene in classroom-----------------------
+//Add Produce route shared by Irene in classroom----------------------/
 router.get('/addproduceroute', connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	try {
@@ -46,7 +46,7 @@ router.post("/addproduceroute", upload.single("uploadimage"), async (req, res) =
 	}
 });
 
-//Getting/Displaying produce list----------------------------
+//Displaying produce list-------------------------------------------/
 router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user
 	try {
@@ -58,7 +58,7 @@ router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 	}
 });
 
-// Updating Produce Routes-------------------------------------
+// Updating Produce Routes------------------------------------/
 router.get('/produce/update/:id', async (req, res) =>{
 	try {
 		const updateProduct = await Pdtupload.findOne({_id:req.params.id});
@@ -78,7 +78,7 @@ router.post("/produce/update", async (req, res) => {
 	}
 });
 
-// Approving Produce Routes---------------------------------------
+// Approving Produce Routes-------------------------------------/
 router.get('/produce/approve/:id', async (req, res) =>{
 	try {
 		const updateProduct = await Pdtupload.findOne({_id:req.params.id});
@@ -98,7 +98,7 @@ router.post('/produce/approve', async (req,res) => {
 	}
   });
 
-//Changing availability status - available, booked, N/A.-----------
+//Changing availability status - available, booked, N/A.-----------/
 router.get('/produce/available/:id', async (req, res) =>{
 	try {
 		const saleProduct = await Pdtupload.findOne({_id:req.params.id});
@@ -118,8 +118,7 @@ router.post('/produce/available', async (req,res) => {
 	}
   });
 
-  //--------------------------------------------------------------
-  // Returning approved product list
+  // Returning approved product list-----------------------------------/
   router.get("/seeapprovedlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user
 	try {
@@ -130,7 +129,7 @@ router.post('/produce/available', async (req,res) => {
 	}
 });
 
-// Returning pending product list---------------------------------
+// Returning pending product list-----------------------------------/
 router.get("/pendinglist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	try {
@@ -142,7 +141,7 @@ router.get("/pendinglist", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 });
 
 
-//Delete product--------------------------------------------------
+//Delete product-----------------------------------------------------/
 router.post('/produce/delete', async (req,res)=>{
 	try{
 		await Pdtupload.deleteOne({_id:req.body.id});
@@ -152,7 +151,7 @@ router.post('/produce/delete', async (req,res)=>{
 	}
 })
 
-//Returns approved list--------------------------------------------
+//Returns approved list---------------------------------------------/
 router.get("/approvedList", async (req, res) => {
 	try {
 		let product = await Pdtupload.find().sort({$natural:-1});

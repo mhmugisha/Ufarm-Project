@@ -52,7 +52,6 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
         res.send("This page is only accessed by Agric Officers")
     }
 });
-//------------------------------------            
 
 
 //AGRICULTURAL OFFICER Registration route---------------------/
@@ -60,7 +59,8 @@ router.get('/aoregister', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render('aoregistration')
 });
 
-//IMPORTING Model - should be last section in this file.
+
+//IMPORTING Model - should be last section in this file-------/
 const Registration = require('../models/Reg')
 
 router.post('/aoregister', connectEnsureLogin.ensureLoggedIn(), async(req, res) => {

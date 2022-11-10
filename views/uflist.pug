@@ -17,6 +17,8 @@ block content
                 th Full Name 
                 th NIN
                 th Phone number
+                th Gender 
+                th Activity
                 th Ward
                 th Update
         tbody
@@ -28,6 +30,8 @@ block content
                             td #{urbanFarmer.fullname}
                             td #{urbanFarmer.nin}
                             td #{urbanFarmer.phone}
+                            td #{urbanFarmer.gender}
+                            td #{urbanFarmer.activity}
                             td #{urbanFarmer.ward}
                             td
                                 a.btn.btn-success.btn-block(href='/urbanFarmer/update/'+urbanFarmer._id) Update
