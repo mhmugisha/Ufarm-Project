@@ -21,8 +21,7 @@ var storage = multer.diskStorage({
 // Multer functionality to upload image-----------------------------/
 var upload = multer({ storage: storage });
 
-
-//Add Produce route shared by Irene in classroom----------------------/
+//Add Produce route ----------------------/
 router.get('/addproduceroute', connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	try {
@@ -39,7 +38,7 @@ router.post("/addproduceroute", upload.single("uploadimage"), async (req, res) =
 		produce.uploadimage = req.file.path;
 		console.log("This is my produce", produce);
 		await produce.save();
-		res.redirect("/ufdashboard");
+		res.redirect("/ufdashboardroute");
 	} catch (error) {
 		res.status(400).send("Not able to add produce to the database");
 		console.log(error);
@@ -160,7 +159,5 @@ router.get("/approvedList", async (req, res) => {
 		res.status(400).send("Unable to get Produce list");
 	}
 });
-
-
 
 module.exports = router; 

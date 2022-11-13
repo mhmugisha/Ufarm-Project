@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
 
 body {
-  line-height: 1.8;
+  line-height: 3.0;
   color: #898fa1;
   font-size: 15px;
   font-family: 'lato', sans-serif;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -15,9 +15,8 @@ h5,
 h6 {
   font-weight: 700px;
   letter-spacing: 1px;
-  text-transform: uppercase;
   color: #11245a;
-}
+} */
 
 a {
   font: 700;
@@ -51,24 +50,22 @@ section {
 }
 .navbar .nav-link {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
-  font-weight: 700; /*Added this myself*/
 }
 
-
 .navbar-nav .nav-link.active {
-  color: #e93b81;
+  color: #0c6e38;
 }
 
 #home{
-    background:linear-gradient(rgb(17,36,90,0.8), rgba(17, 36, 90, 0.107)), url(../images/sunset.jpeg);
+    background: url(../images/Homepic.jpg);
     min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     display: flex;
-    align-items: center;/*vertical centering*/
+    align-items: center;
 }
 
 #home h1{
@@ -82,19 +79,20 @@ section {
 
 .btn {
     font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
+    font-size: 20px;
     padding: 12px 28px;
-    margin: 20px;/*Mine*/
+    margin-top: 600px;
 }
 
 .btn-brand{
-    background-color: #E93B81;
+    background-color: #156442;
     color: #fff;
+    width: 200px;
+    height: 60px;
 }
 
 .btn-brand:hover {
-    background-color: #53102b;
+    background-color: #b6bfaf;
     color: #fff;
 }
 
@@ -108,4 +106,96 @@ section {
     background-color:red;
     margin: 16px auto 0 auto;
     
+}
+
+
+/* FOOTER */
+#footer {
+  background: #05579e;
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 14px;
+  background-color: #156442;
+}
+
+
+#footer .footer-top {
+  background: #07571a;
+  padding: 60px 0 30px 0;
+  height: 250px;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 10px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 18px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 0.5;
+  text-decoration: none;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #fff;
+}
+
+#footer .footer-top .footer-contact {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-contact p {
+  line-height: 26px;
+}
+
+
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+  background-color: #156442;
+}
+
+#footer .credits {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
 }

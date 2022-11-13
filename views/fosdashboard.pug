@@ -27,15 +27,9 @@ head
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              i.fas.fa-user.me-2.text-white-50
-              span.text-white AO
-            ul.dropdown-menu(aria-labelledby='navbarDropdown')
-              li
-                a.dropdown-item(href='#') Profile
-              li
-                a.dropdown-item(href='#') Settings
-              li
-                a.dropdown-item(href='#') Logout
+              span.text-white #{currentUser.fullname}
+        form(method="post" action='/logout') 
+          button.btn.btn-success.btn-block(type="submit") Log out
     .container-fluid.px-4
       .row.g-3.my-2
         .col-md-3

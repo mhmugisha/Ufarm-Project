@@ -26,7 +26,7 @@ head
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              //- span.text-white #{currentUser.fullname}
+              span.text-white #{currentUser.fullname}
         form(method="post" action="/logout")
             button.btn.btn-success.btn-block(type="submit") Log out
     .container-fluid.px-4

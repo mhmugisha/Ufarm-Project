@@ -54,4 +54,10 @@ if(req.session){
 }
   });
 
+  //Farmer One dashboard route-------------------------/
+router.get('/index', (req,res) =>{
+    res.render('index', {currentUser:req.session.user});
+})
+
+
 module.exports = router;

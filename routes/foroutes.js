@@ -23,7 +23,7 @@ router.get('/foregister2', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 
 //All 4 Farmer Ones Dashboard------------------------------------/
 router.get('/fosdashboard', (req, res) => {
-  res.render('fosdashboard')
+  res.render('fosdashboard', {currentUser:req.session.user});
 })
 
 //IMPORTING Model

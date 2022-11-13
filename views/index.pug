@@ -1,0 +1,190 @@
+doctype html
+head
+  title UFarm
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS v5.2.0-beta1
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
+  link(rel='stylesheet' href='css/index.css')
+header
+  nav.navbar.fixed-top.navbar-expand-lg.bg-white
+    .container
+      a.navbar-brand.logo-text(href='#') UFARM2
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='#home') Home
+          li.nav-item
+            a.nav-link(href='#team') Our Team
+          li.nav-item
+            a.nav-link(href='#poultry') Poultry
+          li.nav-item
+            a.nav-link(href='#horticulture') Horticulture
+          li.nav-item
+            a.nav-link(href='#dairy') Dairy
+          li.nav-item
+            a.nav-link(href='#testimonials') Testimonials
+main
+  // Home Page cover picture Section
+  section#home
+    .container.text-center
+      .row.justify-content-center
+        .col-md-10
+          a.btn.btn-brand(href='/login') Start Here
+  // Team
+  section#team.page-section.bg-light
+    .container(data-aos='fade-up')
+      .text-center
+        h2.section-heading.text-uppercase Our Amazing Team
+        h3.section-subheading.text-muted Meet our Farmer Ones
+      .row
+        .col-12.col-md-6.col-lg-3
+          .team-member
+            img.mx-auto.rounded-circle(src='./Images/Masajja1.jpeg' alt='...')
+            h4 Bicu Birenga
+            p.text-muted Masajja A
+        .col-12.col-md-6.col-lg-3
+          .team-member
+            img.mx-auto.rounded-circle(src='./Images/Female1.jpeg' alt='...')
+            h4 Lilly Tinkasimire
+            p.text-muted Masajja B
+        .col-12.col-md-6.col-lg-3
+          .team-member
+            img.mx-auto.rounded-circle(src='./Images/Female2.jpeg' alt='...')
+            h4 Charity Zikampa
+            p.text-muted Masajja C
+        .col-12.col-md-6.col-lg-3
+          .team-member
+            img.mx-auto.rounded-circle(src='Felix.jpeg' alt='#')
+            h4 Felix Ongetho
+            p.text-muted Masajja D
+  // Services Section
+  section#poultry.poultry
+    .container(data-aos='fade-up')
+      .row
+        .col-12.section-intro
+          h1 Poultry
+          .hline
+  // Poduce - first row
+  .container
+    .row.g-3.mt-4
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/eggs2.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/chicken2.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/chicks2.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+    // Produce - Second row
+    section#horticulture.horticulture
+      .container(data-aos='fade-up')
+        .row
+          .col-12.section-intro
+            h1 Horticulture
+            .hline
+    .row.g-3.mt-2
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/Maize.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/Grapesbig.jpg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/beans.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+    section#dairy.dairy
+      .container(data-aos='fade-up')
+        .row
+          .col-12.section-intro
+            h1 Dairy
+            .hline
+    .row.g-3.mt-2
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/ghee.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+      .col-12.col-md-6.col-lg-4
+        .card
+          img.card-img-top(src='./Images/calves.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+      .col-12.col-md-6.col-lg-4.mb-4
+        .card
+          img.card-img-top(src='./Images/milk2.jpeg' alt='Grapes')
+          .card-body
+            h5 Grapes for sale
+            p The best Grapes around town
+// FOOTEr
+footer#footer
+  .footer-top
+    .container
+      .row
+        .col-lg-4.col-md-6.footer-links
+          h4 Useful Links
+          ul
+            li
+              i.bx.bx-chevron-right
+              a(href='#home') Home
+            li
+              i.bx.bx-chevron-right
+              a(href='#team') Our Team
+            li
+              i.bx.bx-chevron-right
+              a(href='#poultry') Poultry
+            li
+              i.bx.bx-chevron-right
+              a(href='#horticulture') Horticulture
+            li
+              i.bx.bx-chevron-right
+              a(href='#dairy') Dairy
+            li
+              i.bx.bx-chevron-right
+              a(href='#tetimonials') Testimonials
+        .col-lg-4.col-md-6.footer-contact
+          h4 Contact Us
+          p
+            | Masajja Dev. Group 
+            br
+            |                   Lumumba Avenue
+            br
+            |                   Kampala, Uganda 
+            br
+            br
+            strong Phone:
+            |  +256 414 786980
+            br
+            strong Email:
+            |  info@masajjadev.com
+            br
+        .col-lg-4.col-md-6.footer-info
+          h3 About Masajja Dev. Group
+          p
+            | We are brought together for the common good of the farmers
+            | in Masajja and for the good of our customers. We bridge the gap between
+            | the farmer and the consumer. United we stand. God bless Masajja.

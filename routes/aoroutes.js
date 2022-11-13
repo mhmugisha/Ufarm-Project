@@ -8,41 +8,50 @@ const connectEnsureLogin = require('connect-ensure-login')
 const Pdtupload = require('../models/Produce')
 
 //AO Aggregating routes--------------------------------
-router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
+router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
     req.session.user = req.user;
     if(req.user.role == 'agricofficer'){
         try {
             let totalPoultry = await Pdtupload.aggregate([
-            { $match: { productcategory: "poultry" } },
+            { $match: { productcategory: "Poultry" } },
             { $group: { _id: "$all", 
             totalQuantity: { $sum: "$quantity" },
-            totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },
+            totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },             
             }}
             ])
             let totalHort = await Pdtupload.aggregate([
-                { $match: { productcategory: "horticulture" } },
+                { $match: { productcategory: "Horticulture" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
-                totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },
-            }}
+                totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
+                }}
             ])
             let totalDairy = await Pdtupload.aggregate([
-                { $match: { productcategory: "dairy" } },
+                { $match: { productcategory: "Dairy" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
-                totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },
-            }}
+                totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
+                }}
             ])
             
+            let totalBeans = await Pdtupload.aggregate([
+                { $match: { productname: "Beans" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
             console.log("Poultry collections", totalPoultry)
-            console.log("Hort collections", totalHort)
+            console.log("Hortcul. collections", totalHort)
             console.log("Dairy collections", totalDairy)
 
-            res.render("aoreports", { 
+            res.render("AO_reports", { 
             title: 'Reports', 
+            currentUser:req.session.user,
             totalP:totalPoultry[0],
             totalH:totalHort[0],
             totalD:totalDairy[0],
+            totalB:totalBeans[0],
             });
         } catch (error) {
             res.status(400).send("unable to find items in the database");
@@ -52,7 +61,6 @@ router.get("/aoreports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =>
         res.send("This page is only accessed by Agric Officers")
     }
 });
-
 
 //AGRICULTURAL OFFICER Registration route---------------------/
 router.get('/aoregister', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
