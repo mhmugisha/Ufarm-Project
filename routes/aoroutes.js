@@ -33,9 +33,132 @@ router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
                 totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
                 }}
             ])
-            
+            //My aggregations
+
+            // Poultry
+            let totalChicken = await Pdtupload.aggregate([
+                { $match: { productname: "Chicken" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalEggs = await Pdtupload.aggregate([
+                { $match: { productname: "Eggs" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalChicks = await Pdtupload.aggregate([
+                { $match: { productname: "Chicks" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalDressed = await Pdtupload.aggregate([
+                { $match: { productname: "Dressedchicken" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalDrumStick = await Pdtupload.aggregate([
+                { $match: { productname: "Drumsticks" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalGizzard = await Pdtupload.aggregate([
+                { $match: { productname: "Gizzard" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            //Horticulture
             let totalBeans = await Pdtupload.aggregate([
                 { $match: { productname: "Beans" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalMaize = await Pdtupload.aggregate([
+                { $match: { productname: "Maize" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalTomato = await Pdtupload.aggregate([
+                { $match: { productname: "Tomatoes" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalCabbage = await Pdtupload.aggregate([
+                { $match: { productname: "Cabbage" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalSweetP = await Pdtupload.aggregate([
+                { $match: { productname: "Sweetpepper" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalOkra = await Pdtupload.aggregate([
+                { $match: { productname: "Okra" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+ 
+            //Dairy
+            let totalMilk = await Pdtupload.aggregate([
+                { $match: { productname: "Milk" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalCalves = await Pdtupload.aggregate([
+                { $match: { productname: "Calves" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalGhee = await Pdtupload.aggregate([
+                { $match: { productname: "Ghee" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalCheese = await Pdtupload.aggregate([
+                { $match: { productname: "Cheese" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalYoghurt = await Pdtupload.aggregate([
+                { $match: { productname: "Yoghurt" } },
+                { $group: { _id: "$all", 
+                totalQuantity: { $sum: "$quantity" },
+                }}
+            ])
+
+            let totalHeifers = await Pdtupload.aggregate([
+                { $match: { productname: "Heifers" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
                 }}
@@ -51,7 +174,30 @@ router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
             totalP:totalPoultry[0],
             totalH:totalHort[0],
             totalD:totalDairy[0],
+
+           //Poultry Variables
+            totalCn:totalChicken[0],
+            totalE:totalEggs[0],
+            totalCs:totalChicks[0],
+            totalDc:totalDressed[0],
+            totalDs:totalDrumStick[0],           
+            totalGz:totalGizzard[0],           
+            
+            //Horticulture Variables
             totalB:totalBeans[0],
+            totalMz:totalMaize[0],
+            totalTm:totalTomato[0],
+            totalCb:totalCabbage[0],
+            totalSp:totalSweetP[0],
+            totalOk:totalOkra[0],
+
+            //Dairy Variables
+            totalMk:totalMilk[0],
+            totalCv:totalCalves[0],
+            totalGi:totalGhee[0],
+            totalCz:totalCheese[0],
+            totalYg:totalYoghurt[0],
+            totalHf:totalHeifers[0],
             });
         } catch (error) {
             res.status(400).send("unable to find items in the database");

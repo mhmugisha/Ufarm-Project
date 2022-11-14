@@ -59,76 +59,105 @@ head
               h3.fs-2 #{new Intl.NumberFormat().format(totalD.totalCost + totalH.totalCost + totalP.totalCost)} UGX 
               p.fs-5 Total Products: #{new Intl.NumberFormat().format(totalD.totalQuantity + totalH.totalQuantity + totalP.totalQuantity)}.
       .row.my-5
-        .col
-          h3.fs-4.mb-3.text-white Total Inventory
+        .col-12.col-md-6.col-lg-4
+          h3.fs-4.mb-3.text-white Inventory: Poultry
           table.table.bg-white.rounded.shadow-sm.table-hover
             thead
               tr
                 th(scope='col' width='50') #
                 th(scope='col') Product Name
-                //- th(scope='col') Product
-                th(scope='col') Quantity
+                th(scope='col' class="tableentries") Quantity
             tbody
               tr
-                th(scope='row') 1
-                td Beans 
-                //- td Milk
-                td #{new Intl.NumberFormat().format(totalB.totalQuantity)}
+                th(scope='row') 1.
+                td Chicken  
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalCn.totalQuantity)}
               tr
-                th(scope='row') 2
-                td Eggs  
-                //- td Cabbage
-                td #{new Intl.NumberFormat().format(totalP.totalQuantity)}
+                th(scope='row') 2.
+                td Eggs   
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalE.totalQuantity)}
               tr
-                th(scope='row') 3
-                td Chicken 
-                //- td Eggs
-                td 
+                th(scope='row') 3.
+                td Chicks 
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalCs.totalQuantity)}
               tr
-                th(scope='row') 4
-                td Okra
-                //- td Chicken
-                td 
+                th(scope='row') 4.
+                td Dressed Chicken
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalDc.totalQuantity)}
               tr
-                th(scope='row') 5
-                td Ghee
-                //- td Lettuce
-                td 
-        .col
-          h3.fs-4.mb-3.text-white Pending uploads
+                th(scope='row') 5.
+                td Drum Sticks
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalDs.totalQuantity)}
+              tr
+                th(scope='row') 6.
+                td Gizzard 
+                td(class="tableentries")  #{new Intl.NumberFormat().format(totalGz.totalQuantity)}
+        .col-12.col-md-6.col-lg-4
+          h3.fs-4.mb-3.text-white Inventory: Horticulture
           table.table.bg-white.rounded.shadow-sm.table-hover
             thead
               tr
                 th(scope='col' width='50') #
-                th(scope='col') Farmer
                 th(scope='col') Product
-                th(scope='col') Price
+                th(scope='col' class="tableentries") Quantity
             tbody
               tr
-                th(scope='row') 1
-                td Mark
-                td Milk
-                td 12,000
+                th(scope='row') 1.
+                td Beans
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalB.totalQuantity)}
               tr
-                th(scope='row') 2
-                td Musisi
+                th(scope='row') 2.
+                td Maize
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalMz.totalQuantity)}
+              tr
+                th(scope='row') 3.
+                td Tomatoes
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalTm.totalQuantity)}
+              tr
+                th(scope='row') 4.
                 td Cabbage
-                td 100,000
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalCb.totalQuantity)}
               tr
-                th(scope='row') 3
-                td Divine
-                td Eggs
-                td 20,000
+                th(scope='row') 5.
+                td Sweet Pepper
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalSp.totalQuantity)}
               tr
-                th(scope='row') 4
-                td Dimanche
-                td Chicken
-                td 50,000
+                th(scope='row') 6.
+                td Okra
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalOk.totalQuantity)}
+        .col-12.col-md-6.col-lg-4
+          h3.fs-4.mb-3.text-white Inventory: Dairy
+          table.table.bg-white.rounded.shadow-sm.table-hover
+            thead
               tr
-                th(scope='row') 5
-                td Kamuhanda
-                td Lettuce
-                td 10,000
+                th(scope='col' width='50') #
+                th(scope='col') Product
+                th(scope='col' class="tableentries") Quantity
+            tbody
+              tr
+                th(scope='row') 1.
+                td Milk
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalMk.totalQuantity)}
+              tr
+                th(scope='row') 2.
+                td Calves 
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalCv.totalQuantity)}
+              tr
+                th(scope='row') 3.
+                td Ghee
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalGi.totalQuantity)}
+              tr
+                th(scope='row') 4.
+                td Cheese
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalCz.totalQuantity)}
+              tr
+                th(scope='row' ) 5.
+                td Yoghurt
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalE.totalQuantity)}
+              tr
+                th(scope='row') 6.
+                td Heifers
+                td(class="tableentries") #{new Intl.NumberFormat().format(totalHf.totalQuantity)}
       .row.my-5
         .col
           h3.fs-4.mb-3.text-white Recent Farmers

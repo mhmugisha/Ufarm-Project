@@ -85,6 +85,10 @@
   width: 100px;
 }
 
+.tableentries{
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;

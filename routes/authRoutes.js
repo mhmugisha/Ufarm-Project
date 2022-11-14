@@ -27,7 +27,7 @@ router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}
 
 //AO Dashboard route---------------------------------/
 router.get('/aodashboardroute', (req,res) =>{
-    res.render('aodashboard', {currentUser:req.session.user});
+    res.render('fosdashboard', {currentUser:req.session.user});
 })
 
 //Urban Farmer dashboard route-----------------------/
