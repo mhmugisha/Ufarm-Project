@@ -122,7 +122,7 @@ router.post('/produce/available', async (req,res) => {
 	req.session.user = req.user
 	try {
 		let products = await Pdtupload.find().sort({$natural:-1});
-		res.render("availabilitylist", { products: products, currentUser:req.session.user});
+		res.render("pendinglist", { products: products, currentUser:req.session.user});
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}
@@ -159,5 +159,81 @@ router.get("/approvedList", async (req, res) => {
 		res.status(400).send("Unable to get Produce list");
 	}
 });
+
+
+
+//Ordering routes -----------/
+router.get('/produce/order/:id', async (req, res) =>{
+	try {
+		const saleProduct = await Pdtupload.findOne({_id:req.params.id});
+		res.render('order',{item:saleProduct});
+		console.log('Ordered list', saleProduct)
+	} catch (error) {
+		res.status(400).send('Unable to orderproduce.');
+	}
+});
+
+router.post('/produce/order', async (req,res) => {
+	try {
+	  await Pdtupload.findOneAndUpdate({_id:req.query.id}, req.body);
+	  res.redirect('/index');
+	} catch (error) {
+	  res.status(400).send('Sorry order not successful.');
+	}
+  });
+
+//Returns booked list---------------------------------------------/
+router.get("/bookedlist", async (req, res) => {
+	try {
+		let listedOrders = await Pdtupload.find().sort({$natural:-1});
+		res.render("bookedlist", { orders: listedOrders });
+	} catch (error) {
+		res.status(400).send("Unable to display booked list");
+	}
+});
+
+//Returns list of products viewed by customers ------------------------/
+router.get("/index", async (req, res) => {
+	try {
+		let produce = await Pdtupload.find().sort({$natural:-1});
+		res.render("index", {customerproducts: produce});
+	} catch (error) {
+		res.status(400).send("Unable to display produce to customer");
+	}
+});
+
+//Displaying pages for customer-------------------------------------------/
+
+//Poultry page
+router.get("/poultry", async (req, res) => {
+	try {
+		let poultpdts = await Pdtupload.find({ role: "urbanfarmer" });
+		res.render("00poultry", { poultryProduces:poultpdts });
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+//Horticulture page-------------------------------------------/
+router.get("/horticulture", async (req, res) => {
+	try {
+		let hortProduce = await Pdtupload.find({ role: "urbanfarmer" });
+		res.render("01horticulture", { hortproduces:hortProduce });
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+//Dairy page-------------------------------------------/
+router.get("/dairy", async (req, res) => {
+	try {
+		let dairyProduce = await Pdtupload.find({ role: "urbanfarmer" });
+		res.render("02dairy", {dairyproduces:dairyProduce });
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+
 
 module.exports = router; 

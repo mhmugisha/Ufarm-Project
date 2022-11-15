@@ -13,14 +13,15 @@ head
     .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Urban Farmers
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Reports
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Stock
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='#') Products
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister2') Register Farmer One
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/folist') Farmer One List
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/AO_reports') Reports
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufdashbordroute') UF Dashboard
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Products
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
-        h2.fs-2.m-0.text-white My Farmer Ones Dashboard
+        h2.fs-2.m-0.text-white Agricultural Officer ashboard
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
@@ -31,7 +32,7 @@ head
         form(method="post" action='/logout') 
           button.btn.btn-success.btn-block(type="submit") Log out
     .container-fluid.px-4
-      .row.g-3.my-2
+      //- .row.g-3.my-2
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
@@ -66,7 +67,7 @@ head
               | consumption habits and behaviour, food production and supply chains,
               | and food waste and disposal will shape the future of urban agriculture systems.
           .card-body
-            a.card-link(href='#') Link
+            a.card-link(href='/login') To Masajja A Dashboard
         .card(style='width: 18rem;')
           img.card-img-top(src='images/lilly.jpeg' alt='Card image cap')
           .card-body
@@ -77,7 +78,7 @@ head
             p
               | Cities have a key role to play in fundamentally shifting the way we think about food consumption, management and waste. By understanding consumption habits and behaviour, food production and supply chains, and food waste and disposal will shape the future of urban agriculture systems.
           .card-body
-            a.card-link(href='#') Link 
+            a.card-link(href='/login') To Masajja B Dashboard
         .card(style='width: 18rem;')
           img.card-img-top(src='images/charity.jpeg' alt='Card image cap')
           .card-body
@@ -88,7 +89,7 @@ head
             p
               | Cities have a key role to play in fundamentally shifting the way we think about food consumption, management and waste. By understanding consumption habits and behaviour, food production and supply chains, and food waste and disposal will shape the future of urban agriculture systems.
           .card-body
-            a.card-link(href='#') Link
+            a.card-link(href='login') To Masajja C Dashboard
         .card(style='width: 18rem;')
           img.card-img-top(src='images/Felix.jpeg' alt='Card image cap')
           .card-body
@@ -99,7 +100,7 @@ head
             p
               | Cities have a key role to play in fundamentally shifting the way we think about food consumption, management and waste. By understanding consumption habits and behaviour, food production and supply chains, and food waste and disposal will shape the future of urban agriculture systems.
           .card-body
-            a.card-link(href='#') Link
+            a.card-link(href='/login') To Masajja D Dashboard
 // page-content-wrapper end
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js')
 script.

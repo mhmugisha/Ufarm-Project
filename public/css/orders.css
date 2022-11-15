@@ -1,0 +1,36 @@
+body{
+    background-color: aquamarine;
+}
+
+.btn{
+    background-color: powderblue;
+    padding: 8px;
+    border-radius: 10px;
+    text-decoration:none; 
+    color:black;
+    margin-left: 80px;
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+}
+
+.card{
+    width: 16rem;
+    margin: 30px;
+    
+}
+
+.card-body{
+    margin-bottom: 30px;
+}
+
+/* .image{
+    margin: 50px;
+} */
+.card-title{
+    margin-left: 70px;
+    margin-top: 2px;
+    font-size:medium;
+}
+

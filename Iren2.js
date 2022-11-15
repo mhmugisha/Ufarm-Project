@@ -1,6 +1,7 @@
 router.get("/reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
     req.session.user = req.user;
     if(req.user.role == 'AgricOfficer'){
+       
         try {
             
             // New
@@ -21,7 +22,9 @@ router.get("/reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
                 { $group: { _id: "$prodname", 
                 totalQuantity: { $sum: "$quantity" },
                 totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },
-            ])
+            ]);
+
+            
             
             console.log("Crop collections", totalCrop)
 

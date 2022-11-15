@@ -1,0 +1,44 @@
+extends layoutlists 
+block content
+    header.card-header
+        h4.card-title List of Booked  Products 
+    br
+    nav
+    #nav-tab.nav.nav-tabs(role='tablist')
+        a#nav-profile-tab.nav-item.nav-link(href='/producelist') 
+    #nav-tabContent.tab-content
+    br
+    table.table.table-bordered 
+        thead
+            tr
+                th Produce Name
+                th Quantity
+                th Unit Price
+                th Total Amount
+                th Product Type
+                th Customer Email
+                th Customer Phone
+                th Image 
+                th Change Availability 
+        tbody
+            if orders.length
+                each order  in orders 
+                    if order.availability =='booked' 
+                        tr
+                            td #{order.productname}
+                            td #{order.quantity}
+                            td #{order.unitprice}
+                            td #{order.totalamount}
+                            td #{order.producttype}
+                            td #{order.customeremail}
+                            td #{order.customerphone}
+                            td 
+                                img(src="/"+order.uploadimage, alt="Image" width='150px' height="150px")
+                            td
+                                a.btn.btn-secondary.btn-block(href='/produce/available/'+order._id) Booked
+                            
+    div.form-row
+        div.col.form-group
+            //- a(class='button' href='/ufdashboardroute') Back 
+block footer
+    div.col-md-12 

@@ -45,8 +45,7 @@
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
-  color: white;
-  /*#0d5032*/
+  color: rgb(255, 255, 255);
 }
 
 #sidebar-wrapper .list-group {

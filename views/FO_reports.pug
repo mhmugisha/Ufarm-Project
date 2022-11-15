@@ -5,54 +5,56 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
-  link(rel='stylesheet' href='css/aodashboard.css')
-  title Agric Officer Dashboard
+  link(rel='stylesheet' href='css/fodashboard.css')
+  title Farmer One Dashboard
 #wrapper.d-flex
-  #sidebar-wrapper.bg-white
+  // Sidebar
+  #sidebar-wrapper
     .sidebar-heading.text-left.py-4.fs-4.fw-bold.text-uppercase.border-bottom Ufarm
     .list-group.list-group-flush.my-3
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/foregister2') Register Farmer One
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/folist') Farmer One List
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/fosdashboard') FO Dashboard
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufdashboardroute') UF Dashboard
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/AO_reports') Reports
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/producelist') Products
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufregister') Register Urban Farmer
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/uflist') Urban Farmer List
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/pendinglist') Approve Produce
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/') Reports
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/seeapprovedlist')  Approved Produce
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/bookedlist') Booked List
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
-        h2.fs-2.m-0.text-white Agricultural Officer Dashboard
+        h2.text-white Farmer One Dashboard-
+        h2.text-white #{currentUser.ward}
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle.second-text.fw-bold(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-              //- span.text-white #{currentUser.fullname}
-        form(method="post" action='/logout') 
-          button.btn.btn-success.btn-block(type="submit") Log out
+              span.text-white #{currentUser.fullname}
+        form(method="post" action="/logout")
+            button.btn.btn-success(type="submit") Log out
     .container-fluid.px-4
       .row.g-3.my-2
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 4,000,500: 
-              p.fs-5 Total revenue: 
+              h3.fs-2 Total Poultry: #{new Intl.NumberFormat().format(totalPA.totalQuantity)}
+              p.fs-5 Masajja A:
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 2,050,000
-              p.fs-5 Sales this month
+              h3.fs-2 600,000
+              p.fs-5 Ward Sales
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 36
+              h3.fs-2 12
               p.fs-5 Registrations
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 10%
-              p.fs-5 Increase
+              h3.fs-2 10
+              p.fs-5 Uploads
       .row.my-5
         .col
           h3.fs-4.mb-3.text-white Recent Uploads
@@ -124,6 +126,7 @@ head
                 td Kamuhanda
                 td Lettuce
                 td 10,000
+      // Farmer Table
       .row.my-5
         .col
           h3.fs-4.mb-3.text-white Recent Farmers

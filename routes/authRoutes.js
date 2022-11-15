@@ -30,6 +30,12 @@ router.get('/aodashboardroute', (req,res) =>{
     res.render('fosdashboard', {currentUser:req.session.user});
 })
 
+
+//AO Dashboard route original---------------------------------/
+router.get('/aodashboard', (req,res) =>{
+    res.render('aodashboard', {currentUser:req.session.user});
+})
+
 //Urban Farmer dashboard route-----------------------/
 router.get('/ufdashboardroute', (req,res) =>{
     res.render('ufdashboard', {currentUser:req.session.user});
@@ -54,10 +60,10 @@ if(req.session){
 }
   });
 
-  //Farmer One dashboard route-------------------------/
-router.get('/index', (req,res) =>{
-    res.render('index', {currentUser:req.session.user});
-})
+//   //Farmer One dashboard route-------------------------/
+// router.get('/index', (req,res) =>{
+//     res.render('index', {currentUser:req.session.user});
+// })
 
 
 module.exports = router;

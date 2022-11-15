@@ -7,6 +7,7 @@ const connectEnsureLogin = require('connect-ensure-login')
 //Importing model
 const Pdtupload = require('../models/Produce')
 
+
 //AO Aggregating routes--------------------------------
 router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
     req.session.user = req.user;
@@ -33,8 +34,8 @@ router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
                 totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
                 }}
             ])
-            //My aggregations
-
+           
+            //My Aggregations
             // Poultry
             let totalChicken = await Pdtupload.aggregate([
                 { $match: { productname: "Chicken" } },
@@ -58,14 +59,14 @@ router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
             ])
 
             let totalDressed = await Pdtupload.aggregate([
-                { $match: { productname: "Dressedchicken" } },
+                { $match: { productname: "Dressed Chicken" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
                 }}
             ])
 
             let totalDrumStick = await Pdtupload.aggregate([
-                { $match: { productname: "Drumsticks" } },
+                { $match: { productname: "Drum Sticks" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
                 }}
@@ -108,7 +109,7 @@ router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
             ])
 
             let totalSweetP = await Pdtupload.aggregate([
-                { $match: { productname: "Sweetpepper" } },
+                { $match: { productname: "Sweet Pepper" } },
                 { $group: { _id: "$all", 
                 totalQuantity: { $sum: "$quantity" },
                 }}
@@ -198,6 +199,7 @@ router.get("/AO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
             totalCz:totalCheese[0],
             totalYg:totalYoghurt[0],
             totalHf:totalHeifers[0],
+
             });
         } catch (error) {
             res.status(400).send("unable to find items in the database");

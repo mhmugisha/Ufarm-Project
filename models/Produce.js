@@ -53,6 +53,12 @@ const produceSchema = new mongoose.Schema({
     ward:{
         type: String,
     },
+    customeremail:{
+        type: String,
+    },
+    customerphone:{
+        type: String,
+    },
     uploadimage:{
         type: String,
     },

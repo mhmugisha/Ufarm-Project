@@ -5,19 +5,27 @@ head
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
     link(rel='stylesheet' href='css/style.css')
-    title Produce update
+    title Produce Update
 .container-fluid.form-style
-    form#signup.form(action='/produce/available/?id='+item._id name='registration' method='POST')
-        h3 Change Availability Status - Available or N/A. 
+    form#signup.form(action='/produce/order/?id='+item._id name='registration' method='POST')
+        h3 Update Produce 
         hr
         .row
             .col
                 .form-field
                     label(for='availability') Product Availability: 
                     select(name='availability')
-                        option(value="available" selected = item.availability === 'available') Available 
                         option(value="booked" selected = item.availability === 'booked') Booked
-                        option(value="N/A" selected = item.availability === 'N/A') N/A                   
+                .form-field
+                    label(for='')
+                        | Customer Email:
+                        small  *
+                    input#unitprice(type='text' name='customeremail' autocomplete='off')
+                .form-field
+                    label(for='')
+                        | Customer Phone:
+                        small  *
+                    input#unitprice(type='text' name='customerphone' autocomplete='off')
                 .form-field
                     input.btn.register-btn(type='submit' value='Update')
 script(src='bootstrap-js/js/bootstrap.bundle.js')

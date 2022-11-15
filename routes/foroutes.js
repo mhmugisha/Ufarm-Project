@@ -3,6 +3,65 @@ const router = express.Router();
 const connectEnsureLogin = require('connect-ensure-login')
 
 
+//Importing model
+const Pdtupload = require('../models/Produce')
+
+//FO Aggregating routes--------------------------------
+router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
+  req.session.user = req.user;
+  if(req.user.role == 'farmerone'){
+      try {
+          let totalPoultry = await Pdtupload.aggregate([
+          { $match: { ward: "Masajja A" } },
+          { $group: { _id: "poultry", 
+          totalQuantity: { $sum: "$quantity" },
+            }}
+          ])
+          let totalHort = await Pdtupload.aggregate([
+              { $match: { ward: "Horticulture" } },
+              { $group: { _id: "$all", 
+              totalQuantity: { $sum: "$quantity" },
+              totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
+              }}
+          ])
+          let totalDairy = await Pdtupload.aggregate([
+              { $match: { ward: "Dairy" } },
+              { $group: { _id: "all", 
+              totalQuantity: { $sum: "$quantity" },
+              totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
+              }}
+          ])
+         
+          
+          
+          
+          
+          //My Aggregations
+          console.log("Poultry collections", totalPoultry)
+          console.log("Hortcul. collections", totalHort)
+          console.log("Dairy collections", totalDairy)
+
+          res.render("FO_reports", { 
+          title: 'Reports', 
+          currentUser:req.session.user,
+          totalPA:totalPoultry[0],
+          totalH:totalHort[0],
+          totalD:totalDairy[0],
+
+         
+
+          });
+      } catch (error) {
+          res.status(400).send("unable to find items in the database");
+      }
+      
+  }else {
+      res.send("This page is only accessed by Agric Officers")
+  }
+});
+
+
+
 //Display Farmerones list---------------------------/
 router.get("/folist", async (req, res) => {
   try {
