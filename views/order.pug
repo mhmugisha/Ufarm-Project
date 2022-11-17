@@ -6,25 +6,90 @@ head
     link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
     link(rel='stylesheet' href='css/style.css')
     title Produce Update
+
+body
+    style.
+        body{
+          background: #0d5032;  
+        }
+        
+        .form-style{
+        position:absolute;
+        top:5%;  
+        text-align:center;
+        color:rgba(240, 220, 253);
+        font-weight: 600px;
+        font-size: 18px;
+        font-weight:300;
+        }
+       
+        .form-field{
+            width: 150px;
+            text-align: center;
+            font-weight:300;
+            margin-left: 200px; 
+            display: inline-block;
+            font-family: Sans-serif;
+        }
+        .form-field input, select{
+            text-align:left;
+            background: #fff;
+            font-weight: 400;
+            margin:20px;
+            width: 300px;
+            height: 60px;
+            border-radius: 10px;
+        }
+
+        .form-btn{
+            margin-top:40px;
+            margin-left:12px;
+            padding:25px;
+            
+        }
+
+        .btn{
+            padding-top:18px;
+            padding-bottom:18px;
+            font-size:18px;
+            font-weight:900;
+            margin-left:120px;
+            border-radius: 5px;
+            font: #fff; 
+            text-align: center;
+        }
+     
+        .btn:hover{
+           box-shadow:0 0 6px 5px rgb(0,0,0,0.87); 
+        }
+
+        hr{
+            width: 1670px;
+        }
+        h3{
+            font-family: Sans-serif;
+            font-size: 30px;
+        }
+
 .container-fluid.form-style
     form#signup.form(action='/produce/order/?id='+item._id name='registration' method='POST')
-        h3 Update Produce 
+        h3 Book Produce 
         hr
         .row
             .col
                 .form-field
-                    label(for='availability') Product Availability: 
+                    label(for='availability') Availability: 
                     select(name='availability')
                         option(value="booked" selected = item.availability === 'booked') Booked
                 .form-field
                     label(for='')
                         | Customer Email:
-                        small  *
+                        small  
                     input#unitprice(type='text' name='customeremail' autocomplete='off')
                 .form-field
                     label(for='')
                         | Customer Phone:
-                        small  *
+                        small  
                     input#unitprice(type='text' name='customerphone' autocomplete='off')
                 .form-field
                     input.btn.register-btn(type='submit' value='Update')

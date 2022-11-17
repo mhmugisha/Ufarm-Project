@@ -26,7 +26,7 @@ block content
         tbody
             if orders.length
                 each order  in orders 
-                    if order.availability =='booked' 
+                    if order.availability =='booked' && order.ward === currentUser.ward 
                         tr
                             td #{order.productname}
                             td #{order.quantity}
@@ -41,6 +41,6 @@ block content
                                 a.btn.btn-secondary.btn-block(href='/produce/available/'+order._id) Booked
                             
     div.col.form-group
-    a.btn.btn-success.btn-block(class='button' href='/aodashboardroute') Back 
+    a.btn.btn-success.btn-block(class='button' href='/masajjaAfodashboard') Back 
 block footer
     div.col-md-12 

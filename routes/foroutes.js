@@ -14,20 +14,21 @@ router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
           let totalPoultry = await Pdtupload.aggregate([
           { $match: { "$and":[{ward:req.user.ward}, {productcategory: "Poultry"}]  } },
           { $group: { _id: "$all", 
-          totalQuantity: { $sum: "$quantity" },
-            }}
+          // totalQuantity: { $sum: "$quantity" },
+          totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
+        }}
           ])
           let totalHort = await Pdtupload.aggregate([
-              { $match: { productcategory: "Horticulture" } },
+              { $match: {"$and":[{ward:req.user.ward}, {productcategory: "Horticulture"}]} },
               { $group: { _id: "$all", 
-              totalQuantity: { $sum: "$quantity" },
+              // totalQuantity: { $sum: "$quantity" },
               totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
               }}
           ])
           let totalDairy = await Pdtupload.aggregate([
-              { $match: { productcategory: "Dairy" } },
+              { $match: { "$and":[{ward:req.user.ward}, {productcategory: "Dairy"}] } },
               { $group: { _id: "$all", 
-              totalQuantity: { $sum: "$quantity" },
+              // totalQuantity: { $sum: "$quantity" },
               totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
               }}
           ])
@@ -41,8 +42,8 @@ router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
           title: 'Reports', 
           currentUser:req.session.user,
           totalPA:totalPoultry[0],
-          totalH:totalHort[0],
-          totalD:totalDairy[0],
+          totalHA:totalHort[0],
+          totalDA:totalDairy[0],
 
          
 

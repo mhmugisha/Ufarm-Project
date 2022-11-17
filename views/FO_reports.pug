@@ -6,6 +6,8 @@ head
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
   link(rel='stylesheet' href='css/fodashboard.css')
+  link(rel='stylesheet' href='css/aodashboard.css')
+
   title Farmer One Dashboard
 #wrapper.d-flex
   // Sidebar
@@ -15,10 +17,12 @@ head
       a.list-group-item.list-group-item-action.bg-transparent.second-text.active(href='#')
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/ufregister') Register Urban Farmer
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/uflist') Urban Farmer List
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/pendinglist') Approve Produce
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/') Reports
-      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/seeapprovedlist')  Approved Produce
+      a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/seeapprovedlist')  Approve Produce
       a.list-group-item.list-group-item-action.bg-transparent.second-text.fw-bold(href='/bookedlist') Booked List
+        div.form-row
+                  div.col.form-group
+                    a.btn.btn-success.text-white(class='button' href='/masajjaAfodashboard') Back
+ 
   #page-content-wrapper
     nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.py-4.px-4
       .d-flex.align-items-center
@@ -39,26 +43,31 @@ head
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
               if (totalPA == undefined)
-                h3.fs-2 Total Poultry:0
-                p.fs-5 #{currentUser.ward}
+                h3.fs-2 Overall  Poultry Sales:0
+                h4.fs-5 UGX 
               else
-                h3.fs-2 Total Poultry: #{new Intl.NumberFormat().format(totalPA.totalQuantity)}
-                p.fs-5 #{currentUser.ward}
+                h3.fs-3 Overall Poultry Sales: #{new Intl.NumberFormat().format(totalPA.totalCost)} UGX 
+        .col-md-3
+          .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-right.rounded
+            div
+              if (totalPA == undefined)
+                h3.fs-2 Overall Horticulture Sales:0
+              else
+                h3.fs-3 Overall Horticulture Sales: #{new Intl.NumberFormat().format(totalHA.totalCost)} UGX
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 600,000
-              p.fs-5 Ward Sales
+              if (totalPA == undefined)
+                h3.fs-2 Overall Dairy Sales:0
+              else
+                h3.fs-3 Overall Dairy Sales: #{new Intl.NumberFormat().format(totalDA.totalCost)} UGX
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 12
-              p.fs-5 Registrations
-        .col-md-3
-          .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
-            div
-              h3.fs-2 10
-              p.fs-5 Uploads
+              if (totalPA == undefined)
+                h3.fs-2 All Product Sales:0
+              else
+                h3.fs-3 All Product Sales: #{new Intl.NumberFormat().format(totalPA.totalCost+totalHA.totalCost +totalDA.totalCost)} UGX
       .row.my-5
         .col
           h3.fs-4.mb-3.text-white Recent Uploads
