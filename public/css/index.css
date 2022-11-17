@@ -7,16 +7,17 @@ body {
   font-family: 'lato', sans-serif;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700px;
-  letter-spacing: 1px;
-  color: #11245a;
-} */
+.logo-text{
+  background: url('../images/logo.png');
+  height: 90px;
+  width: 250px;
+  border-radius: 30px;
+  text-align: left;
+  padding-top: 28px;
+  font-weight: 600;
+  margin-left: 1px;
+  font-family: Futura;
+}
 
 a {
   font: 700;
@@ -65,7 +66,7 @@ section {
     background-position: center;
     background-attachment: fixed;
     display: flex;
-    align-items: center;
+    align-items: center; 
 }
 
 #home h1{
@@ -75,7 +76,7 @@ section {
 #home p {
     max-width: 550px;
     margin: 18px auto;  
-}
+} 
 
 .btn {
     font-weight: 700;
@@ -200,3 +201,5 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
+

@@ -1,7 +1,10 @@
 extends layoutlists 
 block content
     header.card-header
-        h4.card-title List of Farmer ones
+        h4.card-title List of Farmer ones-
+           span.text-white #{currentUser.fullname}
+        form(method="post" action='/logout') 
+          button.btn.btn-success.btn-block(type="submit") Log out
     br
     table.table.table-bordered 
         thead
@@ -23,10 +26,9 @@ block content
                         td #{farmerone.phone}
                         td #{farmerone.ward}
                         td
-                            a.button.btn.btn-success.btn-block(href='/farmerone/update/'+farmerone._id) Update
-                            //- div.form-row
-        div.col.form-group
-            a.btn.btn-success.text-white(class='button' href='/aodashboardroute') Back
-    
+                            a.button.btn.btn-success.btn-block(href='/farmerone/update/'+farmerone._id) Update                      
+    div.col.form-group
+    a.btn.btn-success.btn-block(class='button' href='/aodashboardroute') Back
+
 block footer
     div.col-md-12 

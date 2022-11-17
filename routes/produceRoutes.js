@@ -111,7 +111,7 @@ router.get('/produce/available/:id', async (req, res) =>{
 router.post('/produce/available', async (req,res) => {
 	try {
 	  await Pdtupload.findOneAndUpdate({_id:req.query.id}, req.body);
-	  res.redirect('/producelist');
+	  res.redirect('/bookedlist');
 	} catch (error) {
 	  res.status(400).send('Sorry product not approved.');
 	}
@@ -181,12 +181,11 @@ router.post('/produce/order', async (req,res) => {
 	  res.status(400).send('Sorry order not successful.');
 	}
   });
-
 //Returns booked list---------------------------------------------/
 router.get("/bookedlist", async (req, res) => {
 	try {
 		let listedOrders = await Pdtupload.find().sort({$natural:-1});
-		res.render("bookedlist", { orders: listedOrders });
+		res.render("bookedlist", { orders: listedOrders, currentUser:req.session.user });
 	} catch (error) {
 		res.status(400).send("Unable to display booked list");
 	}

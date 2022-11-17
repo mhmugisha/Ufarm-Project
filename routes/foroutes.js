@@ -12,30 +12,26 @@ router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
   if(req.user.role == 'farmerone'){
       try {
           let totalPoultry = await Pdtupload.aggregate([
-          { $match: { ward: "Masajja A" } },
-          { $group: { _id: "poultry", 
+          { $match: { "$and":[{ward:req.user.ward}, {productcategory: "Poultry"}]  } },
+          { $group: { _id: "$all", 
           totalQuantity: { $sum: "$quantity" },
             }}
           ])
           let totalHort = await Pdtupload.aggregate([
-              { $match: { ward: "Horticulture" } },
+              { $match: { productcategory: "Horticulture" } },
               { $group: { _id: "$all", 
               totalQuantity: { $sum: "$quantity" },
               totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
               }}
           ])
           let totalDairy = await Pdtupload.aggregate([
-              { $match: { ward: "Dairy" } },
-              { $group: { _id: "all", 
+              { $match: { productcategory: "Dairy" } },
+              { $group: { _id: "$all", 
               totalQuantity: { $sum: "$quantity" },
               totalCost: { $sum: { $multiply: [ "$unitprice", "$quantity" ] } },            
               }}
           ])
          
-          
-          
-          
-          
           //My Aggregations
           console.log("Poultry collections", totalPoultry)
           console.log("Hortcul. collections", totalHort)
@@ -59,8 +55,6 @@ router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
       res.send("This page is only accessed by Agric Officers")
   }
 });
-
-
 
 //Display Farmerones list---------------------------/
 router.get("/folist", async (req, res) => {

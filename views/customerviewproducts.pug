@@ -1,30 +1,30 @@
-doctype html
-head
-  title UFarm
-  // Required meta tags
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  // Bootstrap CSS v5.2.0-beta1
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
-header
-    .container.my-5
-        .row.justify-content-center.align-items-center.g-2.my-5
-        .col.my-5(style='display:flex; flex-wrap:wrap;')
-                .row
-                if customerproducts.length
-                    each customerproduct in customerproducts
-                        if customerproduct.availability == 'available' && customerproduct.status == 'Approved'
-                        .col-md-4
-                            .card(style='width: 18rem;')
-                                //- img(src="/"+customerproduct.uploadimage, alt="uploadimage")
-                                .card-body(style='margin-bottom:56px;')
-                                    h5.card-title #{customerproduct.productname+' '+customerproduct.unitprice } 
-                                    p(style='margin-top:-16px;') Available
-                                    a.btn-2.mr-2(href='#')
-                                    i.fas.fa-link
-                                    span
-                                    | Order
-                                    a.btn-2(href='#')
-                                    i.fab.fa-github
-                                    span
-                                    | Book
+//- doctype html
+//- head
+//-   title UFarm
+//-   // Required meta tags
+//-   meta(charset='utf-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+//-   // Bootstrap CSS v5.2.0-beta1
+//-   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
+//- header
+//-     .container.my-5
+//-         .row.justify-content-center.align-items-center.g-2.my-5
+//-         .col.my-5(style='display:flex; flex-wrap:wrap;')
+//-                 .row
+//-                 if customerproducts.length
+//-                     each customerproduct in customerproducts
+//-                         if customerproduct.availability == 'available' && customerproduct.status == 'Approved'
+//-                         .col-md-4
+//-                             .card(style='width: 18rem;')
+//-                                 //- img(src="/"+customerproduct.uploadimage, alt="uploadimage")
+//-                                 .card-body(style='margin-bottom:56px;')
+//-                                     h5.card-title #{customerproduct.productname+' '+customerproduct.unitprice } 
+//-                                     p(style='margin-top:-16px;') Available
+//-                                     a.btn-2.mr-2(href='#')
+//-                                     i.fas.fa-link
+//-                                     span
+//-                                     | Order
+//-                                     a.btn-2(href='#')
+//-                                     i.fab.fa-github
+//-                                     span
+//-                                     | Book

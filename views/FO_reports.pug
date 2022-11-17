@@ -38,8 +38,12 @@ head
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div
-              h3.fs-2 Total Poultry: #{new Intl.NumberFormat().format(totalPA.totalQuantity)}
-              p.fs-5 Masajja A:
+              if (totalPA == undefined)
+                h3.fs-2 Total Poultry:0
+                p.fs-5 #{currentUser.ward}
+              else
+                h3.fs-2 Total Poultry: #{new Intl.NumberFormat().format(totalPA.totalQuantity)}
+                p.fs-5 #{currentUser.ward}
         .col-md-3
           .p-3.bg-white.shadow-sm.d-flex.justify-content-around.align-items-center.rounded
             div

@@ -1,5 +1,8 @@
 body{
-    background-color: aquamarine;
+    /* background-color:  */
+    background-image: linear-gradient(rgb(2, 42, 23), rgb(207, 207, 94), rgb(2, 67, 2));
+
+
 }
 
 .btn{
@@ -25,12 +28,123 @@ body{
     margin-bottom: 30px;
 }
 
-/* .image{
-    margin: 50px;
-} */
 .card-title{
     margin-left: 70px;
     margin-top: 2px;
     font-size:medium;
 }
 
+/* Css for the order pages */
+
+.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 80px;
+  }
+  
+  .logo-text{
+      font: size 22px;
+      text-transform: uppercase;
+      color: green !important;
+      
+  }
+  .navbar .nav-link {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #0c6e38;
+  }
+  
+  /* FOOTER */
+#footer {
+    background: #05579e;
+    padding: 0 0 30px 0;
+    color: #fff;
+    font-size: 14px;
+    background-color: #156442;
+  }
+  
+  
+  #footer .footer-top {
+    background: #07571a;
+    padding: 60px 0 30px 0;
+    height: 250px;
+  }
+  
+  #footer .footer-top .footer-info {
+    margin-bottom: 10px;
+  }
+  
+  #footer .footer-top .footer-info h3 {
+    font-size: 18px;
+    margin: 0 0 20px 0;
+    padding: 2px 0 2px 0;
+    line-height: 1;
+    font-weight: 700;
+  }
+  
+  #footer .footer-top .footer-info p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0;
+    font-family: "Raleway", sans-serif;
+    color: #fff;
+  }
+  
+  #footer .footer-top .footer-links {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #footer .footer-top .footer-links ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  #footer .footer-top .footer-links ul li:first-child {
+    padding-top: 0;
+  }
+  
+  #footer .footer-top .footer-links ul a {
+    color: rgba(255, 255, 255, 0.75);
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 0.5;
+    text-decoration: none;
+  }
+  
+  #footer .footer-top .footer-links ul a:hover {
+    color: #fff;
+  }
+  
+  #footer .footer-top .footer-contact {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-contact p {
+    line-height: 26px;
+  }
+  
+  
+  
+  #footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+    background-color: #156442;
+  }
+  
+  #footer .credits {
+    padding-top: 5px;
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+  }
+  
