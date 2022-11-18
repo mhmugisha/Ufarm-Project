@@ -3,9 +3,10 @@ head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    //- link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
-    //- link(rel='stylesheet' href='css/style.css')
+    link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+    
     title Produce Update
+
 body
     style.
         body{
@@ -13,18 +14,17 @@ body
         }
         
         .form-style{
-        position:absolute;
         top:5%;  
         text-align:center;
-        color:rgba(240, 220, 253);
+        color: #fff;
         }
        
-        .form-field{
-            display: inline-block;
-            width: 150px;
-            text-align: right;
-            font-weight:500; 
-        }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        font-weight:500; 
+      }
         .form-field input, select{
             text-align:left;
             background: #fff;
@@ -37,27 +37,24 @@ body
 
         .form-btn{
             margin-top:40px;
-            margin-left:12px;
+            margin-left:200px;
             padding:25px;
+
         }
 
         .btn{
-            width:300px;
-            background: grey;
             padding-top:18px;
             padding-bottom:18px;
-            font-size:18px;
-            font-weight:500;
-            margin-left:120px;
+            padding-left:100px;
+            font-size:19px;
             border-radius: 20px;
             font:#fff; 
-        }
-     
-        .btn:hover{
-           box-shadow:0 0 6px 5px rgb(0,0,0,0.87); 
-        }
-        
+            text-align:center;
 
+        }
+        .btn:hover{
+           box-shadow:5px 10px; 
+        }
     .container-fluid.form-style
         form#signup.form(action='/produce/update?id='+product._id name='pdtupdate' method='POST')
             h3 Update Produce 
@@ -85,19 +82,16 @@ body
                     .form-field
                         label(for='')
                             | Quantity:
-                            small  *
                         input#quantity(type='number' name='quantity' autocomplete='off' value=product.quantity)
                 .col
                     .form-field
                         label(for='')
                             | Unit Price:
-                            small  *
                         input#unitprice(type='number' name='unitprice' autocomplete='off' value=product.unitprice)
                 .col
                     .form-field
                         label(for='')
                             | Total Amount:
-                            small  *
                         input#totalamount(type='number' name='totalamount' autocomplete='off' value=product.totalamount)
                 .col
                     .form-field
@@ -118,5 +112,5 @@ body
                             option(value="pickup") Pick Up
                             option(value="homedelivery") Home Delivery
                 .form-field
-                    input.btn.register-btn(type='submit' value='Update')
+                    input.btn(type='submit' value='Update')
 script(src='bootstrap-js/js/bootstrap.bundle.js')

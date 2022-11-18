@@ -31,8 +31,8 @@ header
                         each poultryproduce in poultryProduces
                             if poultryproduce.availability == 'available' && poultryproduce.status == 'Approved' && poultryproduce.productcategory == "Poultry"
                                 .col-3
-                                        img(src="/"+poultryproduce.uploadimage, alt="uploadimage")
                                         .card-body
+                                            img#hortimg(src="/"+poultryproduce.uploadimage, alt="uploadimage")
                                             h5.card-title Ward: #{poultryproduce.ward}
                                             h5.card-title Product: #{poultryproduce.productname}
                                             h5.card-title Price: #{new Intl.NumberFormat().format(poultryproduce.unitprice)} UGX  

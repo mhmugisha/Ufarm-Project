@@ -31,8 +31,8 @@ header
                             each hortproduce in hortproduces
                                 if hortproduce.availability == 'available' && hortproduce.status == 'Approved' && hortproduce.productcategory == "Horticulture"
                                     .col-3
-                                            img(src="/"+hortproduce.uploadimage, alt="uploadimage")
                                             .card-body
+                                                img#hortimg(src="/"+hortproduce.uploadimage, alt="uploadimage")
                                                 h5.card-title Ward: #{hortproduce.ward}
                                                 h5.card-title Product: #{hortproduce.productname}
                                                 h5.card-title Price: #{new Intl.NumberFormat().format(hortproduce.unitprice)} UGX  

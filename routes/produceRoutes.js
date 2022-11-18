@@ -38,7 +38,7 @@ router.post("/addproduceroute", upload.single("uploadimage"), async (req, res) =
 		produce.uploadimage = req.file.path;
 		console.log("This is my produce", produce);
 		await produce.save();
-		res.redirect("/ufdashboardroute");
+		res.redirect("/addproduceroute");
 	} catch (error) {
 		res.status(400).send("Not able to add produce to the database");
 		console.log(error);

@@ -33,10 +33,144 @@ router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
               }}
           ])
          
+         
+          /*----------------------------------------------------------------------------*/
+          // My Aggregations
+
+          //Poultry
+          let totalChicken= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Chicken"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalEggs= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Eggs"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalChicks= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Chicks"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalDressed= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Dressed Chicken"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalDrumStick= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Drum Sticks"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalGizzard= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Gizzard"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+          ])
+
+
+          //Horticulture
+          let totalBeans= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Beans"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalMaize= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Maize"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalTomato= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Tomatoes"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalCabbage= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Cabbage"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalSweetP= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Sweet Pepper"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalOkra= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Okra"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+          ])
+
+          //Dairy
+          let totalMilk= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Milk"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalCalves= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Calves"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalGhee= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Ghee"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalCheese= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Cheese"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalYoghurt= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Yoghurt"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+        ])
+
+          let totalHeifers= await Pdtupload.aggregate([
+            { $match: { "$and":[{ward:req.user.ward}, {productname: "Heifers"}] } },
+            { $group: { _id: "$all", 
+            totalQuantity: { $sum: "$quantity" },
+            }}
+          ])
+
           //My Aggregations
-          console.log("Poultry collections", totalPoultry)
-          console.log("Hortcul. collections", totalHort)
-          console.log("Dairy collections", totalDairy)
+          // console.log("Poultry collections", totalPoultry)
+          // console.log("Hortcul. collections", totalHort)
+          // console.log("Dairy collections", totalDairy)
 
           res.render("FO_reports", { 
           title: 'Reports', 
@@ -45,6 +179,30 @@ router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
           totalHA:totalHort[0],
           totalDA:totalDairy[0],
 
+          //Poultry
+          totalCn:totalChicken[0],
+          totalE:totalEggs[0],
+          totalCs:totalChicks[0],
+          totalDc:totalDressed[0],
+          totalDs:totalDrumStick[0],           
+          totalGz:totalGizzard[0],
+
+
+          //Horticulture Variables
+          totalB:totalBeans[0],
+          totalMz:totalMaize[0],
+          totalTm:totalTomato[0],
+          totalCb:totalCabbage[0],
+          totalSp:totalSweetP[0],
+          totalOk:totalOkra[0],
+
+          //Dairy Variables
+          totalMk:totalMilk[0],
+          totalCv:totalCalves[0],
+          totalGi:totalGhee[0],
+          totalCz:totalCheese[0],
+          totalYg:totalYoghurt[0],
+          totalHf:totalHeifers[0],
          
 
           });
