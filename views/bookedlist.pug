@@ -2,7 +2,6 @@ extends layoutlists
 block content
     header.card-header
         h4.card-title List of Booked  Products
-            //- span.text-white #{currentUser.fullname}
         form(method="post" action='/logout') 
            button.btn.btn-success.btn-block(type="submit") Log out 
     br
@@ -41,6 +40,6 @@ block content
                                 a.btn.btn-secondary.btn-block(href='/produce/available/'+order._id) Booked
                             
     div.col.form-group
-    a.btn.btn-success.btn-block(class='button' href='/masajjaAfodashboard') Back 
+    a.btn.btn-success.btn-block(class='button' href='/FO_reports') Back 
 block footer
     div.col-md-12 

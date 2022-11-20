@@ -4,11 +4,11 @@ const passport = require('passport');
 
 
 //LOG IN ROUTES--------------------------------------/
-router.get('/login2', (req, res) => {
-    res.render('log_in')
+router.get('/login', (req, res) => {
+    res.render('login')
 })
 
-router.post('/login2', passport.authenticate('local', {failureRedirect: '/login2'}), (req,res)=>{
+router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
     req.session.user = req.user
     const user = req.session.user
     console.log("This is the user", user);
@@ -17,9 +17,9 @@ router.post('/login2', passport.authenticate('local', {failureRedirect: '/login2
         }else if(user.role == 'agricofficer'){
             res.redirect('/aodashboardroute')
         }else if(user.role == 'farmerone'){
-            res.redirect('/masajjaAfodashboard')    
+            res.redirect('/FO_reports')    
        }else if(user.role == 'urbanfarmer'){
-            res.redirect('/ufdashboardroute')
+            res.redirect('/producelist')
         } else{
             res.send('You are not a registered user')
         }   
@@ -54,7 +54,7 @@ if(req.session){
         if(err){
             res.status(400).send('Unable to log out')
         }else{
-            return res.redirect('/login2')
+            return res.redirect('/login')
         }
     })
 }

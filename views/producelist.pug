@@ -1,13 +1,14 @@
 extends layoutlists
 block content
     header.card-header
-        h4.card-title List of Uploaded Produce
-        form(method="post" action='/logout') 
-          button.btn.btn-success.btn-block(type="submit") Log out 
+        span.text-white Logged in as: #{currentUser.fullname}
+        div.col.form-group
+        a.btn.btn-success.btn-block(class='button' href='/addproduceroute') Add Produce   
     br
     nav
     #nav-tabContent.tab-content
     br
+    h4.card-title List of Uploaded Produce
     table.table.table-bordered 
         thead
             tr
@@ -45,7 +46,7 @@ block content
                                 form(method="post" action='/produce/delete')
                                     input(type="hidden" placeholder="" name="id", value=product._id)
                                     button.btn.btn-danger.btn-block(type="submit") Delete
-    div.col.form-group
-    a.btn.btn-success.btn-block(class='button' href='/ufdashboardroute') Back
+    form(method="post" action='/logout') 
+        button.btn.btn-success.btn-block(type="submit") Log out
 block footer
     div.col-md-12 

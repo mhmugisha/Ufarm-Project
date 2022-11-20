@@ -3,9 +3,7 @@ head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
-    link(rel='stylesheet' href='css/style.css')
-    title Produce Update
+    title Order 
 
 body
     style.
@@ -32,7 +30,7 @@ body
             font-family: Sans-serif;
         }
         .form-field input, select{
-            text-align:left;
+            text-align:center;
             background: #fff;
             font-weight: 400;
             margin:20px;
@@ -43,28 +41,37 @@ body
 
         .form-btn{
             margin-top:40px;
-            margin-left:12px;
             padding:25px;
-            
         }
 
         .btn{
             padding-top:18px;
             padding-bottom:18px;
-            font-size:18px;
-            font-weight:900;
-            margin-left:120px;
+            font-size:20px;
             border-radius: 5px;
-            font: #fff; 
-            text-align: center;
+            font: #fff;
+            color: black; 
         }
      
         .btn:hover{
-           box-shadow:0 0 6px 5px rgb(0,0,0,0.87); 
+           box-shadow:0 0 6px 5px rgb(0,0,0,0.87);
+           color: red; 
+        }
+
+        #booked{
+            font-size:20px;
+        }
+
+        #customeremail{
+           font-size:20px;
+        }
+
+        #customerphone{
+          font-size:20px;  
         }
 
         hr{
-            width: 1670px;
+            width: 1700px;
         }
         h3{
             font-family: Sans-serif;
@@ -79,18 +86,16 @@ body
             .col
                 .form-field
                     label(for='availability') Availability: 
-                    select(name='availability')
+                    select#booked(name='availability')
                         option(value="booked" selected = item.availability === 'booked') Booked
                 .form-field
                     label(for='')
                         | Customer Email:
-                        small  
-                    input#unitprice(type='text' name='customeremail' autocomplete='off')
+                    input#customeremail(type='text' name='customeremail' autocomplete='off')
                 .form-field
                     label(for='')
                         | Customer Phone:
-                        small  
-                    input#unitprice(type='text' name='customerphone' autocomplete='off')
+                    input#customerphone(type='text' name='customerphone' autocomplete='off')
                 .form-field
-                    input.btn.register-btn(type='submit' value='Update')
+                    input.btn(type='submit' value='Order')
 script(src='bootstrap-js/js/bootstrap.bundle.js')
