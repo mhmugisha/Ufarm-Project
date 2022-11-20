@@ -64,7 +64,12 @@ const formValidate = (event) =>{
     }
     else if(!(fullName.value.match(fullNameRegex))){
         fullName.style.border = '1px solid red';
-        fullNameError.textContent='Enter two names with one space in between';
+        fullNameError.textContent='Enter two names in alhabet with one space in between';
+        fullNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        val++
+    }else if(fullName.value.length < 5||fullName.value.length > 50){
+        fullName.style.border = '1px solid red';
+        fullNameError.textContent='Should be greater than 4 and less than 51 characters';
         fullNameError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }
@@ -83,6 +88,11 @@ const formValidate = (event) =>{
     }else if(!(nin.value.match(ninRegex))){
         nin.style.border = '1px solid red';
         ninError.textContent='Please enter valid NIN';
+        ninError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
+        val++
+    }else if(!(nin.value.length == 13)){
+        nin.style.border = '1px solid red';
+        ninError.textContent='Nin should be exactly 13 characters';
         ninError.style ="color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif;";
         val++
     }else{

@@ -4,11 +4,11 @@ const passport = require('passport');
 
 
 //LOG IN ROUTES--------------------------------------/
-router.get('/login', (req, res) => {
-    res.render('login')
+router.get('/login2', (req, res) => {
+    res.render('log_in')
 })
 
-router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
+router.post('/login2', passport.authenticate('local', {failureRedirect: '/login2'}), (req,res)=>{
     req.session.user = req.user
     const user = req.session.user
     console.log("This is the user", user);
@@ -54,16 +54,12 @@ if(req.session){
         if(err){
             res.status(400).send('Unable to log out')
         }else{
-            return res.redirect('/login')
+            return res.redirect('/login2')
         }
     })
 }
   });
 
-//   //Farmer One dashboard route-------------------------/
-// router.get('/index', (req,res) =>{
-//     res.render('index', {currentUser:req.session.user});
-// })
 
 
 module.exports = router;

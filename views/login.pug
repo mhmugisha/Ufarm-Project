@@ -9,25 +9,25 @@ head
   .row.justify-content-center
     .col-xl-10
       .card.border-0
-        .card-body.p-0
           .row.no-gutters
             .col-lg-6
               .p-5
-                .mb-5
-                  h3.h4.font-weight-bold.text-theme Login
+                h3.h4.font-weight-bold.text-theme Login
                 h6.h5.mb-0 Welcome back!
                 p.text-muted.mt-2.mb-5
                   | Please enter your details to log in.
                 form(action='/login' method='post' onsubmit="return formValidatelogin(event);")
-                  .form-group
-                    label Unique ID
-                    input#uniqueid(type='text' name='uniqueid')
-                    small#uniqueidError
-                  .form-group.mb-5
-                    label Password
-                    input#password(type='password' name='password')
-                    small#passwordError
-                    button.btn.btn-theme.btn-secondary(class="text-success" type='submit') Login
+                  fieldset
+                    legend log
+                    .form-group
+                      label Unique ID
+                      input#uniqueid(type='text' name='uniqueid')
+                      small#uniqueidError
+                    .form-group.mb-5
+                      label Password
+                      input#password(type='password' name='password')
+                      small#passwordError
+                  button.btn.btn-theme.btn-secondary(class="text-success" type='submit') Login
             .col-lg-6.d-none.d-lg-inline-block
               .account-block.rounded-right
                 .overlay.rounded-right

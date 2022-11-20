@@ -1,0 +1,16 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='css/log_in.css')
+  title Log in
+fieldset
+  legend Log in
+  form(action='/login2' method='post' onsubmit="return formValidatelogin(event);")
+    input#uniqueid(type='text' name='uniqueid'  placeholder='Unique ID')
+    small#uniqueidError
+    input#password(type='password' name='password'  placeholder='Password')
+    small#passwordError
+    input.bt(type='submit' value='LOGIN')
+script(src="/JS/form_validationlogin.js") 

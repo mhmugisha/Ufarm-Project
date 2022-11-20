@@ -167,11 +167,6 @@ router.get("/FO_reports", connectEnsureLogin.ensureLoggedIn(), async(req, res) =
             }}
           ])
 
-          //My Aggregations
-          // console.log("Poultry collections", totalPoultry)
-          // console.log("Hortcul. collections", totalHort)
-          // console.log("Dairy collections", totalDairy)
-
           res.render("FO_reports", { 
           title: 'Reports', 
           currentUser:req.session.user,
