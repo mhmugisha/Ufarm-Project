@@ -1,5 +1,5 @@
 
-const formValidate = (event) =>{
+const formValidateuf = (event) =>{
     let val = 0;
 
     var uniqueid = document.getElementById('uniqueid');

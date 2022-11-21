@@ -9,36 +9,42 @@ block content
   .container
     header.heading Add Produce
     hr
-    form(action='/addproduceroute' method='post' enctype='multipart/form-data' onload='return multiply();')
+    form(action='/addproduceroute' method='post' enctype='multipart/form-data' onload='return multiply();' onsubmit='return formValidateAddProd(event);')
       .form.first
         .details.personal
           .fields
             .input-field
               label Unique ID
-              select(type='text' name='uniqueid')
+              select#uniqueid(type='text' name='uniqueid')
                 if currentUser
                   option(value=currentUser.uniqueid) #{currentUser.uniqueid}
+              small#uniqueidError
             .input-field
               label Supplier Name
-              select(type='text' name='fullname')
+              select#fullname(type='text' name='fullname')
                 if currentUser
                   option(value=currentUser.fullname) #{currentUser.fullname}
+              small#fullNameError
             .input-field
               label Date of Upload
-              input(type='date' name='doreg' placeholder='Date of upload')
+              input#doreg(type='date' name='doreg' max='2022-11-22' placeholder='Date of upload')
+              small#doregError
             .input-field
               label Home Address
-              select(type='text' name='address')
+              select#address(type='text' name='address')
                 if currentUser
                   option(value=currentUser.ward) #{currentUser.ward}
+              small#addressError
             .input-field
               label(for='productcategory') Product Category :
-                      select(name='productcategory' placeholder="Product Category")
+                      select#productcategory(name='productcategory' placeholder="Product Category")
                           if currentUser
                             option(value=currentUser.activity) #{currentUser.activity}
+                      small#prodCatError
             .input-field
               label(for='productname') Product:
-                      select(name='productname')
+                      select#productname(name='productname')
+                          option(value='') Product 
                           option(value="Chicken") Chicken 
                           option(value="Eggs") Eggs 
                           option(value="Chicks") Chicks
@@ -57,47 +63,60 @@ block content
                           option(value="Cheese") Cheese
                           option(value="Yoghurt") Yoghurt
                           option(value="Heifers") Heifers
+                      small#productError
         .details.ID
           .fields
             .input-field
               label Quantity
               input#quantity(class='form-control' type='number' name='quantity' value='0' onchange='multiply();' )
+              small#quantityError
             .input-field
               label Unit Price
               input#unitprice(class='form-control' type='number' name='unitprice' value='0' onchange='multiply();' )
+              small#unitPriceError
             .input-field
               label Total Amount
               input#totalamount(class='form-control' type='number' name='totalamount')
+              small#totalAmountError
             .input-field
-              label Product Type
-              select(type='text' name='producttype')
+              label 
+              select#producttype(type='text' name='producttype')
                 option(value='') Product type
                 option(value='Organic') Organic
                 option(value='Non-organic') Non Organic
+              small#productTypeError
             .input-field
-              label Mode of Payment
-              select(type='text' name='modeofpay')
+              label 
+              select#modeofpay(type='text' name='modeofpay')
                 option(value='') Mode of payment
                 option(value='Cash') Cash
                 option(value='Mobile money') Mobile Money
+              small#modePayError
             .input-field
-              label Mode of Delivery
-              select(type='text' name='deliverymode')
+              label 
+              select#deliverymode(type='text' name='deliverymode')
                 option(value='') Mode of delivery
                 option(value='Pickup') Pickup
                 option(value='Home delivery') Home Delivery
+              small#modeDelError
             .input-field
               label Ward 
-              select(type='text' name='ward')
+              select#ward(type='text' name='ward')
                 if currentUser
                   option(value=currentUser.ward) #{currentUser.ward}
+              small#wardError
               //- These are hidden customer fields needed when ordering produce.
               input(type='hidden' name='customeremail')
               input(type='hidden' name='customerphone')
+            .input-field
+              label Phone Number
+              input#phone(type='text' name='phone' placeholder='Phone number')
+              small#phoneNumberError
             .input-field 
               label Produce Image:
               input#image(type='file' name='uploadimage' autocomplete='off')        
           .button
             input#btnSubmit(type='submit' value='Add Produce')
   script(src="/JS/calculator.js") 
+  script(src="/JS/form_validateprodadd.js") 
 

@@ -10,7 +10,7 @@ head
 header
     nav.navbar.fixed-top.navbar-expand-lg.bg-white
         .container
-            a.navbar-brand.logo-text(href='#') UFARM2
+            a.navbar-brand.logo-text(href='#') UFARM
             button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarNav.collapse.navbar-collapse
@@ -35,7 +35,8 @@ header
                                                 img#hortimg(src="/"+dairyproduce.uploadimage, alt="uploadimage")
                                                 h5.card-title Ward: #{dairyproduce.ward}
                                                 h5.card-title Product: #{dairyproduce.productname}
-                                                h5.card-title Price: #{new Intl.NumberFormat().format(dairyproduce.unitprice)} UGX  
+                                                h5.card-title Unit Price: #{new Intl.NumberFormat().format(dairyproduce.unitprice)} UGX 
+                                                h5.card-title Farmer Phone No.: #{dairyproduce.phone}
                                                 a.btn(href='/produce/order/'+dairyproduce._id) Order
 
 //- Footer 

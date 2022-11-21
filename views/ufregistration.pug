@@ -3,7 +3,7 @@ block content
   .container
     header.heading Urban Farmer Registration.
     hr
-    form(action='/ufregister' method='post' onsubmit="return formValidate(event);")
+    form(action='/ufregister' method='post' onsubmit="return formValidateuf(event);")
       .form.first
         .details.personal
           .fields
@@ -39,7 +39,7 @@ block content
               small#phoneNumberError
             .input-field
               label Password
-              input#password(type='password' name='password' placeholder='Password')
+              input#password(type='password' name='password'  placeholder='Password')
               small#passwordError
             .input-field
               label Gender
@@ -66,5 +66,6 @@ block content
               small#wardError
           .button
             input#btnSubmit(type='submit' value='Register')
-  script(src="/JS/form_validation.js") 
+  script(src="/JS/form_validationuf.js")
+ 
 
