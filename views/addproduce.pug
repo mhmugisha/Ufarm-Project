@@ -100,6 +100,12 @@ block content
                 option(value='Home delivery') Home Delivery
               small#modeDelError
             .input-field
+              label Phone Number 
+              select#phone(type='text' name='phone')
+                if currentUser
+                  option(value=currentUser.phone) #{currentUser.phone}
+              small#phoneNumberError
+            .input-field
               label Ward 
               select#ward(type='text' name='ward')
                 if currentUser
@@ -108,10 +114,7 @@ block content
               //- These are hidden customer fields needed when ordering produce.
               input(type='hidden' name='customeremail')
               input(type='hidden' name='customerphone')
-            .input-field
-              label Phone Number
-              input#phone(type='text' name='phone' placeholder='Phone number')
-              small#phoneNumberError
+            
             .input-field 
               label Produce Image:
               input#image(type='file' name='uploadimage' autocomplete='off')        

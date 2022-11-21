@@ -33,9 +33,10 @@ header
                                 .col-3
                                         .card-body
                                             img#hortimg(src="/"+poultryproduce.uploadimage, alt="uploadimage")
-                                            h5.card-title Ward: #{poultryproduce.ward}
-                                            h5.card-title Product: #{poultryproduce.productname}
-                                            h5.card-title Price: #{new Intl.NumberFormat().format(poultryproduce.unitprice)} UGX  
+                                            h5.card-title Address: #{poultryproduce.ward}
+                                            h5.card-title Type: #{poultryproduce.producttype}
+                                            h5.card-title Unit Price: #{new Intl.NumberFormat().format(poultryproduce.unitprice)} UGX  
+                                            h5.card-title Contact: #{poultryproduce.phone}
                                             a.btn(href='/produce/order/'+poultryproduce._id) Order
 
 //- Footer 

@@ -50,6 +50,9 @@ const produceSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    phone:{
+        type: String,
+    },
     ward:{
         type: String,
     },

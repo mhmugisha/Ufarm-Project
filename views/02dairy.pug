@@ -33,10 +33,10 @@ header
                                     .col-3
                                             .card-body
                                                 img#hortimg(src="/"+dairyproduce.uploadimage, alt="uploadimage")
-                                                h5.card-title Ward: #{dairyproduce.ward}
-                                                h5.card-title Product: #{dairyproduce.productname}
+                                                h5.card-title Address: #{dairyproduce.ward}
+                                                h5.card-title Type: #{dairyproduce.producttype}
                                                 h5.card-title Unit Price: #{new Intl.NumberFormat().format(dairyproduce.unitprice)} UGX 
-                                                h5.card-title Farmer Phone No.: #{dairyproduce.phone}
+                                                h5.card-title Contact: #{dairyproduce.phone}
                                                 a.btn(href='/produce/order/'+dairyproduce._id) Order
 
 //- Footer 
