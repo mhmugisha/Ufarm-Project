@@ -6,19 +6,20 @@ body{
 }
 
 .btn{
-    background-color: powderblue;
+    background-color: rgb(215, 234, 218);
     padding: 8px;
     border-radius: 10px;
     text-decoration:none; 
     color:black;
-    margin-top: 20px;
-    width: 100px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    width: 280px;
     height: 40px;
     text-align: center;
 }
 
 #hortimg{
-  width: 200px;
+  width: 280px;
   height: 200px;
   border-radius: 10px;
 }

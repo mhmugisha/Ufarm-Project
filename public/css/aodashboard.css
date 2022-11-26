@@ -24,20 +24,12 @@
 .rounded-full {
   border-radius: 100%;
 }
-
-#wrapper {
-  overflow-x: hidden;
-  background-image: linear-gradient(
-    to right,
-    #0d5032,
-    #0d5032,
-    #0d5032,
-    #0d5032,
-    #0d5032
-  );
-}
+ #wrapper {
+  background:  linear-gradient(135deg, #0a663dca, #05073a);            
+} 
 #sidebar-wrapper{
-background-color: #e0e9d5;
+  background:  linear-gradient(135deg, #05073a, #0a663dca);            
+
 }
 
 #sidebar-wrapper {
@@ -53,7 +45,7 @@ background-color: #e0e9d5;
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
-  color: rgb(3, 24, 16);
+  color: rgb(228, 235, 232);
 }
 
 #sidebar-wrapper .list-group {
@@ -75,7 +67,7 @@ background-color: #e0e9d5;
 .list-group-item {
   border: none;
   padding: 20px 30px;
-  color: #044b2b;
+  color: #e2ede8;
 }
 
 .list-group-item.active {

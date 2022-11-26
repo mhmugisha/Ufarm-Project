@@ -5,7 +5,6 @@ const connectEnsureLogin = require('connect-ensure-login');
 
 // Importing Model---------------------------------------------/
 const Pdtupload = require("../models/Produce");
-const Registration = require('../models/Reg');
 
 
 // Image upload-------------------------------------------------/

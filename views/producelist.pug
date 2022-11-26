@@ -41,11 +41,11 @@ block content
                             td 
                                 img(src="/"+product.uploadimage, alt="Image" width='150px' height="150px")
                             td
-                                a.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update
+                                a.btn.btn-success.btn-block(href='/produce/update/'+product._id) Update
                             td
                                 form(method="post" action='/produce/delete')
                                     input(type="hidden" placeholder="" name="id", value=product._id)
-                                    button.btn.btn-danger.btn-block(type="submit") Delete
+                                    button.btn.btn-success.btn-block(type="submit") Delete
     form(method="post" action='/logout') 
         button.btn.btn-success.btn-block(type="submit") Log out
 block footer

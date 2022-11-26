@@ -2,12 +2,10 @@ const express = require("express");
 const router = express.Router();
 const passport = require('passport');
 
-
 //LOG IN ROUTES--------------------------------------/
 router.get('/login', (req, res) => {
     res.render('login')
 })
-
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
     req.session.user = req.user
     const user = req.session.user
@@ -30,7 +28,6 @@ router.get('/aodashboardroute', (req,res) =>{
     res.render('fosdashboard', {currentUser:req.session.user});
 })
 
-
 //AO Dashboard route original---------------------------------/
 router.get('/aodashboard', (req,res) =>{
     res.render('aodashboard', {currentUser:req.session.user});
@@ -46,7 +43,6 @@ router.get('/masajjaAfodashboard', (req,res) =>{
     res.render('masajjaAfodashboard', {currentUser:req.session.user});
 })
 
-
 //Log out route-------------------------------------/
 router.post('/logout', (req,res)=>{
 if(req.session){
@@ -59,7 +55,5 @@ if(req.session){
     })
 }
   });
-
-
 
 module.exports = router;

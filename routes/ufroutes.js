@@ -23,7 +23,7 @@ router.post('/ufregister', async(req, res) => {
           if(error){
               throw error
           }
-          res.redirect('/FO_reports')
+          res.redirect('/ufregister')
       })
   }catch(error){
       res.status(400).send('Sorry something went wrong');

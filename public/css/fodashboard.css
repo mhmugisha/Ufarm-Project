@@ -22,15 +22,7 @@
   background-color: #e0f7ee;
 }
 #wrapper {
-  overflow-x: hidden;
-  background-image: linear-gradient(
-    to right,
-    #0d5032,
-    #0d5032,
-    #0d5032,
-    #0d5032,
-    #0d5032
-  );
+  background:  linear-gradient(135deg, #0a663dca, #05073a);            
 }
 
 #sidebar-wrapper {
