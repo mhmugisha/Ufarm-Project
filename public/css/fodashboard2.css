@@ -19,18 +19,10 @@
   border-radius: 100%;
 }
 #sidebar-wrapper{
-  background-color: #56782c;
+  background: linear-gradient(150deg, #010d04, #108215ca);
 }
 #wrapper {
-  overflow-x: hidden;
-  background-image: linear-gradient(
-    to right,
-    #0d5032,
-    #0d5032,
-    #0d5032,
-    #0d5032,
-    #0d5032
-  );
+  background: linear-gradient(150deg, #010d04, #108215ca);
 }
 
 #sidebar-wrapper {

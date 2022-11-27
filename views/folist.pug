@@ -1,8 +1,8 @@
 extends layoutlists 
 block content
     header.card-header
-        h4.card-title List of Farmer ones-
-           span.text-white #{currentUser.fullname}
+        h4.card-title List of all FOs. Logged in as: 
+           span.text-white #{currentUser.fullname} (AO).
         form(method="post" action='/logout') 
           button.btn.btn-success.btn-block(type="submit") Log out
     br

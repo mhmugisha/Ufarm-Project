@@ -223,8 +223,8 @@ router.get("/folist", async (req, res) => {
 
 
 //Farmer One registration route --------------------------------/
-router.get('/foregister2', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-  res.render('foregistration2')
+router.get('/foregister', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+  res.render('foregistration')
 })
 
 
@@ -238,7 +238,7 @@ const Registration = require('../models/Reg')
 
 
 //Farmer One Registration Post Route -------------------------------------/
-router.post('/foregister2', async(req, res) => {
+router.post('/foregister', async(req, res) => {
   console.log(req.body);
   try{
       const user = new Registration(req.body);

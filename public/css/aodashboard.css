@@ -25,10 +25,10 @@
   border-radius: 100%;
 }
  #wrapper {
-  background:  linear-gradient(135deg, #0a663dca, #05073a);            
+  background:  linear-gradient(150deg, #108215ca, #010d04);            
 } 
 #sidebar-wrapper{
-  background:  linear-gradient(135deg, #05073a, #0a663dca);            
+  background:  linear-gradient(135deg, #010d04, #108215ca);            
 
 }
 
@@ -95,6 +95,18 @@
 
 .p-3{
   margin-top: 80px; 
+}
+
+.fs-3{
+  text-align: center;
+}
+
+.fs-4{
+  text-align: center;
+}
+.fs-5{
+  text-align: center;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {

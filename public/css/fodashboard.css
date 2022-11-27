@@ -22,7 +22,7 @@
   background-color: #e0f7ee;
 }
 #wrapper {
-  background:  linear-gradient(135deg, #0a663dca, #05073a);            
+  background:  linear-gradient(150deg, #010d04, #108215ca);            
 }
 
 #sidebar-wrapper {
@@ -67,6 +67,14 @@
   color: var(--main-text-color);
   font-weight: bold;
   border: none;
+}
+
+.fs-3{
+  text-align: center;
+}
+
+.fs-4{
+  text-align: center;
 }
 
 @media (min-width: 768px) {
