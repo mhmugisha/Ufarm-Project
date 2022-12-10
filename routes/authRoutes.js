@@ -39,9 +39,9 @@ router.get('/ufdashboardroute', (req,res) =>{
 })
 
 //Farmer One dashboard route-------------------------/
-router.get('/masajjaAfodashboard', (req,res) =>{
-    res.render('masajjaAfodashboard', {currentUser:req.session.user});
-})
+// router.get('/masajjaAfodashboard', (req,res) =>{
+//     res.render('masajjaAfodashboard', {currentUser:req.session.user});
+// })
 
 //Log out route-------------------------------------/
 router.post('/logout', (req,res)=>{

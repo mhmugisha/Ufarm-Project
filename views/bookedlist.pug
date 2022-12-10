@@ -1,7 +1,7 @@
 extends layoutlists 
 block content
     header.card-header
-        h4.card-title List of Booked  Products - #{currentUser.ward}
+        h4.card-title List of Booked  Products - #{currentUser.ward}.
         form(method="post" action='/logout') 
            button.btn.btn-success.btn-block(type="submit") Log out 
     br

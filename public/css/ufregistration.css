@@ -181,7 +181,9 @@ form .buttons button , .backBtn{
     margin-left: 28px;
     width: 100px;
 }
-
+input[type="file"]{
+    padding: 1px 2px;
+}
 @media (max-width: 750px) {
     .container form{
         overflow-y: scroll;
