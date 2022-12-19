@@ -15,13 +15,19 @@ body{
     margin-bottom: 40px;
     width: 280px;
     height: 40px;
-    text-align: center;
+    text-align: center; 
+}
+.btn:hover{
+  background-color: rgb(6, 60, 19);
+  color: #fff;
+  cursor: pointer;
 }
 
 #hortimg{
   width: 280px;
   height: 200px;
   border-radius: 10px;
+ 
 }
 
 .card{
